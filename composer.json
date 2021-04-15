@@ -25,5 +25,8 @@
     "require": {
         "mashape/unirest-php": "^3.0",
         "netresearch/jsonmapper": "^4.0"
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
     }
 }
