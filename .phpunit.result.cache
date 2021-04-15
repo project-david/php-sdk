@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":220:{a:2:{s:7:"defects";a:1:{s:74:"GravityLegal\GravityLegalAPI\Tests\GravityLegalAPITest::GetUserByEmailTest";i:4;}s:5:"times";a:1:{s:74:"GravityLegal\GravityLegalAPI\Tests\GravityLegalAPITest::GetUserByEmailTest";d:0.449;}}}
