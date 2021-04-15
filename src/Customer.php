@@ -27,7 +27,7 @@ class Partner
     public bool $deleted;
     public string $appId;
     public string $title;
-    public AppData $appData;
+    public ?AppData $appData;
     public string $webhookSecret;
     public string $webhookUrl;
 }
@@ -54,17 +54,17 @@ class Customer
     public bool $debitEnabled;
     public bool $checkEnabled;
     public DefaultDepositAccounts $defaultDepositAccounts;
-    public EnvelopeSettings $envelopeSettings;
+    public ?EnvelopeSettings $envelopeSettings;
     public string $externalId;
     public DateTime $latestActivity;
     public string $name;
     public NotifPrefs $notifPrefs;
     public string $orgId;
     public bool $promptToCreateSPM;
-    public string $signatureMail;
+    public ?string $signatureMail;
     public bool $surchargeActivated;
     public bool $surchargeEnabled;
-    public string $surchargeRate;
+    public ?string $surchargeRate;
     public bool $sysGen;
     public string $timezone;
     public string $webhookSecret;

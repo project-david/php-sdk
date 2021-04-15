@@ -1,10 +1,6 @@
 <?php
 namespace GravityLegal\GravityLegalAPI;
 
-class DefaultDepositAccounts {
-        public string $operating;
-        public string $trust;
-}
 class BankAccount {
     public string $id;
     public string $accountHolderName;

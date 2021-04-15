@@ -1,6 +1,7 @@
 <?php
 namespace GravityLegal\GravityLegalAPI;
 use DateTime;
+use JsonMapper;
 
 class User {
     public Customer $customer;
@@ -19,7 +20,7 @@ class User {
     public AppData $appData;
     public bool $isProfilePicChanged;
     public string $profileData;
-    public string $filterData;
+    public ?string $filterData;
     public bool $sysGen;
     public string $roleId;
 }
@@ -149,15 +150,7 @@ class UserInviteResponseResult {
 class UserInviteResponse {
     public UserInviteResponseResult $result;
 }
-class UserResultResult {
-    public array $records; // This is a list of User
-    public int $totalCount;
-    public int $pageNo;
-    public int $pageSize;
-}
-class UserResult {
-    public UserResultResult $result;
-}
+
 class GetUserResult {
     public User $result;
 }
