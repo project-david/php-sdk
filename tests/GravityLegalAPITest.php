@@ -5,6 +5,9 @@ use GravityLegal\GravityLegalAPI\GravityLegalService;
 use PHPUnit\Framework\TestCase;
 use DateTime;
 use PHPUnit\Framework\Constraint\Count;
+use Faker\Factory;
+use GravityLegal\GravityLegalAPI\CreateClient;
+use GravityLegal\GravityLegalAPI\Customer;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -42,4 +45,31 @@ class GravityLegalAPITest extends TestCase
         $userResponse = $this->gService->FetchUsers(new DateTime('2021-01-01T00:00:00.000Z'));
         $this->assertTrue(count($userResponse->FetchedEntities) > 0);
     }
+
+    /** @test */
+    public function CreateClientsTest() {
+        $createClientList = $this->GenerateClients(2,'bf193ce3-f54f-40d4-b3e6-da5de83be0be');
+        $userResponse = $this->gService->CreateNewClients($createClientList);
+        $this->assertTrue(count($userResponse->CreatedEntities) == 2);
+    }
+
+    public function GenerateClients(int $clientCount, string $customer): array {
+        $faker = Factory::create();
+        $createClientList = array();
+        for ($i = 0; $i < $clientCount; $i++) {
+            $clientName = $faker->company();
+            $firstName = $faker->firstName();
+            $lastName = $faker->lastName();
+            $email = $faker->email();
+            $createClient = new CreateClient();
+            $createClient->customer = $customer;
+            $createClient->clientName = $clientName;
+            $createClient->firstName = $firstName;
+            $createClient->lastName = $lastName;
+            $createClient->email = $email;
+            $createClientList[] = $createClient;
+        }
+        return $createClientList;
+    }
+
 }

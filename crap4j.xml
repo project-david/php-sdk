@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2021-04-15 19:57:23</timestamp>
+  <timestamp>2021-04-16 03:21:21</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>19</methodCount>
+    <methodCount>20</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>36.05</totalCrap>
+    <totalCrap>39.05</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -53,6 +53,17 @@
       <crap>8</crap>
       <complexity>8</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>CreateNewClients</methodName>
+      <methodSignature>CreateNewClients(array $createClientList): GravityLegal\GravityLegalAPI\EntityCreationResult</methodSignature>
+      <fullMethod>CreateNewClients(array $createClientList): GravityLegal\GravityLegalAPI\EntityCreationResult</fullMethod>
+      <crap>3</crap>
+      <complexity>3</complexity>
+      <coverage>93.33</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

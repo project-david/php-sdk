@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1618516643">
-  <project timestamp="1618516643">
+<coverage generated="1618543281">
+  <project timestamp="1618543281">
     <file name="/home/manoj-root/php/phpsdk/src/AppData.php">
       <class name="GravityLegal\GravityLegalAPI\Currency" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -58,13 +58,7 @@
       <class name="GravityLegal\GravityLegalAPI\Client" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <class name="GravityLegal\GravityLegalAPI\CreateClient" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <class name="GravityLegal\GravityLegalAPI\CreateClientResponse" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="53" ncloc="52" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="43" ncloc="42" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/ClientInstanceInfoResponse.php">
       <class name="GravityLegal\GravityLegalAPI\ReferencedBy" namespace="global">
@@ -116,6 +110,18 @@
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="16" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/CreateClient.php">
+      <class name="GravityLegal\GravityLegalAPI\CreateClient" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/CreateClientResponse.php">
+      <class name="GravityLegal\GravityLegalAPI\CreateClientResponse" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="6" ncloc="6" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Customer.php">
       <class name="GravityLegal\GravityLegalAPI\NotifPrefs" namespace="global">
@@ -174,6 +180,12 @@
       </class>
       <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
+    <file name="/home/manoj-root/php/phpsdk/src/EntityCreationResult.php">
+      <class name="GravityLegal\GravityLegalAPI\EntityCreationResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/home/manoj-root/php/phpsdk/src/EntityQueryResult.php">
       <class name="GravityLegal\GravityLegalAPI\EntityQueryResult" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -183,26 +195,26 @@
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/GravityLegalService.php">
       <class name="GravityLegal\GravityLegalAPI\GravityLegalService" namespace="global">
-        <metrics complexity="26" methods="18" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="89" elements="114" coveredelements="101"/>
+        <metrics complexity="29" methods="19" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="111" coveredstatements="103" elements="130" coveredelements="115"/>
       </class>
-      <line num="20" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="3"/>
-      <line num="22" type="stmt" count="3"/>
-      <line num="23" type="stmt" count="3"/>
-      <line num="24" type="stmt" count="3"/>
-      <line num="25" type="stmt" count="3"/>
-      <line num="26" type="stmt" count="3"/>
-      <line num="27" type="stmt" count="3"/>
-      <line num="28" type="stmt" count="3"/>
-      <line num="29" type="stmt" count="3"/>
-      <line num="30" type="stmt" count="3"/>
-      <line num="31" type="stmt" count="3"/>
-      <line num="32" type="stmt" count="3"/>
-      <line num="34" type="stmt" count="3"/>
-      <line num="35" type="stmt" count="3"/>
-      <line num="36" type="stmt" count="3"/>
-      <line num="37" type="stmt" count="3"/>
-      <line num="39" type="stmt" count="3"/>
-      <line num="42" type="stmt" count="3"/>
+      <line num="20" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="4"/>
+      <line num="22" type="stmt" count="4"/>
+      <line num="23" type="stmt" count="4"/>
+      <line num="24" type="stmt" count="4"/>
+      <line num="25" type="stmt" count="4"/>
+      <line num="26" type="stmt" count="4"/>
+      <line num="27" type="stmt" count="4"/>
+      <line num="28" type="stmt" count="4"/>
+      <line num="29" type="stmt" count="4"/>
+      <line num="30" type="stmt" count="4"/>
+      <line num="31" type="stmt" count="4"/>
+      <line num="32" type="stmt" count="4"/>
+      <line num="34" type="stmt" count="4"/>
+      <line num="35" type="stmt" count="4"/>
+      <line num="36" type="stmt" count="4"/>
+      <line num="37" type="stmt" count="4"/>
+      <line num="39" type="stmt" count="4"/>
+      <line num="42" type="stmt" count="4"/>
       <line num="48" type="method" name="GetUserByEmail" visibility="public" complexity="1" crap="1" count="1"/>
       <line num="50" type="stmt" count="1"/>
       <line num="51" type="stmt" count="1"/>
@@ -264,43 +276,59 @@
       <line num="131" type="stmt" count="1"/>
       <line num="133" type="stmt" count="1"/>
       <line num="136" type="stmt" count="1"/>
-      <line num="142" type="method" name="getHttpHeaders" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="144" type="stmt" count="3"/>
-      <line num="152" type="method" name="setHttpHeaders" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="154" type="stmt" count="3"/>
-      <line num="156" type="stmt" count="3"/>
-      <line num="162" type="method" name="getBaseUrl" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="164" type="stmt" count="3"/>
-      <line num="172" type="method" name="setBaseUrl" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="174" type="stmt" count="3"/>
-      <line num="176" type="stmt" count="3"/>
-      <line num="182" type="method" name="getPrahariBaseUrl" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="184" type="stmt" count="0"/>
-      <line num="192" type="method" name="setPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="194" type="stmt" count="3"/>
-      <line num="196" type="stmt" count="3"/>
-      <line num="202" type="method" name="getOperationsUrl" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="204" type="stmt" count="0"/>
-      <line num="212" type="method" name="setOperationsUrl" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="214" type="stmt" count="0"/>
-      <line num="216" type="stmt" count="0"/>
-      <line num="222" type="method" name="getOpsUrl" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="224" type="stmt" count="0"/>
-      <line num="232" type="method" name="setOpsUrl" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="234" type="stmt" count="3"/>
-      <line num="236" type="stmt" count="3"/>
-      <line num="242" type="method" name="getAppId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="144" type="method" name="CreateNewClients" visibility="public" complexity="3" crap="3.00" count="1"/>
+      <line num="145" type="stmt" count="1"/>
+      <line num="146" type="stmt" count="1"/>
+      <line num="147" type="stmt" count="1"/>
+      <line num="148" type="stmt" count="1"/>
+      <line num="150" type="stmt" count="1"/>
+      <line num="151" type="stmt" count="1"/>
+      <line num="152" type="stmt" count="1"/>
+      <line num="153" type="stmt" count="1"/>
+      <line num="154" type="stmt" count="1"/>
+      <line num="155" type="stmt" count="1"/>
+      <line num="156" type="stmt" count="1"/>
+      <line num="157" type="stmt" count="1"/>
+      <line num="158" type="stmt" count="1"/>
+      <line num="161" type="stmt" count="0"/>
+      <line num="164" type="stmt" count="1"/>
+      <line num="170" type="method" name="getHttpHeaders" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="172" type="stmt" count="4"/>
+      <line num="180" type="method" name="setHttpHeaders" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="182" type="stmt" count="4"/>
+      <line num="184" type="stmt" count="4"/>
+      <line num="190" type="method" name="getBaseUrl" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="192" type="stmt" count="4"/>
+      <line num="200" type="method" name="setBaseUrl" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="202" type="stmt" count="4"/>
+      <line num="204" type="stmt" count="4"/>
+      <line num="210" type="method" name="getPrahariBaseUrl" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="212" type="stmt" count="0"/>
+      <line num="220" type="method" name="setPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="222" type="stmt" count="4"/>
+      <line num="224" type="stmt" count="4"/>
+      <line num="230" type="method" name="getOperationsUrl" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="232" type="stmt" count="0"/>
+      <line num="240" type="method" name="setOperationsUrl" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="242" type="stmt" count="0"/>
       <line num="244" type="stmt" count="0"/>
-      <line num="252" type="method" name="setAppId" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="254" type="stmt" count="3"/>
-      <line num="256" type="stmt" count="3"/>
-      <line num="262" type="method" name="getOrgId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="264" type="stmt" count="0"/>
-      <line num="272" type="method" name="setOrgId" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="274" type="stmt" count="3"/>
-      <line num="276" type="stmt" count="3"/>
-      <line num="278" type="stmt" count="1"/>
-      <metrics loc="277" ncloc="203" classes="1" methods="18" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="96" coveredstatements="89" elements="114" coveredelements="101"/>
+      <line num="250" type="method" name="getOpsUrl" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="252" type="stmt" count="0"/>
+      <line num="260" type="method" name="setOpsUrl" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="262" type="stmt" count="4"/>
+      <line num="264" type="stmt" count="4"/>
+      <line num="270" type="method" name="getAppId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="272" type="stmt" count="0"/>
+      <line num="280" type="method" name="setAppId" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="282" type="stmt" count="4"/>
+      <line num="284" type="stmt" count="4"/>
+      <line num="290" type="method" name="getOrgId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="292" type="stmt" count="0"/>
+      <line num="300" type="method" name="setOrgId" visibility="public" complexity="1" crap="1" count="4"/>
+      <line num="302" type="stmt" count="4"/>
+      <line num="304" type="stmt" count="4"/>
+      <line num="306" type="stmt" count="1"/>
+      <metrics loc="305" ncloc="226" classes="1" methods="19" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="111" coveredstatements="103" elements="130" coveredelements="115"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Matter.php">
       <class name="GravityLegal\GravityLegalAPI\Matter" namespace="global">
@@ -384,24 +412,24 @@
       <class name="GravityLegal\GravityLegalAPI\Utility" namespace="global">
         <metrics complexity="4" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="12" elements="15" coveredelements="12"/>
       </class>
-      <line num="13" type="method" name="cast" visibility="public" complexity="4" crap="4.05" count="3"/>
-      <line num="15" type="stmt" count="3"/>
+      <line num="13" type="method" name="cast" visibility="public" complexity="4" crap="4.05" count="4"/>
+      <line num="15" type="stmt" count="4"/>
       <line num="16" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="3"/>
-      <line num="19" type="stmt" count="3"/>
-      <line num="20" type="stmt" count="3"/>
-      <line num="21" type="stmt" count="3"/>
-      <line num="22" type="stmt" count="3"/>
-      <line num="23" type="stmt" count="3"/>
-      <line num="24" type="stmt" count="3"/>
-      <line num="33" type="stmt" count="3"/>
-      <line num="34" type="stmt" count="3"/>
-      <line num="35" type="stmt" count="3"/>
-      <line num="37" type="stmt" count="3"/>
+      <line num="18" type="stmt" count="4"/>
+      <line num="19" type="stmt" count="4"/>
+      <line num="20" type="stmt" count="4"/>
+      <line num="21" type="stmt" count="4"/>
+      <line num="22" type="stmt" count="4"/>
+      <line num="23" type="stmt" count="4"/>
+      <line num="24" type="stmt" count="4"/>
+      <line num="33" type="stmt" count="4"/>
+      <line num="34" type="stmt" count="4"/>
+      <line num="35" type="stmt" count="4"/>
+      <line num="37" type="stmt" count="4"/>
       <line num="39" type="stmt" count="0"/>
       <line num="43" type="stmt" count="1"/>
       <metrics loc="42" ncloc="28" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="12" elements="15" coveredelements="12"/>
     </file>
-    <metrics files="20" loc="992" ncloc="848" classes="2" methods="19" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="110" coveredstatements="101" elements="129" coveredelements="113"/>
+    <metrics files="23" loc="1034" ncloc="885" classes="2" methods="20" coveredmethods="12" conditionals="0" coveredconditionals="0" statements="125" coveredstatements="115" elements="145" coveredelements="127"/>
   </project>
 </coverage>

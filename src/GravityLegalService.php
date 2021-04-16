@@ -136,6 +136,34 @@ class GravityLegalService
         return $result;
     }
 
+    /// <summary>
+    /// Creates the new clients.
+    /// </summary>
+    /// <param name="createClientList">An array containing CreateClient objects</param>
+    /// <returns>A Dictionary.</returns>
+    public function CreateNewClients(array $createClientList): EntityCreationResult {
+        $entityCreationResult = new EntityCreationResult();
+        $failedRequests = array();
+        $url = $this->getBaseUrl() . 'Client';
+        foreach ($createClientList  as $createClient)
+        {
+            $body = json_encode($createClient);
+            $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            if ($response->code == 200) {
+                $json = json_decode($response->raw_body);
+                $jsonMapper = new  JsonMapper();
+                $createClientResponse = $jsonMapper->map($json, new CreateClientResponse());
+                $client = $jsonMapper->map($createClientResponse->result, new Client());
+                $client = Utility::cast($client, 'GravityLegal\GravityLegalAPI\Client');
+                $entityCreationResult->CreatedEntities[][] = array(trim($body) => $client);
+            }
+            else {
+                $entityCreationResult->FailedRequests[][] = array(trim($body) => $response);
+            }
+        }
+        return $entityCreationResult;
+    }
+
     /**
      * Get the value of httpHeaders
      */ 
