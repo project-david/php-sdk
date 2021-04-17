@@ -7,7 +7,13 @@ use DateTime;
 use PHPUnit\Framework\Constraint\Count;
 use Faker\Factory;
 use GravityLegal\GravityLegalAPI\CreateClient;
+use GravityLegal\GravityLegalAPI\Client;
 use GravityLegal\GravityLegalAPI\Customer;
+use GravityLegal\GravityLegalAPI\Operating;
+use JsonMapper;
+use GravityLegal\GravityLegalAPI\Utility;
+use GravityLegal\GravityLegalAPI\CreatePaylink;
+use GravityLegal\GravityLegalAPI\Trust;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -51,6 +57,74 @@ class GravityLegalAPITest extends TestCase
         $createClientList = $this->GenerateClients(2,'bf193ce3-f54f-40d4-b3e6-da5de83be0be');
         $userResponse = $this->gService->CreateNewClients($createClientList);
         $this->assertTrue(count($userResponse->CreatedEntities) == 2);
+        foreach($userResponse->CreatedEntities as $clientTuple) {
+            $client = array_values($clientTuple[0]);
+            $json = $client[0];
+            $jsonMapper = new  JsonMapper();
+            $client = $jsonMapper->map($json, new Client());
+            $client = Utility::cast($client, 'GravityLegal\GravityLegalAPI\Client');
+            $this->gService->DeleteClient($client->id);
+        }
+    }
+
+    /** @test */
+    public function GetClientTest() {
+        $clientResponse = $this->gService->GetClient('e2a17efe-4f95-4ee5-bf9b-8400efe88e9a');
+        $this->assertTrue($clientResponse->clientName == 'Technovation Inc.');
+    }
+
+    /** @test */
+    public function FindOrCreateClientTest() {
+        $createClient = new CreateClient();
+        $createClient->clientName = "Potomac Unit Testing Inc.";
+        $createClient->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $createClient->email = "manoj.srivastava+potomacunittesting@gmail.com";
+        $createClient->firstName = "Potomac";
+        $createClient->lastName = "UnitTesting";
+        $createClient->phone = "240-555-1212";
+        $client = $this->gService->FindOrCreateClient($createClient);
+        $this->assertTrue($client != null);
+        $clientList = $this->gService->FindClient($createClient->customer, $createClient->clientName, false);
+        $this->assertTrue($clientList != null);
+        $this->assertTrue(count($clientList) == 1);
+        $this->gService->DeleteClient($client->id);
+
+    }
+
+    /** @test */
+    public function DeleteClientTest() {
+        $createClient = new CreateClient();
+        $createClient->clientName = "Potomac Unit Testing Inc.";
+        $createClient->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $createClient->email = "manoj.srivastava+potomacunittesting@gmail.com";
+        $createClient->firstName = "Potomac";
+        $createClient->lastName = "UnitTesting";
+        $createClient->phone = "240-555-1212";
+        $client = $this->gService->FindOrCreateClient($createClient);
+        $this->assertTrue($client != null);
+        $this->gService->DeleteClient($client->id);
+        $clientList = $this->gService->FindClient($createClient->customer, $createClient->clientName, false);
+        $this->assertTrue($clientList == null);
+
+    }
+
+    /** @test */
+    public function DeletePaylinkTest() {
+        $createPaylink = new CreatePaylink();
+        $operating = new Operating();
+        $operating->amount = 10000;
+        $trust = new Trust();
+        $trust->amount = 20000;
+        $createPaylink->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $createPaylink->client = "896d9358-a48d-45ec-946b-6a0357f10afa";
+        $createPaylink->matter = "23c47c88-a287-4962-bf92-6ff30798377c";
+        $createPaylink->externalId = Utility::GUIDv4();
+        $createPaylink->operating = $operating;
+        $createPaylink->trust = $trust;
+        $paylinkInfo = $this->gService->CreateNewPaylink($createPaylink);
+        $this->assertTrue($paylinkInfo != null);
+        $deletionResult = $this->gService->DeletePaylink($paylinkInfo->id);
+        $this->assertTrue($deletionResult);
     }
 
     public function GenerateClients(int $clientCount, string $customer): array {

@@ -12,7 +12,3 @@ class ClientResult {
     public ClientResultResult $result;
 }
 
-class GetClientResult
-{
-    public Client $result;
-}

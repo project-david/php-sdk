@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2021-04-16 03:21:21</timestamp>
+  <timestamp>2021-04-17 00:24:14</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>20</methodCount>
+    <methodCount>32</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>39.05</totalCrap>
+    <totalCrap>169.45</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -50,9 +50,9 @@
       <methodName>FetchUsers</methodName>
       <methodSignature>FetchUsers(DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
       <fullMethod>FetchUsers(DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
-      <crap>8</crap>
-      <complexity>8</complexity>
-      <coverage>100</coverage>
+      <crap>10</crap>
+      <complexity>10</complexity>
+      <coverage>97.67</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -64,6 +64,127 @@
       <crap>3</crap>
       <complexity>3</complexity>
       <coverage>93.33</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>GetClient</methodName>
+      <methodSignature>GetClient(string $clientId): GravityLegal\GravityLegalAPI\Client</methodSignature>
+      <fullMethod>GetClient(string $clientId): GravityLegal\GravityLegalAPI\Client</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FindClient</methodName>
+      <methodSignature>FindClient(string $customerId, string $clientName, bool $partialMatch): array</methodSignature>
+      <fullMethod>FindClient(string $customerId, string $clientName, bool $partialMatch): array</fullMethod>
+      <crap>12.26</crap>
+      <complexity>9</complexity>
+      <coverage>65.71</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FindOrCreateClient</methodName>
+      <methodSignature>FindOrCreateClient(GravityLegal\GravityLegalAPI\CreateClient $createClientParam): GravityLegal\GravityLegalAPI\Client</methodSignature>
+      <fullMethod>FindOrCreateClient(GravityLegal\GravityLegalAPI\CreateClient $createClientParam): GravityLegal\GravityLegalAPI\Client</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>93.33</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>GetClientInstanceInfoResponse</methodName>
+      <methodSignature>GetClientInstanceInfoResponse(string $clientId): GravityLegal\GravityLegalAPI\ClientInstanceInfoResponseResult</methodSignature>
+      <fullMethod>GetClientInstanceInfoResponse(string $clientId): GravityLegal\GravityLegalAPI\ClientInstanceInfoResponseResult</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>DeleteLedgerItem</methodName>
+      <methodSignature>DeleteLedgerItem(string $ledgerItemId): bool</methodSignature>
+      <fullMethod>DeleteLedgerItem(string $ledgerItemId): bool</fullMethod>
+      <crap>6</crap>
+      <complexity>2</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>DeletePaylink</methodName>
+      <methodSignature>DeletePaylink(string $paylinkId): bool</methodSignature>
+      <fullMethod>DeletePaylink(string $paylinkId): bool</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>90.91</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>DeleteClient</methodName>
+      <methodSignature>DeleteClient(string $clientId): bool</methodSignature>
+      <fullMethod>DeleteClient(string $clientId): bool</fullMethod>
+      <crap>32.87</crap>
+      <complexity>14</complexity>
+      <coverage>54.17</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>CreateNewMatters</methodName>
+      <methodSignature>CreateNewMatters(array $createMatterList): GravityLegal\GravityLegalAPI\EntityCreationResult</methodSignature>
+      <fullMethod>CreateNewMatters(array $createMatterList): GravityLegal\GravityLegalAPI\EntityCreationResult</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FindOrCreateMatter</methodName>
+      <methodSignature>FindOrCreateMatter(GravityLegal\GravityLegalAPI\CreateMatter $createMatter): GravityLegal\GravityLegalAPI\Matter</methodSignature>
+      <fullMethod>FindOrCreateMatter(GravityLegal\GravityLegalAPI\CreateMatter $createMatter): GravityLegal\GravityLegalAPI\Matter</fullMethod>
+      <crap>12</crap>
+      <complexity>3</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FindMatterByExternalId</methodName>
+      <methodSignature>FindMatterByExternalId(string $externalId): GravityLegal\GravityLegalAPI\Matter</methodSignature>
+      <fullMethod>FindMatterByExternalId(string $externalId): GravityLegal\GravityLegalAPI\Matter</fullMethod>
+      <crap>20</crap>
+      <complexity>4</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>CreateNewPaylink</methodName>
+      <methodSignature>CreateNewPaylink(GravityLegal\GravityLegalAPI\CreatePaylink $createPaylink, GravityLegal\GravityLegalAPI\CreateMatter $createMatter): GravityLegal\GravityLegalAPI\PaylinkInfo</methodSignature>
+      <fullMethod>CreateNewPaylink(GravityLegal\GravityLegalAPI\CreatePaylink $createPaylink, GravityLegal\GravityLegalAPI\CreateMatter $createMatter): GravityLegal\GravityLegalAPI\PaylinkInfo</fullMethod>
+      <crap>4.15</crap>
+      <complexity>4</complexity>
+      <coverage>78.95</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -229,6 +350,17 @@
       <crap>4.05</crap>
       <complexity>4</complexity>
       <coverage>85.71</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\Utility</className>
+      <methodName>GUIDv4</methodName>
+      <methodSignature>GUIDv4($trim)</methodSignature>
+      <fullMethod>GUIDv4($trim)</fullMethod>
+      <crap>19.12</crap>
+      <complexity>6</complexity>
+      <coverage>28.57</coverage>
       <crapLoad>0</crapLoad>
     </method>
   </methods>
