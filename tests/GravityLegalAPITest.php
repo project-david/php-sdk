@@ -14,6 +14,7 @@ use JsonMapper;
 use GravityLegal\GravityLegalAPI\Utility;
 use GravityLegal\GravityLegalAPI\CreatePaylink;
 use GravityLegal\GravityLegalAPI\Trust;
+use GravityLegal\GravityLegalAPI\CreateMatter;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -92,6 +93,11 @@ class GravityLegalAPITest extends TestCase
     }
 
     /** @test */
+    public function FindClientWithPartialMatchTest() {
+        $clientList = $this->gService->FindClient('bf193ce3-f54f-40d4-b3e6-da5de83be0be', 'a', true);
+        $this->assertTrue(count($clientList) > 1);
+    }
+    /** @test */
     public function DeleteClientTest() {
         $createClient = new CreateClient();
         $createClient->clientName = "Potomac Unit Testing Inc.";
@@ -105,6 +111,38 @@ class GravityLegalAPITest extends TestCase
         $this->gService->DeleteClient($client->id);
         $clientList = $this->gService->FindClient($createClient->customer, $createClient->clientName, false);
         $this->assertTrue($clientList == null);
+    }
+
+    /** @test */
+    public function DeleteClientFailTest() {
+        $result = $this->gService->DeleteClient('Non existant Id');
+        $this->assertTrue($result == false);
+    }
+
+    /** @test */
+    public function CreateNewPaylinkWithNewMatterTest() {
+        $createPaylink = new CreatePaylink();
+        $createMatter = new CreateMatter();
+        $operating = new Operating();
+        $operating->amount = 10000;
+        $trust = new Trust();
+        $trust->amount = 20000;
+        $createPaylink->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $createPaylink->client = "896d9358-a48d-45ec-946b-6a0357f10afa";
+        $createPaylink->externalId = Utility::GUIDv4();
+        $createPaylink->operating = $operating;
+        $createPaylink->trust = $trust;
+
+        $createMatter->client = 'be086b90-4b15-4c5d-a20b-bcb0821ec522';
+        $createMatter->externalId = Utility::GUIDv4();
+        $createMatter->name = 'Test Matter ' . $createMatter->externalId;
+        $createMatter->status = 'Draft';
+        $createMatter->secondClient = '3c41adcc-dd57-464d-987c-245d324e6d2b';
+
+        $paylinkInfo = $this->gService->CreateNewPaylink($createPaylink, $createMatter);
+        $this->assertTrue($paylinkInfo != null);
+        $deletionResult = $this->gService->DeletePaylink($paylinkInfo->id);
+        $this->assertTrue($deletionResult);
 
     }
 
@@ -125,6 +163,28 @@ class GravityLegalAPITest extends TestCase
         $this->assertTrue($paylinkInfo != null);
         $deletionResult = $this->gService->DeletePaylink($paylinkInfo->id);
         $this->assertTrue($deletionResult);
+    }
+
+    /** @test */
+    public function FindMatterByExternalIdTest() {
+        $matter = $this->gService->FindMatterByExternalId("soluno_matter_id_1");
+        $this->assertTrue($matter != null);
+    }
+
+    /** @test */
+    public function FindOrCreateMatterTest() {
+        $createMatter = new CreateMatter();
+        $createMatter->client = 'be086b90-4b15-4c5d-a20b-bcb0821ec522';
+        $createMatter->externalId = Utility::GUIDv4();
+        $createMatter->name = 'Test Matter ' . Utility::GUIDv4();
+        $createMatter->status = 'Draft';
+        $createMatter->secondClient = '3c41adcc-dd57-464d-987c-245d324e6d2b';
+        $matter = $this->gService->FindOrCreateMatter($createMatter);
+        $this->assertTrue($matter != null);
+        $matterId = $matter->id;
+        $matter = $this->gService->FindOrCreateMatter($createMatter);
+        $this->assertTrue($matter != null);
+        $this->assertTrue($matter->id == $matterId);
     }
 
     public function GenerateClients(int $clientCount, string $customer): array {

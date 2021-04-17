@@ -273,7 +273,7 @@ class GravityLegalService
     /// </summary>
     /// <param name="clientId">The client id.</param>
     /// <returns>A ClientInstanceInfoResponseResult.</returns>
-    private function GetClientInstanceInfoResponse(string $clientId): ClientInstanceInfoResponseResult   {
+    private function GetClientInstanceInfoResponse(string $clientId): ?ClientInstanceInfoResponseResult   {
         $clientInstanceInfoResponseResult = null;
         $url = $this->getBaseUrl() . 'Client/' . $clientId . '/getInstanceInfo';
         $body = '{}';
@@ -340,6 +340,8 @@ class GravityLegalService
         $deleteRequestResponse = null;
 
         $clientInstanceInfoResponseResult = $this->GetClientInstanceInfoResponse($clientId);
+        if ($clientInstanceInfoResponseResult == null)
+            return false;
         if (($clientInstanceInfoResponseResult->references != null) && (count($clientInstanceInfoResponseResult->references) > 0))
         {
             foreach ($clientInstanceInfoResponseResult->references as $referencedEntity)
@@ -418,8 +420,13 @@ class GravityLegalService
             $matter = $this->FindMatterByExternalId($createMatter->externalId);
         if ($matter == null) {
             $matterCreationResult = $this->CreateNewMatters(array($createMatter,));
-            $createMatterString = trim(json_encode($createMatter));
-            $matter = $matterCreationResult->CreatedEntities[0][$createMatterString];
+            foreach($matterCreationResult->CreatedEntities as $matterTuple) {
+                $matter = array_values($matterTuple[0]);
+                $json = $matter[0];
+                $jsonMapper = new  JsonMapper();
+                $matter = $jsonMapper->map($json, new Matter());
+                $matter = Utility::cast($matter, 'GravityLegal\GravityLegalAPI\Matter');
+            }
         }
         return $matter;
     }
@@ -429,7 +436,7 @@ class GravityLegalService
     /// </summary>
     /// <param name="externalId">The external id.</param>
     /// <returns>A Matter.</returns>
-    public function FindMatterByExternalId(string $externalId): Matter  {
+    public function FindMatterByExternalId(string $externalId): ?Matter  {
         $matter = null;
         $matterResult = null;
         $url = $this->getBaseUrl() . 'Matter';

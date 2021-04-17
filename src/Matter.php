@@ -22,16 +22,3 @@ class Matter {
     public string $name;
     public string $status;
 }
-class CreateMatter
-{
-    public string $creatorId;
-    public string $externalId;
-    public string $status;
-    public string $name;
-    public string $client;
-    public string $secondClient;
-}
-class CreateMatterResponse
-{
-    public Matter $result;
-}
