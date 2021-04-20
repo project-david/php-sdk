@@ -17,6 +17,9 @@ class GravityLegalService
     protected string $opsUrl;
     protected string $appId;
     protected string $orgId;
+    protected string $prahariUrl;
+    protected string $envUrl;
+    protected Unirest\Response $lastRestResponse;
 
     public function __construct(array $envVariables=null)
     {
@@ -26,6 +29,8 @@ class GravityLegalService
             $SYSTEM_TOKEN=$envVariables['SYSTEM_TOKEN'];
             $APP_ID=$envVariables['APP_ID'];
             $ORG_ID=$envVariables['ORG_ID'];
+            $this->setEnvUrl($ENV_URL);
+            $this->setPrahariUrl($PRAHARI_BASE_URL);
             $this->setBaseUrl($ENV_URL . '/entities/');
             $this->setOpsUrl($ENV_URL . '/operations/');
             $this->setPrahariBaseUrl($PRAHARI_BASE_URL . "/entities/");
@@ -41,21 +46,102 @@ class GravityLegalService
         };
 
     }
+
+    public function IsOnline(): bool {
+        $result = false;
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $oneDayAgo = $currentTime->sub($diff1Day);
+        $invitedUsers = $this->GetInvitedUsers($oneDayAgo);
+        if ($this->getLastRestResponse()->code == 200)
+            $result = true;
+        return $result;
+    }
+
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the invited users
+    /// who were created at or after the given date-time.
+    /// </summary>
+    /// <param name="createdSinceDateTime"></param>
+    /// <returns> array of InvitedUser objects</returns>
+    public function GetInvitedUsers(DateTime $createdSinceDateTime = null) : array {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $createdSince = str_replace('UTC', 'Z', $createdSince);
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $result = array();
+        $url = $this->getPrahariBaseUrl() . 'UserInvite';
+        $query = array_merge($query, array('orderBy'=>'updatedOn', 'orderDir' => 'desc', 'pageNo' => '1', 'pageSize' => '25', 'select' => 'app,org,fullName,role'));
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $userInviteResponse = $jsonMapper->map($json, new UserInviteResponse());
+            $userInviteResponse = Utility::cast($userInviteResponse, 'GravityLegal\GravityLegalAPI\UserInviteResponse');
+            foreach($userInviteResponse->result->records as $invitedUser) {
+                $invitedUser = $jsonMapper->map($invitedUser, new InvitedUser());                
+                $invitedUser = Utility::cast($invitedUser, 'GravityLegal\GravityLegalAPI\InvitedUser');
+                $result[] = $invitedUser;
+            }
+            $numPages = $userInviteResponse->result->totalCount / $userInviteResponse->result->pageSize;
+            $pageSize = $userInviteResponse->result->pageSize;
+            if ($userInviteResponse->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages) {
+                    $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $userInviteResponse = $jsonMapper->map($json, new UserInviteResponse());
+                        $userInviteResponse = Utility::cast($userInviteResponse, 'GravityLegal\GravityLegalAPI\UserInviteResponse');
+                        foreach($userInviteResponse->result->records as $invitedUser) {
+                            $invitedUser = $jsonMapper->map($invitedUser, new InvitedUser());                
+                            $invitedUser = Utility::cast($invitedUser, 'GravityLegal\GravityLegalAPI\InvitedUser');
+                            $result[] = $invitedUser;
+                        }
+                    }
+                    $fetchPage++;
+                }
+            }
+        }
+        return $result;
+    }
+
+
     /// <summary>
     /// Gets the user by email.
     /// </summary>
     /// <param name="email">The email.</param>
     /// <returns>An User.</returns>
-    public function GetUserByEmail(string $emailAddress): User
+    public function GetUserByEmail(string $emailAddress): ?User
     {
+        $user = null;
         $url = $this->getBaseUrl() . 'User';
         $query = array("email" => $emailAddress, "select" => "customer,customer.partner,fullName","sysGen:not" => "true");
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
-        $json = json_decode($response->raw_body);
-        $jsonMapper = new  JsonMapper();
-        $userResult = $jsonMapper->map($json, new UserResult());
-        $user = $jsonMapper->map($userResult->result->records[0], new User());
-        $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $userResult = $jsonMapper->map($json, new UserResult());
+            if (count($userResult->result->records) > 0) {
+                $user = $jsonMapper->map($userResult->result->records[0], new User());
+                $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
+            }
+        }
         return ($user);
     }
     /// <summary>
@@ -63,16 +149,20 @@ class GravityLegalService
     /// </summary>
     /// <param name="userId">The user id.</param>
     /// <returns>An User.</returns>
-    public function GetUserById(string $userId) : User
+    public function GetUserById(string $userId) : ?User
     {
+        $user = null;
         $url = $this->getBaseUrl() . 'User/' . $userId;
         $query = array("select" => "customer,customer.partner,fullName","sysGen:not" => "true");
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
-        $json = json_decode($response->raw_body);
-        $jsonMapper = new  JsonMapper();
-        $userResult = $jsonMapper->map($json, new GetUserResult());
-        $user = $jsonMapper->map($userResult->result, new User());
-        $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $userResult = $jsonMapper->map($json, new GetUserResult());
+            $user = $jsonMapper->map($userResult->result, new User());
+            $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
+        }
         return ($user);
     }
 
@@ -97,6 +187,7 @@ class GravityLegalService
         $result = new EntityQueryResult();
         $url = $this->getBaseUrl() . 'User';
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -123,6 +214,7 @@ class GravityLegalService
                         $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize, "createdOn:range" => "[" . $createdSince . "," .   $createdUntil . "]");
                     }
                     $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
                     if ($response->code == 200) {
                         $json = json_decode($response->raw_body);
                         $jsonMapper = new  JsonMapper();
@@ -132,6 +224,312 @@ class GravityLegalService
                             $user = $jsonMapper->map($user, new User());
                             $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
                             $result->FetchedEntities[] = $user;
+                        }
+                        $fetchPage++;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the Customers
+    /// who were created at or after the given date-time and have accepted
+    /// the invitation by resetting their password
+    /// </summary>
+    /// <param name="createdSinceDateTime"></param>
+    /// <returns></returns>
+    public function FetchCustomers(DateTime $createdSinceDateTime = null): EntityQueryResult   {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'Customer';
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $customerResult = $jsonMapper->map($json, new CustomerResult());
+    
+            foreach($customerResult->result->records as $customer) {
+                $customer = $jsonMapper->map($customer, new Customer());
+                $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
+                $result->FetchedEntities[] = $customer;
+            }
+    
+            $numPages = $customerResult->result->totalCount / $customerResult->result->pageSize;
+            $pageSize = $customerResult->result->pageSize;
+            if ($customerResult->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages)
+                {
+                    $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize);
+                    if ($createdSinceDateTime != null) {
+                        $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+                        $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize, "createdOn:range" => "[" . $createdSince . "," .   $createdUntil . "]");
+                    }
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $customerResult = $jsonMapper->map($json, new CustomerResult());
+            
+                        foreach($customerResult->result->records as $customer) {
+                            $customer = $jsonMapper->map($customer, new Customer());
+                            $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
+                            $result->FetchedEntities[] = $customer;
+                        }
+                        $fetchPage++;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the paylinks
+    /// which were created at or after the given date-time.
+    /// </summary>
+    /// <param name="customerId"></param>
+    /// <param name="clientId"></param>
+    /// <param name="createdSinceDateTime"></param>
+    /// <returns></returns>
+    public function FetchPaylinks(string $customerId = null, string $clientId = null, DateTime $createdSinceDateTime = null): EntityQueryResult {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'Paylink';
+        $query = array_merge($query, array('select' => 'customer,client,matter'));
+        if ($customerId != null)
+            $query = array_merge($query, array('customer' => $customerId));
+        if ($clientId != null)
+            $query = array_merge($query, array('client' => $clientId));
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paylinkResult = $jsonMapper->map($json, new PaylinkResult());
+            $paylinkResult = Utility::cast($paylinkResult, 'GravityLegal\GravityLegalAPI\PaylinkResult');
+            foreach ($paylinkResult->result->records as $paylink) {
+                $paylink = $jsonMapper->map($paylink, new Paylink());
+                $paylink = Utility::cast($paylink, 'GravityLegal\GravityLegalAPI\Paylink');
+                $result->FetchedEntities[] = $paylink;
+            }
+            $numPages = $paylinkResult->result->totalCount / $paylinkResult->result->pageSize;
+            $pageSize = $paylinkResult->result->pageSize;
+            if ($paylinkResult->result->totalCount % $pageSize != 0) {
+                $numPages++;
+            }
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages) {
+                    $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $paylinkResult = $jsonMapper->map($json, new PaylinkResult());
+                        $paylinkResult = Utility::cast($paylinkResult, 'GravityLegal\GravityLegalAPI\PaylinkResult');
+                        foreach ($paylinkResult->result->records as $paylink) {
+                            $paylink = $jsonMapper->map($paylink, new Paylink());
+                            $paylink = Utility::cast($paylink, 'GravityLegal\GravityLegalAPI\Paylink');
+                            $result->FetchedEntities[] = $paylink;
+                        }
+                        $fetchPage++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// Gets the customer.
+    /// </summary>
+    /// <param name="customerId">The customer id.</param>
+    /// <returns>A Customer.</returns>
+    public function GetCustomer(string $customerId): ?Customer  {
+        $cust = null;
+        $url = $this->getBaseUrl() . 'Customer/' . $customerId;
+        $response = Unirest\Request::get($url, $this->getHttpHeaders());
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $customerResult = $jsonMapper->map($json, new GetCustomerResult());
+            $cust = $jsonMapper->map($customerResult->result, new Customer());
+            $cust = Utility::cast($cust, 'GravityLegal\GravityLegalAPI\Customer');
+        }
+        return ($cust);
+    }
+
+
+    /// <summary>
+    /// Gets the customer api token.
+    /// </summary>
+    /// <param name="customerId">The customer id.</param>
+    /// <param name="tokenName">The token name.</param>
+    /// <param name="createIfNotFound">If true, create if not found.</param>
+    /// <returns>A CustomerApiToken.</returns>
+    public function GetCustomerApiToken(string $customerId, string $tokenName, bool $createIfNotFound = true): ?CustomerApiToken  {
+        $customerApiToken = null;
+        $customer = $this->GetCustomer($customerId);
+        if ($customer != null)
+        {
+            $puserEmail = 'noreply@' . $customer->orgId . '.users';
+            $url = $this->getPrahariBaseUrl() . 'PUser';
+            $query = array('email' => $puserEmail);
+            $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+            $this->setLastRestResponse($response);
+            if ($response->code == 200) {
+                $json = json_decode($response->raw_body);
+                $jsonMapper = new  JsonMapper();
+                $pUserResponse = $jsonMapper->map($json, new PUserResponse());
+                $puser = $jsonMapper->map($pUserResponse->result->records[0], new PUser());
+                $puser = Utility::cast($puser, 'GravityLegal\GravityLegalAPI\PUser');
+                $pUserId = $puser->id;
+                $url = $this->getPrahariBaseUrl() . 'SystemToken';
+                $query = array('select' => 'token', 'user.id' => $pUserId);
+                $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                $this->setLastRestResponse($response);
+                if ($response->code == 200) {
+                    $matchingTokenFound = false;
+                    $json = json_decode($response->raw_body);
+                    $systemTokenResponse = $jsonMapper->map($json, new SystemTokenRequestResponse());
+                    if ($systemTokenResponse->result->totalCount > 0) {
+                        foreach ($systemTokenResponse->result->records as $systemTokenRecord) {
+                            $systemTokenRecord = $jsonMapper->map($systemTokenRecord, new SystemTokenRecord());
+                            $systemTokenRecord = Utility::cast($systemTokenRecord, 'GravityLegal\GravityLegalAPI\SystemTokenRecord');
+                            if ($systemTokenRecord->name == $tokenName) {
+                                $matchingTokenFound = true;
+                                $customerApiToken = new CustomerApiToken();
+                                $customerApiToken->APP_ID = $customer->appId;
+                                $customerApiToken->ORG_ID = $customer->orgId;
+                                $customerApiToken->ENV_URL = $this->getEnvUrl();
+                                $customerApiToken->PRAHARI_BASE_URL = $this->getPrahariUrl();
+                                $customerApiToken->SYSTEM_TOKEN = $systemTokenRecord->token;
+                                break;
+                            }
+                        }
+                    }
+                    if (($matchingTokenFound == false) && ($createIfNotFound)) {
+                        $systemTokenCreationRequest = new SystemTokenCreationRequest();
+                        $systemTokenCreationRequest->name = $tokenName;
+                        $systemTokenCreationRequest->user = $pUserId;
+                        $systemTokenCreationRequest->token = 'TBR';
+                        $body = json_encode($systemTokenCreationRequest);
+                        $url = $this->getPrahariBaseUrl() . 'SystemToken';
+                        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+                        $this->setLastRestResponse($response);
+                        if ($response->code == 200) {
+                            $json = json_decode($response->raw_body);
+                            $jsonMapper = new  JsonMapper();
+                            $systemTokenCreationResponse = $jsonMapper->map($json, new SystemTokenCreationResponse());
+                            $systemTokenCreationResponseResult = $jsonMapper->map($systemTokenCreationResponse->result, new SystemTokenCreationResponseResult());
+                            $systemTokenCreationResponseResult = Utility::cast($systemTokenCreationResponseResult, 'GravityLegal\GravityLegalAPI\SystemTokenCreationResponseResult');
+                            $customerApiToken = new CustomerApiToken ();
+                            $customerApiToken->APP_ID = $customer->appId;
+                            $customerApiToken->ORG_ID = $customer->orgId;
+                            $customerApiToken->ENV_URL = $this->getEnvUrl();
+                            $customerApiToken->PRAHARI_BASE_URL = $this->getPrahariUrl();
+                            $customerApiToken->SYSTEM_TOKEN = $systemTokenCreationResponseResult->token;
+                        }
+                    }
+                }
+            }
+        }
+        return $customerApiToken;
+    }
+
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the Customers
+    /// who were created at or after the given date-time and have accepted
+    /// the invitation by resetting their password
+    /// </summary>
+    /// <param name="createdSinceDateTime"></param>
+    /// <returns></returns>
+    public function FetchClients(DateTime $createdSinceDateTime = null): EntityQueryResult   {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'Client';
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $clientResult = $jsonMapper->map($json, new ClientResult());
+    
+            foreach($clientResult->result->records as $client) {
+                $client = $jsonMapper->map($client, new Client());
+                $client = Utility::cast($client, 'GravityLegal\GravityLegalAPI\Client');
+                $result->FetchedEntities[] = $client;
+            }
+    
+            $numPages = $clientResult->result->totalCount / $clientResult->result->pageSize;
+            $pageSize = $clientResult->result->pageSize;
+            if ($clientResult->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages)
+                {
+                    $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize);
+                    if ($createdSinceDateTime != null) {
+                        $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+                        $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize, "createdOn:range" => "[" . $createdSince . "," .   $createdUntil . "]");
+                    }
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $clientResult = $jsonMapper->map($json, new ClientResult());
+            
+                        foreach($clientResult->result->records as $client) {
+                            $client = $jsonMapper->map($client, new Client());
+                            $client = Utility::cast($client, 'GravityLegal\GravityLegalAPI\Client');
+                            $result->FetchedEntities[] = $client;
                         }
                         $fetchPage++;
                     }
@@ -156,6 +554,7 @@ class GravityLegalService
         {
             $body = json_encode($createClient);
             $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
             if ($response->code == 200) {
                 $json = json_decode($response->raw_body);
                 $jsonMapper = new  JsonMapper();
@@ -176,10 +575,11 @@ class GravityLegalService
     /// </summary>
     /// <param name="clientId">The client id.</param>
     /// <returns>A Client.</returns>
-    public function GetClient(string $clientId): Client {
-        $gravityClient = new Client();
+    public function GetClient(string $clientId): ?Client {
+        $gravityClient = null;
         $url = $this->getBaseUrl() . 'Client/' . $clientId;
         $response = Unirest\Request::get($url, $this->getHttpHeaders());
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -187,6 +587,74 @@ class GravityLegalService
             $gravityClient = Utility::cast($client->result, 'GravityLegal\GravityLegalAPI\Client');
         }
         return $gravityClient;
+    }
+
+
+    /// <summary>
+    /// Gets the contact by email.
+    /// </summary>
+    /// <param name="emailAddress">The email address.</param>
+    /// <param name="clientId">The client id.</param>
+    /// <returns>A Contact.</returns>
+    public function GetContactByEmail(string $emailAddress, string $clientId = null): ?Contact  {
+        $contact = null;
+        $query = null;
+        $url = $this->getBaseUrl() . 'Contact';
+        if ($clientId == null)
+            $query = array('email' => $emailAddress);
+        else
+            $query = array('email' => $emailAddress, 'client' => $clientId);        
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $contactResult = $jsonMapper->map($json, new ContactResult());
+            $contactResult = Utility::cast($contactResult, 'GravityLegal\GravityLegalAPI\ContactResult');
+            if (count($contactResult->result->records) > 0) {
+                $contact = $jsonMapper->map($contactResult->result->records[0], new Contact());
+                $contact = Utility::cast($contact, 'GravityLegal\GravityLegalAPI\Contact');
+            }
+        }
+        return $contact;
+    }
+
+    /// <summary>
+    /// Finds the client by email.
+    /// </summary>
+    /// <param name="emailAddress">The email address.</param>
+    /// <returns>A Client.</returns>
+    public function FindClientByEmail(string $emailAddress): ?Client {
+        $client = null;
+        $contact = null;
+
+        $contact = $this->GetContactByEmail($emailAddress);
+        if ($contact == null)
+            return null;
+        $client = $this->GetClient($contact->client->id);
+        return $client;
+    }
+
+    /// <summary>
+    /// Gets the contact.
+    /// </summary>
+    /// <param name="contactId">The contact id.</param>
+    /// <returns>A Contact.</returns>
+    public function GetContact(string $contactId): ?Contact {
+        $contact = null;
+        $url = $this->getBaseUrl() . 'Contact/' . $contactId;
+        $query = array('select' => 'client');
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $contactResult = $jsonMapper->map($json, new GetContactResult());
+            $contactResult = Utility::cast($contactResult, 'GravityLegal\GravityLegalAPI\GetContactResult');
+            $contact = $jsonMapper->map($contactResult->result, new Contact());
+            $contact = Utility::cast($contact, 'GravityLegal\GravityLegalAPI\Contact');
+        }
+        return $contact;
     }
 
     /// <summary>
@@ -203,6 +671,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'Client';
         $query = array('clientName:like' => $clientNameLike, 'customer' => $customerId);
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
         if ($response->code = 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -223,6 +692,7 @@ class GravityLegalService
                 {
                     $query = array('clientName:like' => $clientNameLike, 'customer' => $customerId, "pageNo" => $fetchPage, "pageSize" => $pageSize);
                     $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
                     if ($response->code == 200) {
                         $json = json_decode($response->raw_body);
                         $jsonMapper = new  JsonMapper();
@@ -248,7 +718,7 @@ class GravityLegalService
     /// </summary>
     /// <param name="createClientParam">The create client param.</param>
     /// <returns>A Client.</returns>
-    public function FindOrCreateClient(CreateClient $createClientParam): Client {
+    public function FindOrCreateClient(CreateClient $createClientParam): ?Client {
         $client = null;
         $matchingClients = $this->FindClient($createClientParam->customer, $createClientParam->clientName, false);
         if (count($matchingClients) >= 1)
@@ -257,6 +727,7 @@ class GravityLegalService
             $url = $this->getBaseUrl() . 'Client';
             $body = json_encode($createClientParam);
             $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
             if ($response->code == 200) {
                 $json = json_decode($response->raw_body);
                 $jsonMapper = new  JsonMapper();
@@ -278,6 +749,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'Client/' . $clientId . '/getInstanceInfo';
         $body = '{}';
         $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -298,6 +770,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'LedgerItem/' . $ledgerItemId . '/deleteInstance';
         $body = '{}';
         $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -320,6 +793,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'Paylink/' . $paylinkId . '/deleteInstance';
         $body = '{}';
         $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -370,6 +844,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'Client/' . $clientId . '/deleteInstance';
         $body = '{}';
         $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -394,6 +869,7 @@ class GravityLegalService
         {
             $body = json_encode($createMatter);
             $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
             if ($response->code == 200) {
                 $json = json_decode($response->raw_body);
                 $jsonMapper = new  JsonMapper();
@@ -414,7 +890,7 @@ class GravityLegalService
     /// </summary>
     /// <param name="createMatter">The create matter.</param>
     /// <returns>A Matter.</returns>
-    public function FindOrCreateMatter(CreateMatter $createMatter): Matter {
+    public function FindOrCreateMatter(CreateMatter $createMatter): ?Matter {
         $matter = null;
         if ($createMatter->externalId != null)
             $matter = $this->FindMatterByExternalId($createMatter->externalId);
@@ -442,6 +918,7 @@ class GravityLegalService
         $url = $this->getBaseUrl() . 'Matter';
         $query = array('externalId' => $externalId);
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -474,6 +951,7 @@ class GravityLegalService
         }
         $body = json_encode($createPaylink);
         $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
         if ($response->code == 200) {
             $json = json_decode($response->raw_body);
             $jsonMapper = new  JsonMapper();
@@ -622,6 +1100,66 @@ class GravityLegalService
     public function setOrgId($orgId)
     {
         $this->orgId = $orgId;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of lastRestResponse
+     */ 
+    public function getLastRestResponse()
+    {
+        return $this->lastRestResponse;
+    }
+
+    /**
+     * Set the value of lastRestResponse
+     *
+     * @return  self
+     */ 
+    public function setLastRestResponse($lastRestResponse)
+    {
+        $this->lastRestResponse = $lastRestResponse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of envUrl
+     */ 
+    public function getEnvUrl()
+    {
+        return $this->envUrl;
+    }
+
+    /**
+     * Set the value of envUrl
+     *
+     * @return  self
+     */ 
+    public function setEnvUrl($envUrl)
+    {
+        $this->envUrl = $envUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prahariUrl
+     */ 
+    public function getPrahariUrl()
+    {
+        return $this->prahariUrl;
+    }
+
+    /**
+     * Set the value of prahariUrl
+     *
+     * @return  self
+     */ 
+    public function setPrahariUrl($prahariUrl)
+    {
+        $this->prahariUrl = $prahariUrl;
 
         return $this;
     }

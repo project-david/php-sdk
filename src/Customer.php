@@ -37,14 +37,14 @@ class Customer
     public string $appId;
     public string $id;
     public DateTime $createdOn;
-    public DateTime $updatedOn;
+    public ?DateTime $updatedOn;
     public bool $deleted;
     public bool $achActivated;
     public bool $achEnabled;
     public string $achProcessor;
     public bool $agreementSentDirectly;
-    public AppData $appData;
-    public Balance $balanceStatement;
+    public ?AppData $appData;
+    public ?Balance $balanceStatement;
     public bool $ccActivated;
     public bool $ccEnabled;
     public string $ccProcessor;
@@ -53,12 +53,12 @@ class Customer
     public bool $debitActivated;
     public bool $debitEnabled;
     public bool $checkEnabled;
-    public DefaultDepositAccounts $defaultDepositAccounts;
+    public ?DefaultDepositAccounts $defaultDepositAccounts;
     public ?EnvelopeSettings $envelopeSettings;
-    public string $externalId;
+    public ?string $externalId;
     public DateTime $latestActivity;
     public string $name;
-    public NotifPrefs $notifPrefs;
+    public ?NotifPrefs $notifPrefs;
     public string $orgId;
     public bool $promptToCreateSPM;
     public ?string $signatureMail;
@@ -67,8 +67,8 @@ class Customer
     public ?string $surchargeRate;
     public bool $sysGen;
     public string $timezone;
-    public string $webhookSecret;
-    public string $webhookUrl;
+    public ?string $webhookSecret;
+    public ?string $webhookUrl;
 }
 class CreateCustomer
 {
@@ -91,11 +91,6 @@ class CustomerResultResult
 }
 class CustomerResult {
     public CustomerResultResult $result;
-}
-
-
-class GetCustomerResult {
-    public Customer $result;
 }
 
 class TxnClient {

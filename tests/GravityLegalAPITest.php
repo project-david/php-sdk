@@ -15,6 +15,7 @@ use GravityLegal\GravityLegalAPI\Utility;
 use GravityLegal\GravityLegalAPI\CreatePaylink;
 use GravityLegal\GravityLegalAPI\Trust;
 use GravityLegal\GravityLegalAPI\CreateMatter;
+use GravityLegal\GravityLegalAPI\CustomerApiToken;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -36,9 +37,50 @@ class GravityLegalAPITest extends TestCase
     }
 
     /** @test */
+    public function IsOnlineTest() {
+        $this->assertTrue($this->gService->IsOnline());
+    }
+
+    /** @test */
+    public function FetchPaylinksTest() {
+        $paylinkResult = $this->gService->FetchPaylinks();
+        $this->assertTrue(count($paylinkResult->FetchedEntities) > 0);
+        $paylinkResult = $this->gService->FetchPaylinks("bf193ce3-f54f-40d4-b3e6-da5de83be0be");
+        $this->assertTrue(count($paylinkResult->FetchedEntities) > 0);
+        $paylinkResult = $this->gService->FetchPaylinks("bf193ce3-f54f-40d4-b3e6-da5de83be0be", "896d9358-a48d-45ec-946b-6a0357f10afa");
+        $this->assertTrue(count($paylinkResult->FetchedEntities) > 0);
+        $paylinkResult = $this->gService->FetchPaylinks(null, "896d9358-a48d-45ec-946b-6a0357f10afa");
+        $this->assertTrue(count($paylinkResult->FetchedEntities) > 0);
+        $paylinkResult = $this->gService->FetchPaylinks(null, null, new DateTime('2021-03-04T00:00:00.000Z'));
+        $this->assertTrue(count($paylinkResult->FetchedEntities) > 0);
+    }
+
+    /** @test */
+    public function GetCustomerApiTokenTest() {
+        $customerApiToken = $this->gService->GetCustomerApiToken('bf193ce3-f54f-40d4-b3e6-da5de83be0be', 'ThisIsATestTokenCreationTest');
+        $jsonMapper = new  JsonMapper();
+        $customerApiToken = $jsonMapper->map($customerApiToken, new CustomerApiToken());
+        $customerApiToken = Utility::cast($customerApiToken, 'GravityLegal\GravityLegalAPI\CustomerApiToken');
+        $this->assertTrue($customerApiToken != null);
+    }
+
+    /** @test */
+    public function GetInvitedUsersTest() {
+        $invitedUsers = $this->gService->GetInvitedUsers();
+        $allInvitedUsersCount  = count($invitedUsers);
+        //echo "All Invited Users Count = $allInvitedUsersCount";
+        $this->assertTrue($allInvitedUsersCount > 0);
+        $invitedUsers = $this->gService->GetInvitedUsers(new DateTime('2021-01-04T00:00:00.000Z'));
+        $invitedUsersSinceFeb1Count  = count($invitedUsers);
+        //echo "Invited Users Count Since Feb 1 = $invitedUsersSinceFeb1Count";
+        $this->assertTrue($invitedUsersSinceFeb1Count < $allInvitedUsersCount);
+    }
+    /** @test */
     public function GetUserByEmailTest() {
         $userResponse = $this->gService->GetUserByEmail('manoj.srivastava@gmail.com');
         $this->assertTrue($userResponse->firstName == 'Manoj');
+        $userResponse = $this->gService->GetUserByEmail('joe.shmoe@gmail.com');
+        $this->assertTrue($userResponse == null);
     }
     //'858de48a-ae71-4912-9335-20d9d33457b0'
     /** @test */
@@ -48,9 +90,41 @@ class GravityLegalAPITest extends TestCase
     }
 
     /** @test */
+    public function GetContactByEmailTest() {
+        $contact = $this->gService->GetContactByEmail('Sonja65@gmail.com');
+        $this->assertTrue($contact->email == 'Sonja65@gmail.com');
+    }
+
+    /** @test */
+    public function GetContactTest() {
+        $contact = $this->gService->GetContact('00f75e1e-aed3-43bd-b471-d3c982b9ad1a');
+        $this->assertTrue($contact->email == 'Sonja65@gmail.com');
+    }
+
+    /** @test */
+    public function FindClientByEmailTest() {
+        $client = $this->gService->FindClientByEmail('Sonja65@gmail.com');
+        $this->assertTrue($client->email == 'Sonja65@gmail.com');
+        $client = $this->gService->FindClientByEmail('joe.shmoe@gmail.com');
+        $this->assertTrue($client == null);
+    }
+
+    /** @test */
     public function FetchUsersTest() {
         $userResponse = $this->gService->FetchUsers(new DateTime('2021-01-01T00:00:00.000Z'));
         $this->assertTrue(count($userResponse->FetchedEntities) > 0);
+    }
+
+    /** @test */
+    public function FetchCustomersTest() {
+        $customerResponse = $this->gService->FetchCustomers(new DateTime('2021-01-01T00:00:00.000Z'));
+        $this->assertTrue(count($customerResponse->FetchedEntities) > 0);
+    }
+
+    /** @test */
+    public function FetchClientsTest() {
+        $clientResponse = $this->gService->FetchClients(new DateTime('2021-01-01T00:00:00.000Z'));
+        $this->assertTrue(count($clientResponse->FetchedEntities) > 0);
     }
 
     /** @test */
