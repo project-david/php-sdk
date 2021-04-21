@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2021-04-20 02:57:44</timestamp>
+  <timestamp>2021-04-21 01:15:58</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>48</methodCount>
+    <methodCount>55</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>204.48</totalCrap>
+    <totalCrap>268.9</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -300,6 +300,105 @@
     <method>
       <package>GravityLegal\GravityLegalAPI</package>
       <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>GetPaylink</methodName>
+      <methodSignature>GetPaylink(string $paylinkId): GravityLegal\GravityLegalAPI\Paylink</methodSignature>
+      <fullMethod>GetPaylink(string $paylinkId): GravityLegal\GravityLegalAPI\Paylink</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>UpdatePaylink</methodName>
+      <methodSignature>UpdatePaylink(GravityLegal\GravityLegalAPI\Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response</methodSignature>
+      <fullMethod>UpdatePaylink(GravityLegal\GravityLegalAPI\Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>AddToPaylink</methodName>
+      <methodSignature>AddToPaylink(GravityLegal\GravityLegalAPI\Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response</methodSignature>
+      <fullMethod>AddToPaylink(GravityLegal\GravityLegalAPI\Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>TrustToOperatingTransfer</methodName>
+      <methodSignature>TrustToOperatingTransfer(string $customerId, string $clientId, float $transferAmt): Unirest\Response</methodSignature>
+      <fullMethod>TrustToOperatingTransfer(string $customerId, string $clientId, float $transferAmt): Unirest\Response</fullMethod>
+      <crap>1</crap>
+      <complexity>1</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FetchCustomerTxn</methodName>
+      <methodSignature>FetchCustomerTxn(GravityLegal\GravityLegalAPI\Customer $customer, DateTime $transactionSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
+      <fullMethod>FetchCustomerTxn(GravityLegal\GravityLegalAPI\Customer $customer, DateTime $transactionSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
+      <crap>13</crap>
+      <complexity>13</complexity>
+      <coverage>96.23</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FetchPaylinkTxn</methodName>
+      <methodSignature>FetchPaylinkTxn(GravityLegal\GravityLegalAPI\PaylinkTxn $paylinkTxn): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
+      <fullMethod>FetchPaylinkTxn(GravityLegal\GravityLegalAPI\PaylinkTxn $paylinkTxn): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
+      <crap>12</crap>
+      <complexity>12</complexity>
+      <coverage>95.56</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>GetPaymentById</methodName>
+      <methodSignature>GetPaymentById(string $paymentId): ?GravityLegal\GravityLegalAPI\Payment</methodSignature>
+      <fullMethod>GetPaymentById(string $paymentId): ?GravityLegal\GravityLegalAPI\Payment</fullMethod>
+      <crap>4</crap>
+      <complexity>4</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>FetchPaymentTxn</methodName>
+      <methodSignature>FetchPaymentTxn(GravityLegal\GravityLegalAPI\Payment $payment): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
+      <fullMethod>FetchPaymentTxn(GravityLegal\GravityLegalAPI\Payment $payment): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
+      <crap>19.42</crap>
+      <complexity>12</complexity>
+      <coverage>62.79</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>GetNewPayments</methodName>
+      <methodSignature>GetNewPayments(string $customerId, DateTime $transactionSinceDateTime): array</methodSignature>
+      <fullMethod>GetNewPayments(string $customerId, DateTime $transactionSinceDateTime): array</fullMethod>
+      <crap>16</crap>
+      <complexity>16</complexity>
+      <coverage>98.28</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
       <methodName>getHttpHeaders</methodName>
       <methodSignature>getHttpHeaders()</methodSignature>
       <fullMethod>getHttpHeaders()</fullMethod>
@@ -366,34 +465,12 @@
     <method>
       <package>GravityLegal\GravityLegalAPI</package>
       <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
-      <methodName>getOperationsUrl</methodName>
-      <methodSignature>getOperationsUrl()</methodSignature>
-      <fullMethod>getOperationsUrl()</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>GravityLegal\GravityLegalAPI</package>
-      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
-      <methodName>setOperationsUrl</methodName>
-      <methodSignature>setOperationsUrl($operationsUrl)</methodSignature>
-      <fullMethod>setOperationsUrl($operationsUrl)</fullMethod>
-      <crap>2</crap>
-      <complexity>1</complexity>
-      <coverage>0</coverage>
-      <crapLoad>0</crapLoad>
-    </method>
-    <method>
-      <package>GravityLegal\GravityLegalAPI</package>
-      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
       <methodName>getOpsUrl</methodName>
       <methodSignature>getOpsUrl()</methodSignature>
       <fullMethod>getOpsUrl()</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

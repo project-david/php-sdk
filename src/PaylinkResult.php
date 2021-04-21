@@ -11,7 +11,3 @@ class PaylinkResultResult {
 class PaylinkResult {
     public PaylinkResultResult $result;
 }
-class GetPaylinkResult
-{
-    public Paylink $result;
-}

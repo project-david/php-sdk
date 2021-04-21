@@ -13,7 +13,6 @@ class GravityLegalService
     protected array $httpHeaders;
     protected string $baseUrl='';
     protected string $prahariBaseUrl;
-    protected string $operationsUrl;
     protected string $opsUrl;
     protected string $appId;
     protected string $orgId;
@@ -963,6 +962,423 @@ class GravityLegalService
         return $createdPaylinkInfo;
     }
 
+    /// <summary>
+    /// Gets the paylink.
+    /// </summary>
+    /// <param name="paylinkId">The paylink id.</param>
+    /// <returns>A Paylink.</returns>
+    public function GetPaylink(string $paylinkId): Paylink {
+        $paylink = null;
+        $url = $this->getBaseUrl() . 'Paylink/' . $paylinkId;
+        $query = array('select' => 'customer,client,matter');
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paylinkResult = $jsonMapper->map($json, new GetPaylinkResult());
+            $paylinkResult = Utility::cast($paylinkResult, 'GravityLegal\GravityLegalAPI\GetPaylinkResult');
+            $paylink = $jsonMapper->map($paylinkResult->result, new Paylink());
+            $paylink = Utility::cast($paylink, 'GravityLegal\GravityLegalAPI\Paylink');
+        }
+        return $paylink;
+    }
+
+    /// <summary>
+    /// Updates the paylink.
+    /// </summary>
+    /// <param name="payLink">The pay link.</param>
+    /// <param name="operatingBalance">The operating balance.</param>
+    /// <param name="trustBalance">The trust balance.</param>
+    /// <returns>An Unirest\Response .</returns>
+    public function UpdatePaylink(Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response {
+        $operatingAmount = intval($operatingAmt * 100.00);
+        $trustAmount = intval($trustAmt * 100.00);
+
+        $addToPaylinkParam = new AddToPaylinkParam();
+        $addToPaylinkParam->operating = new Operating();
+        $addToPaylinkParam->operating->amount = $operatingAmount;
+        $addToPaylinkParam->trust = new Trust();
+        $addToPaylinkParam->trust->amount = $trustAmount;
+
+        $url = $this->getBaseUrl() . 'Paylink/' . $paylink->id . '/updatePaylink';
+        $body = json_encode($addToPaylinkParam);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        return $response;
+    }
+
+
+    /// <summary>
+    /// Adds the given operating and trust amounts to the paylink.
+    /// </summary>
+    /// <param name="payLink">The pay link.</param>
+    /// <param name="operatingAmount">The operating amount.</param>
+    /// <param name="trustAmount">The trust amount.</param>
+    /// <returns>An Unirest\Response .</returns>
+    public function AddToPaylink(Paylink $paylink, float $operatingAmt, float $trustAmt): Unirest\Response {
+        $operatingAmount = intval($operatingAmt * 100.00);
+        $trustAmount = intval($trustAmt * 100.00);
+
+        $addToPaylinkParam = new AddToPaylinkParam();
+        $addToPaylinkParam->operating = new Operating();
+        $addToPaylinkParam->operating->amount = $operatingAmount;
+        $addToPaylinkParam->trust = new Trust();
+        $addToPaylinkParam->trust->amount = $trustAmount;
+
+        $url = $this->getBaseUrl() . 'Paylink/' . $paylink->id . '/addToPaylink';
+        $body = json_encode($addToPaylinkParam);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        return $response;
+    }
+
+    /// <summary>
+    /// Transfers money from the trust account to the operating account.
+    /// </summary>
+    /// <param name="customerId">The customer id.</param>
+    /// <param name="clientId">The client id.</param>
+    /// <param name="transferAmount">The transfer amount.</param>
+    /// <returns>An Unirest\Response .</returns>
+    public function TrustToOperatingTransfer(string $customerId, string $clientId, float $transferAmt) : Unirest\Response {
+        $transferAmount = intval($transferAmt * 100.00);
+        $transferAmountParam = new TrustToMoneyTransferParam();
+        $transferAmountParam->customer = $customerId;
+        $transferAmountParam->client = $clientId;
+        $transferAmountParam->amount = $transferAmount;
+        $url = $this->getOpsUrl() . 'trustToOperatingTransfer';
+        $body = json_encode($transferAmountParam);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        return $response;
+    }
+
+    /// <summary>
+    /// This method returns List of PaylinkTxn records for the given Customer record
+    /// The Customer record must have the Id and orgId fields set correctly in order
+    /// for this method to work
+    /// The parameter "transactionSince" is optional
+    /// If provided, the method returns only the transactions which were updated
+    /// since the given date.
+    /// </summary>
+    /// <param name="customer"></param>
+    /// <param name="transactionSinceDateTime"></param>
+    /// <returns></returns>
+    public function FetchCustomerTxn(Customer $customer, DateTime $transactionSinceDateTime = null): EntityQueryResult {
+        $result = new EntityQueryResult();
+        $result->FetchedEntities = array();
+        $selectValues = 'balance,customer,client.clientName,client.primaryContact.fullName,customer.partner,matter,envelope.invoices.matters,surcharge';
+        $url = $this->getBaseUrl() . 'Paylink';
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($transactionSinceDateTime != null) {
+            $transactionSince = date_format($transactionSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $transactionSince = str_replace('UTC', 'Z', $transactionSince);
+            $query = array("latestActivity:range" => '[' . $transactionSince . ',' .  $createdUntil . ']');
+        }
+        $query = array_merge($query, array('envelope.id:is_null' => 'true','status:not' => 'sealed','select' => $selectValues, 'orderBy' => 'latestActivity', 'orderDir' => 'desc', 'pageNo' => '1', 'pageSize' => '25'));
+        $httpHeaders = $this->getHttpHeaders();
+        $httpHeaders = array_merge($httpHeaders, array('X-PTAHARI-ORGID' => $customer->orgId));
+        $response = Unirest\Request::get($url, $httpHeaders, $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $customerTxnResult = $jsonMapper->map($json, new CustomerTxnResult());
+            $customerTxnResult = Utility::cast($customerTxnResult, 'GravityLegal\GravityLegalAPI\CustomerTxnResult');
+            if (($customerTxnResult != null) && ($customerTxnResult->result != null)) {
+                foreach ($customerTxnResult->result->records as $paylinkTxn) {
+                    $paylinkTxn = $jsonMapper->map($paylinkTxn, new PaylinkTxn());
+                    $paylinkTxn = Utility::cast($paylinkTxn, 'GravityLegal\GravityLegalAPI\PaylinkTxn');
+                    $result->FetchedEntities[] = $paylinkTxn;
+                }
+            }
+        }
+        else {
+            return $result;
+        }
+        $pageSize = $customerTxnResult->result->pageSize;
+        $numPages = $customerTxnResult->result->totalCount / $pageSize;
+        if ($customerTxnResult->result->totalCount % $pageSize != 0)
+            $numPages++;
+        $fetchPage = 1;
+        if ($numPages > 1) {
+            $fetchPage++;
+            while ($fetchPage <= $numPages) {
+                $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                $response = Unirest\Request::get($url, $httpHeaders, $query);
+                $this->setLastRestResponse($response);
+                if ($response->code == 200) {
+                    $json = json_decode($response->raw_body);
+                    $jsonMapper = new  JsonMapper();
+                    $customerTxnResult = $jsonMapper->map($json, new CustomerTxnResult());
+                    $customerTxnResult = Utility::cast($customerTxnResult, 'GravityLegal\GravityLegalAPI\CustomerTxnResult');
+                    if (($customerTxnResult != null) && ($customerTxnResult->result != null)) {
+                        foreach ($customerTxnResult->result->records as $paylinkTxn) {
+                            $paylinkTxn = $jsonMapper->map($paylinkTxn, new PaylinkTxn());
+                            $paylinkTxn = Utility::cast($paylinkTxn, 'GravityLegal\GravityLegalAPI\PaylinkTxn');
+                            $result->FetchedEntities[] = $paylinkTxn;
+                        }
+                    }
+                } else {
+                    break;
+                }
+                $fetchPage++;
+            }
+        }
+        return $result;
+    }
+
+
+    /// <summary>
+    /// This method returns List of PaymentTxn records for the given paylinkTxn
+    /// </summary>
+    /// <param name="paylinkTxn"></param>
+    /// <param name="transactionSince"></param>
+    /// <returns></returns>
+    public function FetchPaylinkTxn(PaylinkTxn $paylinkTxn): EntityQueryResult {
+        $selectValues = 'client.id, client.clientName,client.email,matter.id,matter.name,totalAmount,' .
+                        'paylink.id,paylink.createdOn,paylink.note,paylink.memo,paylink.paymentMethods,' .
+                        'paylink.status,paylink.surchargeEnabled,paylink.url,payment.id,payment.createdOn,' .
+                        'payment.amount,payment.amountProcessed,payment.splits,standingLink,storedPayment.id,' .
+                        'storedPayment.createdOn,storedPayment.cardType,storedPayment.defaultEmail,storedPayment.maskedAccount,' .
+                        'storedPayment.name,storedPayment.status,storedPayment.surchargeEnabled,bankAccount.accountCategory,bankAccount.accountType';
+        $result = new EntityQueryResult();
+        $result->FetchedEntities = array();
+        $url = $this->getBaseUrl() . 'PaymentTxn';
+        $query = array();
+        $query = array_merge($query, array('paylink.id' => $paylinkTxn->id,'select' => $selectValues, 'orderBy' => 'createdOn', 'orderDir' => 'desc', 'pageNo' => '1', 'pageSize' => '25'));
+        $httpHeaders = $this->getHttpHeaders();
+        $httpHeaders = array_merge($httpHeaders, array('X-PTAHARI-ORGID' => $paylinkTxn->customer->orgId));
+        $response = Unirest\Request::get($url, $httpHeaders, $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paymentTxnResult = $jsonMapper->map($json, new PaymentTxnResult());
+            $paymentTxnResult = Utility::cast($paymentTxnResult, 'GravityLegal\GravityLegalAPI\PaymentTxnResult');
+            if (($paymentTxnResult != null) && ($paymentTxnResult->result != null)) {
+                foreach ($paymentTxnResult->result->records as $paymentTxnRecord) {
+                    $paymentTxnRecord = $jsonMapper->map($paymentTxnRecord, new PaymentTxnRecord());
+                    $paymentTxnRecord = Utility::cast($paymentTxnRecord, 'GravityLegal\GravityLegalAPI\PaymentTxnRecord');
+                    $result->FetchedEntities[] = $paymentTxnRecord;
+                }
+            }
+        }
+        else {
+            return $result;
+        }
+        $pageSize = $paymentTxnResult->result->pageSize;
+        $numPages = $paymentTxnResult->result->totalCount / $pageSize;
+        if ($paymentTxnResult->result->totalCount % $pageSize != 0)
+            $numPages++;
+        $fetchPage = 1;
+        if ($numPages > 1) {
+            $fetchPage++;
+            while ($fetchPage <= $numPages)
+            {
+                $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                $response = Unirest\Request::get($url, $httpHeaders, $query);
+                $this->setLastRestResponse($response);
+                if ($response->code == 200) {
+                    $json = json_decode($response->raw_body);
+                    $jsonMapper = new  JsonMapper();
+                    $paymentTxnResult = $jsonMapper->map($json, new PaymentTxnResult());
+                    $paymentTxnResult = Utility::cast($paymentTxnResult, 'GravityLegal\GravityLegalAPI\PaymentTxnResult');
+                    if (($paymentTxnResult != null) && ($paymentTxnResult->result != null)) {
+                        foreach ($paymentTxnResult->result->records as $paymentTxnRecord) {
+                            $paymentTxnRecord = $jsonMapper->map($paymentTxnRecord, new PaymentTxnRecord());
+                            $paymentTxnRecord = Utility::cast($paymentTxnRecord, 'GravityLegal\GravityLegalAPI\PaymentTxnRecord');
+                            $result->FetchedEntities[] = $paymentTxnRecord;
+                        }
+                    }
+                }
+                else {
+                    break;
+                }
+
+                $fetchPage++;
+            }
+        }
+        return $result;
+    }
+
+
+    /// <summary>
+    /// Gets the payment by id.
+    /// </summary>
+    /// <param name="paymentId">The payment id.</param>
+    /// <returns>A Payment.</returns>
+    public function GetPaymentById(string $paymentId): ?Payment {
+        $payment = null;
+        $getPaymentResult = null;
+        $url = $this->getBaseUrl() . 'Payment/' . $paymentId;
+        $response = Unirest\Request::get($url, $this->getHttpHeaders());
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $getPaymentResult = $jsonMapper->map($json, new GetPaymentResult());
+            $getPaymentResult = Utility::cast($getPaymentResult, 'GravityLegal\GravityLegalAPI\GetPaymentResult');
+            if (($getPaymentResult != null) && ($getPaymentResult->result != null)) {
+                $payment = $jsonMapper->map($getPaymentResult->result, new Payment());
+                $payment = Utility::cast($payment, 'GravityLegal\GravityLegalAPI\Payment');
+            }
+        }
+        return $payment;
+    }
+
+    /// <summary>
+    /// Fetches the paylink txn.
+    /// </summary>
+    /// <param name="payment">The payment.</param>
+    /// <returns>An EntityQueryResult.</returns>
+    public function FetchPaymentTxn(Payment $payment): EntityQueryResult {
+        $selectValues = 'client.id, client.clientName,client.email,matter.id,matter.name,totalAmount,' .
+                                'paylink.id,paylink.createdOn,paylink.note,paylink.memo,paylink.paymentMethods,' .
+                                'paylink.status,paylink.surchargeEnabled,paylink.url,payment.id,payment.createdOn,' .
+                                'payment.amount,payment.amountProcessed,payment.splits,standingLink,storedPayment.id,' .
+                                'storedPayment.createdOn,storedPayment.cardType,storedPayment.defaultEmail,storedPayment.maskedAccount,' .
+                                'storedPayment.name,storedPayment.status,storedPayment.surchargeEnabled,bankAccount.accountCategory,bankAccount.accountType';
+        $result = new EntityQueryResult();
+        $result->FetchedEntities = array();
+        $url = $this->getBaseUrl() . 'PaymentTxn';
+        $query = array();
+        $query = array_merge($query, array('payment.id' => $payment->id,'select' => $selectValues, 'orderBy' => 'createdOn', 'orderDir' => 'desc', 'pageNo' => '1', 'pageSize' => '10'));
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paymentTxnResult = $jsonMapper->map($json, new PaymentTxnResult());
+            $paymentTxnResult = Utility::cast($paymentTxnResult, 'GravityLegal\GravityLegalAPI\PaymentTxnResult');
+            if (($paymentTxnResult != null) && ($paymentTxnResult->result != null)) {
+                foreach ($paymentTxnResult->result->records as $paymentTxnRecord) {
+                    $paymentTxnRecord = $jsonMapper->map($paymentTxnRecord, new PaymentTxnRecord());
+                    $paymentTxnRecord = Utility::cast($paymentTxnRecord, 'GravityLegal\GravityLegalAPI\PaymentTxnRecord');
+                    $result->FetchedEntities[] = $paymentTxnRecord;
+                }
+            }
+        }
+        else {
+            return $result;
+        }
+        $pageSize = $paymentTxnResult->result->pageSize;
+        $numPages = $paymentTxnResult->result->totalCount / $pageSize;
+        if ($paymentTxnResult->result->totalCount % $pageSize != 0)
+            $numPages++;
+        $fetchPage = 1;
+        if ($numPages > 1) {
+            $fetchPage++;
+            while ($fetchPage <= $numPages)
+            {
+                $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                $this->setLastRestResponse($response);
+                if ($response->code == 200) {
+                    $json = json_decode($response->raw_body);
+                    $jsonMapper = new  JsonMapper();
+                    $paymentTxnResult = $jsonMapper->map($json, new PaymentTxnResult());
+                    $paymentTxnResult = Utility::cast($paymentTxnResult, 'GravityLegal\GravityLegalAPI\PaymentTxnResult');
+                    if (($paymentTxnResult != null) && ($paymentTxnResult->result != null)) {
+                        foreach ($paymentTxnResult->result->records as $paymentTxnRecord) {
+                            $paymentTxnRecord = $jsonMapper->map($paymentTxnRecord, new PaymentTxnRecord());
+                            $paymentTxnRecord = Utility::cast($paymentTxnRecord, 'GravityLegal\GravityLegalAPI\PaymentTxnRecord');
+                            $result->FetchedEntities[] = $paymentTxnRecord;
+                        }
+                    }
+                }
+                else {
+                    break;
+                }
+
+                $fetchPage++;
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// Gets the new payments.
+    /// </summary>
+    /// <param name="customerId">The customer id.</param>
+    /// <param name="transactionSince">The transaction since.</param>
+    /// <returns>A list of Payments.</returns>
+    public function GetNewPayments(string $customerId, DateTime $transactionSinceDateTime = null): array {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($transactionSinceDateTime != null) {
+            $createdSince = date_format($transactionSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $createdSince = str_replace('UTC', 'Z', $createdSince);
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $query = array_merge($query, array('select' => 'customer.id', 'orderBy' => 'createdOn', 'orderDir' => 'desc', 'pageNo' => '1', 'pageSize' => '25'));
+        if ($customerId != null)
+            $query = array_merge($query, array('customer' => $customerId));
+        $result = array();
+        $url = $this->getBaseUrl() . 'Payment';
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paymentResponse = $jsonMapper->map($json, new PaymentResponse());
+            $paymentResponse = Utility::cast($paymentResponse, 'GravityLegal\GravityLegalAPI\PaymentResponse');
+            foreach ($paymentResponse->result->records as $payment) {
+                $payment = $jsonMapper->map($payment, new Payment());
+                $payment = Utility::cast($payment, 'GravityLegal\GravityLegalAPI\Payment');
+                $paylinkTxnEntityQueryResult = $this->FetchPaymentTxn($payment);
+                if (($paylinkTxnEntityQueryResult != null) && ($paylinkTxnEntityQueryResult->FetchedEntities != null) && (count($paylinkTxnEntityQueryResult->FetchedEntities) > 0)) {
+                    $payment->client = $paylinkTxnEntityQueryResult->FetchedEntities[0]->client;
+                    $payment->matter = $paylinkTxnEntityQueryResult->FetchedEntities[0]->matter;
+                    $payment->paylink = $paylinkTxnEntityQueryResult->FetchedEntities[0]->paylink;
+                }
+                $result[] = $payment;
+            }
+            $numPages = $paymentResponse->result->totalCount / $paymentResponse->result->pageSize;
+            $pageSize = $paymentResponse->result->pageSize;
+ 
+            if ($paymentResponse->result->totalCount % $pageSize != 0) {
+                $numPages++;
+            }
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages) {
+                    $query = array_merge($query, array('pageNo' => $fetchPage, 'pageSize' => $pageSize));
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $paymentResponse = $jsonMapper->map($json, new PaymentResponse());
+                        $paymentResponse = Utility::cast($paymentResponse, 'GravityLegal\GravityLegalAPI\PaymentResponse');
+                        foreach ($paymentResponse->result->records as $payment) {
+                            $payment = $jsonMapper->map($payment, new Payment());
+                            $payment = Utility::cast($payment, 'GravityLegal\GravityLegalAPI\Payment');
+                            $paylinkTxnEntityQueryResult = $this->FetchPaymentTxn($payment);
+                            if (($paylinkTxnEntityQueryResult != null) && ($paylinkTxnEntityQueryResult->FetchedEntities != null) && (count($paylinkTxnEntityQueryResult->FetchedEntities) > 0)) {
+                                $payment->client = $paylinkTxnEntityQueryResult->FetchedEntities[0]->client;
+                                $payment->matter = $paylinkTxnEntityQueryResult->FetchedEntities[0]->matter;
+                                $payment->paylink = $paylinkTxnEntityQueryResult->FetchedEntities[0]->paylink;
+                            }
+                            $result[] = $payment;
+                        }
+                        $fetchPage++;
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return $result;
+    }
 
     /**
      * Get the value of httpHeaders
@@ -1020,26 +1436,6 @@ class GravityLegalService
     public function setPrahariBaseUrl($prahariBaseUrl)
     {
         $this->prahariBaseUrl = $prahariBaseUrl;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of operationsUrl
-     */ 
-    public function getOperationsUrl()
-    {
-        return $this->operationsUrl;
-    }
-
-    /**
-     * Set the value of operationsUrl
-     *
-     * @return  self
-     */ 
-    public function setOperationsUrl($operationsUrl)
-    {
-        $this->operationsUrl = $operationsUrl;
 
         return $this;
     }

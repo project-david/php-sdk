@@ -2,12 +2,21 @@
 namespace GravityLegal\GravityLegalAPI;
 use DateTime;
 
-class Paylink {
-    public Customer $customer;
-    public Client $client;
-    public ?Matter $matter;
-    public int $outstanding;
+class TxnClient {
+    public string $clientName;
+    public PrimaryContact $primaryContact;
+    public string $id;
+}
+class PaylinkTxn {
     public ?Balance $balance;
+    public ?Customer $customer;
+    public ?TxnClient $client;
+    public ?Matter $matter;
+    public ?string $envelope;
+    public ?string $surcharge;
+    public string $status;
+    public DateTime $latestActivity;
+    public int $outstanding;
     public int $paid;
     public string $id;
     public DateTime $createdOn;
@@ -16,11 +25,8 @@ class Paylink {
     public ?DefaultDepositAccounts $defaultDepositAccounts;
     public ?string $externalId;
     public bool $isProcessing;
-    public DateTime $latestActivity;
     public ?string $note;
-    public ?string $memo;
-    public ?array $paymentMethods; // This is a list of strings
-    public string $status;
+    public ?array $paymentMethods; //This is a list of strings
     public bool $surchargeEnabled;
     public ?string $url;
     public ?string $webhookDetails;

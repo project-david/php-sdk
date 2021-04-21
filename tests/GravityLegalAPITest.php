@@ -16,6 +16,7 @@ use GravityLegal\GravityLegalAPI\CreatePaylink;
 use GravityLegal\GravityLegalAPI\Trust;
 use GravityLegal\GravityLegalAPI\CreateMatter;
 use GravityLegal\GravityLegalAPI\CustomerApiToken;
+use GravityLegal\GravityLegalAPI\Paylink;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -39,6 +40,86 @@ class GravityLegalAPITest extends TestCase
     /** @test */
     public function IsOnlineTest() {
         $this->assertTrue($this->gService->IsOnline());
+    }
+
+    /** @test */
+    public function GetPaymentByIdTest() {
+        $payment = $this->gService->GetPaymentById('71dca067-c1be-423d-a3a3-dba2d9dcc3cd');
+        $this->assertTrue($payment != null );
+    }
+
+    /** @test */
+    public function TrustToOperatingTransferTest() {
+        $restResponse = $this->gService->TrustToOperatingTransfer('bf193ce3-f54f-40d4-b3e6-da5de83be0be', '896d9358-a48d-45ec-946b-6a0357f10afa', 200.00);
+        $this->assertTrue($restResponse->code == 200);
+    }
+
+    /** @test */
+    public function AddToPaylinkTest() {
+        $paylink = $this->gService->GetPaylink("87f6dd2e-d8b4-41dd-a609-3e36e414dce2");
+        $this->assertTrue($paylink != null );
+        $initialBalance = $paylink->balance->totalOutstanding;
+        $restResponse = $this->gService->AddToPaylink($paylink, 100.00, 200.00);
+        $this->assertTrue($restResponse->code == 200);
+        $paylink = $this->gService->GetPaylink("87f6dd2e-d8b4-41dd-a609-3e36e414dce2");
+        $this->assertTrue($paylink != null );
+        $this->assertTrue($paylink->balance->totalOutstanding == $initialBalance + 30000);
+    }
+
+    /** @test */
+    public function UpdatePaylinkTest() {
+        //Paylink Id: 87f6dd2e-d8b4-41dd-a609-3e36e414dce2
+        $paylink = new Paylink();
+        $paylink->id = '87f6dd2e-d8b4-41dd-a609-3e36e414dce2';
+        $restResponse = $this->gService->UpdatePaylink($paylink, 1234.56, 2345.67);
+        $this->assertTrue($restResponse->code == 200);
+        $paylink = $this->gService->GetPaylink('87f6dd2e-d8b4-41dd-a609-3e36e414dce2');
+        $this->assertTrue($paylink != null);
+        $this->assertTrue($paylink->balance->totalOutstanding == (123456 + 234567));
+    }
+
+    /** @test */
+    public function FetchPaylinkTxnTest() {
+        $dateSince = new DateTime('2020-12-15T00:00:00.000Z');
+        $payment = $this->gService->GetPaymentById('71dca067-c1be-423d-a3a3-dba2d9dcc3cd');
+        $entityQueryResult = $this->gService->FetchPaymentTxn($payment);
+        $this->assertTrue(count($entityQueryResult->FetchedEntities) > 0);
+        $customer = new Customer();
+        $customer->id = 'bf193ce3-f54f-40d4-b3e6-da5de83be0be';
+        $customer->orgId = '38cb2803-d197-4d2f-ba81-6e6d6bf12373';
+        $customerTxnResult = $this->gService->FetchCustomerTxn($customer, $dateSince);
+        $this->assertTrue(count($customerTxnResult->FetchedEntities) > 0);
+        $entityQueryResult = $this->gService->FetchPaylinkTxn($customerTxnResult->FetchedEntities[0]);
+        $this->assertTrue($this->gService->getLastRestResponse()->code == 200);
+    }
+
+    /** @test */
+    public function FetchCustomerTxnSinceTest() {
+        $customer = new Customer();
+        $customer->id = 'bf193ce3-f54f-40d4-b3e6-da5de83be0be';
+        $customer->name = 'Manoj\'s Firm';
+        $customer->orgId = '38cb2803-d197-4d2f-ba81-6e6d6bf12373';
+        $dateSince = new DateTime('2021-01-01T00:00:00.000Z');
+        $customerTxnSince = $this->gService->FetchCustomerTxn($customer, $dateSince);
+        $txnCount = count($customerTxnSince->FetchedEntities);
+        $this->assertTrue($txnCount > 0);
+    }
+
+    /** @test */
+    public function GetNewPaymentsTest() {
+        $dateSince = new DateTime('2021-01-01T00:00:00.000Z');
+        $payments = $this->gService->GetNewPayments("7a72244e-4586-421d-85e5-a6a2d38188f0", $dateSince);
+        $count = count($payments);
+        $this->assertTrue(count($payments) > 0);
+        $payments = $this->gService->GetNewPayments("61c593e1-a1ec-48a9-a28a-f26956a89d32", $dateSince);
+        $count = count($payments);
+        $this->assertTrue(count($payments) > 0);
+        $payments = $this->gService->GetNewPayments("6c32a45b-de38-48f7-a80a-294f057c10af", $dateSince);
+        $count = count($payments);
+        $this->assertTrue(count($payments) > 0);
+        $payments = $this->gService->GetNewPayments("bf193ce3-f54f-40d4-b3e6-da5de83be0be", $dateSince);
+        $count = count($payments);
+        $this->assertTrue(count($payments) > 0);
     }
 
     /** @test */
