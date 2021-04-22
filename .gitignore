@@ -1,4 +1,6 @@
 /vendor/
+/src/html/
+/src/latex/
 /build/
 /html-coverage/
 /xml-coverage/
