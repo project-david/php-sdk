@@ -62,7 +62,7 @@ class GravityLegalService
     /// If createdSinceDateTime is provided the method returns only the invited users
     /// who were created at or after the given date-time.
     /// </summary>
-    /// <param name="createdSinceDateTime"></param>
+    /// <@param name="createdSinceDateTime"></@param>
     /// <returns> array of InvitedUser objects</returns>
     public function GetInvitedUsers(DateTime $createdSinceDateTime = null) : array {
         $diff1Day = new DateInterval('P1D');

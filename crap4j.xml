@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2021-04-22 04:23:04</timestamp>
+  <timestamp>2021-04-22 16:17:30</timestamp>
   <stats>
     <name>Method Crap Stats</name>
     <methodCount>76</methodCount>
-    <crapMethodCount>3</crapMethodCount>
-    <crapLoad>28</crapLoad>
-    <totalCrap>637.49</totalCrap>
-    <crapMethodPercent>3.95</crapMethodPercent>
+    <crapMethodCount>0</crapMethodCount>
+    <crapLoad>0</crapLoad>
+    <totalCrap>342.27</totalCrap>
+    <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
     <method>
@@ -17,9 +17,9 @@
       <methodName>GetCreatedUser</methodName>
       <methodSignature>GetCreatedUser(): GravityLegal\GravityLegalAPI\User</methodSignature>
       <fullMethod>GetCreatedUser(): GravityLegal\GravityLegalAPI\User</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -160,9 +160,9 @@
       <methodName>CreateNewUsers</methodName>
       <methodSignature>CreateNewUsers(array $createNewUserList): GravityLegal\GravityLegalAPI\EntityCreationResult</methodSignature>
       <fullMethod>CreateNewUsers(array $createNewUserList): GravityLegal\GravityLegalAPI\EntityCreationResult</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>94.12</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -215,10 +215,10 @@
       <methodName>FetchMatters</methodName>
       <methodSignature>FetchMatters(DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
       <fullMethod>FetchMatters(DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
-      <crap>90</crap>
+      <crap>9.03</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>93.18</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>GravityLegal\GravityLegalAPI</package>
@@ -226,9 +226,9 @@
       <methodName>GetMatter</methodName>
       <methodSignature>GetMatter(string $matterId): ?GravityLegal\GravityLegalAPI\Matter</methodSignature>
       <fullMethod>GetMatter(string $matterId): ?GravityLegal\GravityLegalAPI\Matter</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -259,10 +259,10 @@
       <methodName>FetchContacts</methodName>
       <methodSignature>FetchContacts(string $givenClient, DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</methodSignature>
       <fullMethod>FetchContacts(string $givenClient, DateTime $createdSinceDateTime): GravityLegal\GravityLegalAPI\EntityQueryResult</fullMethod>
-      <crap>90</crap>
+      <crap>9.03</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>93.02</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>GravityLegal\GravityLegalAPI</package>
@@ -303,9 +303,9 @@
       <methodName>CreateNewContact</methodName>
       <methodSignature>CreateNewContact(GravityLegal\GravityLegalAPI\CreateContact $createContact): ?GravityLegal\GravityLegalAPI\Contact</methodSignature>
       <fullMethod>CreateNewContact(GravityLegal\GravityLegalAPI\CreateContact $createContact): ?GravityLegal\GravityLegalAPI\Contact</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -314,9 +314,9 @@
       <methodName>MakeContactPrimary</methodName>
       <methodSignature>MakeContactPrimary(GravityLegal\GravityLegalAPI\Contact $contact): bool</methodSignature>
       <fullMethod>MakeContactPrimary(GravityLegal\GravityLegalAPI\Contact $contact): bool</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -336,10 +336,10 @@
       <methodName>FindCustomer</methodName>
       <methodSignature>FindCustomer(string $name, bool $partialMatch): array</methodSignature>
       <fullMethod>FindCustomer(string $name, bool $partialMatch): array</fullMethod>
-      <crap>90</crap>
+      <crap>12.51</crap>
       <complexity>9</complexity>
-      <coverage>0</coverage>
-      <crapLoad>9</crapLoad>
+      <coverage>64.86</coverage>
+      <crapLoad>0</crapLoad>
     </method>
     <method>
       <package>GravityLegal\GravityLegalAPI</package>
@@ -358,9 +358,9 @@
       <methodName>CreateNewCustomers</methodName>
       <methodSignature>CreateNewCustomers(array $createCustomerList): GravityLegal\GravityLegalAPI\EntityCreationResult</methodSignature>
       <fullMethod>CreateNewCustomers(array $createCustomerList): GravityLegal\GravityLegalAPI\EntityCreationResult</fullMethod>
-      <crap>12</crap>
+      <crap>3</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>94.44</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -369,9 +369,9 @@
       <methodName>FindOrCreateCustomer</methodName>
       <methodSignature>FindOrCreateCustomer(GravityLegal\GravityLegalAPI\CreateCustomer $createCustomerParam): GravityLegal\GravityLegalAPI\Customer</methodSignature>
       <fullMethod>FindOrCreateCustomer(GravityLegal\GravityLegalAPI\CreateCustomer $createCustomerParam): GravityLegal\GravityLegalAPI\Customer</fullMethod>
-      <crap>20</crap>
+      <crap>9.2</crap>
       <complexity>4</complexity>
-      <coverage>0</coverage>
+      <coverage>31.25</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -424,9 +424,9 @@
       <methodName>DeleteContact</methodName>
       <methodSignature>DeleteContact(GravityLegal\GravityLegalAPI\Contact $contact): bool</methodSignature>
       <fullMethod>DeleteContact(GravityLegal\GravityLegalAPI\Contact $contact): bool</fullMethod>
-      <crap>6</crap>
+      <crap>2</crap>
       <complexity>2</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -512,9 +512,9 @@
       <methodName>CreateNewPaylink</methodName>
       <methodSignature>CreateNewPaylink(string $custId, string $clientId, float $operatingAmount, float $trustAmount, array $paymentMethods, string $memo, string $matterId, string $externalId): GravityLegal\GravityLegalAPI\PaylinkInfo</methodSignature>
       <fullMethod>CreateNewPaylink(string $custId, string $clientId, float $operatingAmount, float $trustAmount, array $paymentMethods, string $memo, string $matterId, string $externalId): GravityLegal\GravityLegalAPI\PaylinkInfo</fullMethod>
-      <crap>2</crap>
+      <crap>1</crap>
       <complexity>1</complexity>
-      <coverage>0</coverage>
+      <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
@@ -523,9 +523,9 @@
       <methodName>CreateNewPaylinks</methodName>
       <methodSignature>CreateNewPaylinks(array $createPaylinkList): GravityLegal\GravityLegalAPI\EntityCreationResult</methodSignature>
       <fullMethod>CreateNewPaylinks(array $createPaylinkList): GravityLegal\GravityLegalAPI\EntityCreationResult</fullMethod>
-      <crap>12</crap>
+      <crap>3.01</crap>
       <complexity>3</complexity>
-      <coverage>0</coverage>
+      <coverage>88.89</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>

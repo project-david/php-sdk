@@ -21,6 +21,12 @@ use GravityLegal\GravityLegalAPI\Statement;
 use GravityLegal\GravityLegalAPI\ManualPayment;
 use GravityLegal\GravityLegalAPI\DefaultDepositAccounts;
 use GravityLegal\GravityLegalAPI\PaymentRequest;
+use GravityLegal\GravityLegalAPI\CreateUser;
+use GravityLegal\GravityLegalAPI\CreateContact;
+use GravityLegal\GravityLegalAPI\Currency;
+use GravityLegal\GravityLegalAPI\AppData;
+use GravityLegal\GravityLegalAPI\NotifPrefs;
+use GravityLegal\GravityLegalAPI\CreateCustomer;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -44,6 +50,163 @@ class GravityLegalAPITest extends TestCase
     /** @test */
     public function IsOnlineTest() {
         $this->assertTrue($this->gService->IsOnline());
+    }
+
+    /** @test */
+    public function CreateNewPaylinkTest()
+    {
+        $paylinkInfo = $this->gService->CreateNewPaylink("bf193ce3-f54f-40d4-b3e6-da5de83be0be",
+            "896d9358-a48d-45ec-946b-6a0357f10afa", 100.00, 100.00, ["ACH", "CREDIT"],
+            "This is a test", "23c47c88-a287-4962-bf92-6ff30798377c", Utility::GUIDv4());
+        $this->assertTrue($paylinkInfo != null);
+        $this->assertTrue($paylinkInfo->url != null);
+    }
+
+    /** @test */
+    public function CreateNewPaylinksTest()
+    {
+        $createPaylinkList = array();
+        $createPaylink = new CreatePaylink();
+        $createPaylink->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $createPaylink->client = "896d9358-a48d-45ec-946b-6a0357f10afa";
+        $createPaylink->matter = "23c47c88-a287-4962-bf92-6ff30798377c";
+        $createPaylink->externalId = Utility::GUIDv4();
+        $createPaylink->operating = new Operating();
+        $createPaylink->operating->amount = 10000;
+        $createPaylink->trust = new Trust();
+        $createPaylink->trust->amount = 20000;
+        $createPaylink->paymentMethods = ["ACH", "CREDIT"];
+        $createPaylink->memo = "This is a memo";
+        $createPaylink->defaultDepositAccounts = new DefaultDepositAccounts();
+        $createPaylink->defaultDepositAccounts->operating = "a924b520-5cd5-4344-abb6-0da003fb7305";
+        $createPaylink->defaultDepositAccounts->trust = "98965737-a1c4-4a08-821d-438538fac683";
+        $createPaylinkList[] = $createPaylink;
+        $paylinkCreationResults = $this->gService->CreateNewPaylinks($createPaylinkList);
+        $this->assertTrue(count($paylinkCreationResults->FailedRequests) == 0);
+        $this->assertTrue(count($paylinkCreationResults->CreatedEntities) == count($createPaylinkList));
+    }
+
+    /** @test */
+    public function FindOrCreateCustomerTest()
+    {
+        $createCustomer = new CreateCustomer();
+        $createCustomer->name = "Potomac Fun House";
+        $currency = new Currency();
+        $currency->value = 'USD';
+        $currency->label = 'USD($)';
+        $email =  "manoj.srivastava+potomacfunhouse@gmail.com";
+        $appData = new AppData();
+        $appData->currency = $currency;
+        $notifPrefs = new NotifPrefs();
+        $notifPrefs->ACHReturn = false;
+        $notifPrefs->invoiceNotice = false;
+        $notifPrefs->paymentReceipts = false;
+        $notifPrefs->emails = [$email,];
+        $createCustomer->appData = $appData;
+        $createCustomer->notifPrefs = $notifPrefs;
+        $createCustomer->partner = "eaea505e-900b-407c-9ae5-9377ce6c3e6a";
+        $createCustomer->promptToCreateSPM = false;
+        $cust = $this->gService->FindOrCreateCustomer($createCustomer);
+        $this->assertTrue($cust != null);
+        $this->assertTrue($cust->name == 'Potomac Fun House');
+    }
+
+    /** @test */
+    public function CreateNewCustomersTest()
+    {
+        $customerResult = $this->gService->FetchCustomers();
+        $initialCustomerCount = count($customerResult->FetchedEntities);
+        $createCustomerList = $this->GenerateCreateCustomers(1, 'eaea505e-900b-407c-9ae5-9377ce6c3e6a');
+        $customerCreationResult = $this->gService->CreateNewCustomers($createCustomerList);
+        $this->assertTrue(count($customerCreationResult->FailedRequests) == 0);
+        $customerResult = $this->gService->FetchCustomers();
+        $this->assertTrue(count($customerResult->FetchedEntities) == $initialCustomerCount + 1);
+    }
+
+    /** @test */
+    public function FindCustomerTest()
+    {
+        $customers = $this->gService->FindCustomer("Inc");
+        $this->assertTrue($customers != null);
+        $this->assertTrue(count($customers) > 0);
+    }
+
+    /** @test */
+    public function MakeContactPrimaryTest()
+    {
+        $createConactList = $this->GenerateCreateContacts(1, "896d9358-a48d-45ec-946b-6a0357f10afa");
+        $customerApiToken = $this->gService->GetCustomerApiToken("bf193ce3-f54f-40d4-b3e6-da5de83be0be", "ThisIsATestToken");
+        $gs = new GravityLegalService((array)$customerApiToken);
+        $contact = $gs->CreateNewContact($createConactList[0]);
+        $this->assertTrue($contact != null);
+        $result = $gs->MakeContactPrimary($contact);
+        $this->assertTrue($result);
+        $contact = $gs->GetContact($contact->id);
+        $this->assertTrue($contact->isPrimaryContact);
+
+        $entityQueryResult = $gs->FetchContacts($contact->client->id);
+        foreach ($entityQueryResult->FetchedEntities as $con)
+        {
+            if ($con->id == $contact->id)
+                continue;
+            else
+            {
+                $result = $gs->MakeContactPrimary($con);
+                $this->assertTrue($result);
+                $result = $gs->DeleteContact($contact);
+                $this->assertTrue($result);
+                break;
+            }
+        }
+
+    }
+
+    /** @test */
+    public function CreateNewContactTest()
+    {
+        $createConactList = $this->GenerateCreateContacts(1, "896d9358-a48d-45ec-946b-6a0357f10afa");
+        $customerApiToken = $this->gService->GetCustomerApiToken("bf193ce3-f54f-40d4-b3e6-da5de83be0be", "ThisIsATestToken");
+        $gs = new GravityLegalService((array)$customerApiToken);
+        $contact = $gs->CreateNewContact($createConactList[0]);
+        $this->assertTrue($contact != null);
+        $result = $gs->DeleteContact($contact);
+        $this->assertTrue($result);
+    }
+
+    /** @test */
+    public function FetchContactsTest()
+    {
+        $contactResult = $this->gService->FetchContacts();
+        $this->assertTrue(count($contactResult->FetchedEntities) > 0);
+    }
+
+    /** @test */
+    public function GetMatterTest()
+    {
+        $matter = $this->gService->GetMatter("23c47c88-a287-4962-bf92-6ff30798377c");
+        $this->assertTrue($matter != null);
+        $this->assertTrue($matter->name == "New invention patent application");
+    }
+
+    /** @test */
+    public function CreateNewUsersTest() {
+        $invitedUsers = $this->gService->GetInvitedUsers();
+        $initialInvitedUserCount = count($invitedUsers);
+        $customer = new Customer();
+        $customer->id = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $customer->orgId = "38cb2803-d197-4d2f-ba81-6e6d6bf12373";
+        $customer->name = "Manoj's Firm";
+        $createUsers = $this->GenerateCreateUsers(1, $customer);
+        $userCreationResult = $this->gService->CreateNewUsers($createUsers);
+        $this->assertTrue(count($userCreationResult->FailedRequests) == 0);
+        $invitedUsers = $this->gService->GetInvitedUsers();
+        $this->assertTrue(count($invitedUsers) == $initialInvitedUserCount + 1);
+    }
+
+    /** @test */
+    public function FetchMattersTest()    {
+        $matterResult = $this->gService->FetchMatters();
+        $this->assertTrue(count($matterResult->FetchedEntities) > 0);
     }
 
     /** @test */
@@ -455,7 +618,7 @@ class GravityLegalAPITest extends TestCase
             $clientName = $faker->company();
             $firstName = $faker->firstName();
             $lastName = $faker->lastName();
-            $email = $faker->email();
+            $email = "manoj.srivastava+$firstName.$lastName.$clientName@gmail.com";
             $createClient = new CreateClient();
             $createClient->customer = $customer;
             $createClient->clientName = $clientName;
@@ -465,6 +628,73 @@ class GravityLegalAPITest extends TestCase
             $createClientList[] = $createClient;
         }
         return $createClientList;
+    }
+    public function GenerateCreateUsers(int $userCount, Customer $customer): array {
+        $faker = Factory::create();
+        $createUsersList = array();
+        for ($i = 0; $i < $userCount; $i++) {
+            $firstName = $faker->firstName();
+            $lastName = $faker->lastName();
+            $email = "manoj.srivastava+$firstName.$lastName@gmail.com";
+            $createUser = new CreateUser();
+            $createUser->org = $customer->orgId;
+            $createUser->firstName = $firstName;
+            $createUser->lastName = $lastName;
+            $createUser->email = $email;
+            $createUser->status = 'OUTSTANDING';
+            $createUser->invitedBy = '3dfad5ce-57c3-4df4-8bd0-3a2be9fbcaa0';
+            $createUser->role = 'user';
+            $createUser->app = 'soluno';
+            $createUser->website = 'https://app.sandbox.gravity-legal.com';
+            $createUsersList[] = $createUser;
+        }
+        return $createUsersList;
+    }
+    public function GenerateCreateContacts(int $contactCount, string $clientId): array {
+        $faker = Factory::create();
+        $createContactsList = array();
+        for ($i = 0; $i < $contactCount; $i++) {
+            $firstName = $faker->firstName();
+            $lastName = $faker->lastName();
+            $email = "manoj.srivastava+$firstName.$lastName@gmail.com";
+            $phone = $faker->phoneNumber();
+            $createContact = new CreateContact();
+            $createContact->firstName = $firstName;
+            $createContact->lastName = $lastName;
+            $createContact->email = $email;
+            $createContact->phone = $phone;
+            $createContact->client = $clientId;
+            $createContactsList[] = $createContact;
+        }
+        return $createContactsList;
+    }
+    public function GenerateCreateCustomers(int $customerCount, string $partnerId): array {
+        $faker = Factory::create();
+        $createCustomersList = array();
+        for ($i = 0; $i < $customerCount; $i++) {
+            $companyName = $faker->company();
+            $firstName = $faker->firstName();
+            $lastName = $faker->lastName();
+            $email = "manoj.srivastava+$firstName.$lastName@gmail.com";
+            $currency = new Currency();
+            $currency->value = 'USD';
+            $currency->label = 'USD($)';
+            $appData = new AppData();
+            $appData->currency = $currency;
+            $notifPrefs = new NotifPrefs();
+            $notifPrefs->ACHReturn = false;
+            $notifPrefs->invoiceNotice = false;
+            $notifPrefs->paymentReceipts = false;
+            $notifPrefs->emails = [$email,];
+            $createCustomer = new CreateCustomer();
+            $createCustomer->name = $companyName;
+            $createCustomer->partner = $partnerId;
+            $createCustomer->appData = $appData;
+            $createCustomer->promptToCreateSPM = false;
+            $createCustomer->notifPrefs = $notifPrefs;
+            $createCustomersList[] = $createCustomer;
+        }
+        return $createCustomersList;
     }
 
 }

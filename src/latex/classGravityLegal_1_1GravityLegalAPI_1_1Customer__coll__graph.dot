@@ -1,0 +1,31 @@
+digraph "GravityLegal\GravityLegalAPI\Customer"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="GravityLegal\\GravityLegal\lAPI\\Customer",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node2 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $defaultDepositAccounts" ];
+  Node2 [label="GravityLegal\\GravityLegal\lAPI\\DefaultDepositAccounts",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1DefaultDepositAccounts.html",tooltip=" "];
+  Node3 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $notifPrefs" ];
+  Node3 [label="GravityLegal\\GravityLegal\lAPI\\NotifPrefs",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1NotifPrefs.html",tooltip=" "];
+  Node4 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $latestActivity\n$updatedOn\n$createdOn" ];
+  Node4 [label="DateTime",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node5 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $envelopeSettings" ];
+  Node5 [label="GravityLegal\\GravityLegal\lAPI\\EnvelopeSettings",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1EnvelopeSettings.html",tooltip=" "];
+  Node6 -> Node5 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $emailTemplate" ];
+  Node6 [label="GravityLegal\\GravityLegal\lAPI\\EmailTemplate",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1EmailTemplate.html",tooltip=" "];
+  Node7 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $balanceStatement" ];
+  Node7 [label="GravityLegal\\GravityLegal\lAPI\\Balance",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1Balance.html",tooltip=" "];
+  Node4 -> Node7 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $updatedOn\n$createdOn" ];
+  Node8 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $appData" ];
+  Node8 [label="GravityLegal\\GravityLegal\lAPI\\AppData",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1AppData.html",tooltip=" "];
+  Node9 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $currency" ];
+  Node9 [label="GravityLegal\\GravityLegal\lAPI\\Currency",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1Currency.html",tooltip=" "];
+  Node10 -> Node8 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $logo" ];
+  Node10 [label="GravityLegal\\GravityLegal\lAPI\\Logo",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1Logo.html",tooltip=" "];
+  Node11 -> Node1 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $partner" ];
+  Node11 [label="GravityLegal\\GravityLegal\lAPI\\Partner",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$classGravityLegal_1_1GravityLegalAPI_1_1Partner.html",tooltip=" "];
+  Node4 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $updatedOn\n$createdOn" ];
+  Node8 -> Node11 [dir="back",color="darkorchid3",fontsize="10",style="dashed",label=" $appData" ];
+}

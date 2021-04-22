@@ -11,6 +11,3 @@ class ContactResultResult {
 class ContactResult    {
         public ContactResultResult $result ;
 }
-class GetContactResult {
-    public Contact $result ;
-}

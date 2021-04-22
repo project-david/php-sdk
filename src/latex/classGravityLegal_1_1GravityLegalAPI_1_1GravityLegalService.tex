@@ -1,0 +1,1326 @@
+\hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService}{}\doxysection{Gravity\+Legal\textbackslash{}Gravity\+Legal\+A\+PI\textbackslash{}Gravity\+Legal\+Service Class Reference}
+\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService}\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+
+
+Collaboration diagram for Gravity\+Legal\textbackslash{}Gravity\+Legal\+A\+PI\textbackslash{}Gravity\+Legal\+Service\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3feaceb83452c545552ba0645484bab1}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3feaceb83452c545552ba0645484bab1}} 
+{\bfseries \+\_\+\+\_\+construct} (array \$env\+Variables=null)
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a5892be0101fa43a34accc94fdceeb054}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a5892be0101fa43a34accc94fdceeb054}} 
+{\bfseries Is\+Online} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1c6500913e363867909dc66fa20bf5e5}{Get\+Invited\+Users}} (Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the invited users who were created at or after the given date-\/time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4dd6cdef623c72ebd63376cfd2a8d3b4}{Get\+User\+By\+Email}} (string \$email\+Address)
+\begin{DoxyCompactList}\small\item\em Gets the user by email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0820a0faf819d27d947357fab7bd6720}{Get\+User\+By\+Id}} (string \$user\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the user by id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b314031bd5af76f4563353523f8c813}{Fetch\+Users}} (Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the users who were created at or after the given date-\/time and have accepted the invitation by resetting their password \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ebf3ff6c7efff4808789184d85cb34f}{Fetch\+Customers}} (Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the Customers who were created at or after the given date-\/time and have accepted the invitation by resetting their password \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ca3903e5a749fa7b8f14ff3d39eda89}{Fetch\+Paylinks}} (string \$customer\+Id=null, string \$client\+Id=null, Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the paylinks which were created at or after the given date-\/time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ad88dc7f0f694975bc75d22f124daf2ac}{Get\+Customer}} (string \$customer\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the customer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6732fbab9e64bfbbda235a18c7cd370a}{Get\+Customer\+Api\+Token}} (string \$customer\+Id, string \$token\+Name, bool \$create\+If\+Not\+Found=true)
+\begin{DoxyCompactList}\small\item\em Gets the customer api token. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae047ef7c95681e559866842875d8d13e}{Fetch\+Clients}} (Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the Customers who were created at or after the given date-\/time and have accepted the invitation by resetting their password \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac523cd46997fb739ffb48bff0051e022}{Create\+New\+Clients}} (array \$create\+Client\+List)
+\begin{DoxyCompactList}\small\item\em Creates the new clients. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7bcf998948914f8e1e89301a4f9226da}{Create\+New\+Users}} (array \$create\+New\+User\+List)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a48d5cd82ff672ecca6b92a6128736e06}{Get\+Client}} (string \$client\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a24288cbe4355517a8a1f7e3bddfac259}{Make\+Manual\+Payment}} (string \$paylink\+Id, \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1ManualPayment}{Manual\+Payment}} \$manual\+Payment)
+\begin{DoxyCompactList}\small\item\em Makes the manual payment. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a71a55b40d1fa5f1bfed91c9e31947e41}{Make\+Manual\+Payment\+With\+Individual\+Params}} (string \$paylink\+Id, ?float \$operating\+Amount=null, ?float \$trust\+Amount=null, string \$paid\+By, string \$payer\+Email, bool \$send\+Confirmation\+Email\+To\+Payer, string \$payment\+Description, string \$operating\+Bank\+Account\+Id=null, string \$trust\+Bank\+Account\+Id=null)
+\begin{DoxyCompactList}\small\item\em Makes the manual payment. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_adac433616d98b50cc0f3d4df1e5ce65c}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_adac433616d98b50cc0f3d4df1e5ce65c}} 
+{\bfseries Initiate\+Refund\+For\+Payment\+Txn} (string \$payment\+Txn\+Id, float \$amount, float \$additional\+Amount, string \$email\+For\+Sending\+Confirmation)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0f4ca322a1e60f4629815efb9eb511f0}{Fetch\+Matters}} (Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the matters which were created at or after the given date-\/time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a22a1ac162512a0a96d12d7332920c594}{Get\+Matter}} (string \$matter\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the matter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a21e0e84ab015fac5a86c2049ecc2cc7a}{Fetch\+Bank\+Accounts}} (string \$customer\+Id)
+\begin{DoxyCompactList}\small\item\em It fetches all the bank accounts associated with the given customer\+Id \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a2e54b5cc8ea856bc303b1c2744038730}{Get\+Bank\+Account}} (string \$bank\+Account\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the bank account. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af430b0f38b43fca1e5bbc2340c1f379c}{Fetch\+Contacts}} (string \$given\+Client=null, Date\+Time \$created\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the contacts which were created at or after the given date-\/time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1d518431acc6ea4e3da93033f91d7325}{Get\+Contact\+By\+Email}} (string \$email\+Address, string \$client\+Id=null)
+\begin{DoxyCompactList}\small\item\em Gets the contact by email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab1b2f6e6bd0e81c48f2f5defe52c255e}{Find\+Client\+By\+Email}} (string \$email\+Address)
+\begin{DoxyCompactList}\small\item\em Finds the client by email. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8e2e60eb4141fc105d609a63282db278}{Get\+Contact}} (string \$contact\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the contact. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae73214e762ba13a37da432418537bda4}{Create\+New\+Contact}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateContact}{Create\+Contact}} \$create\+Contact)
+\begin{DoxyCompactList}\small\item\em Creates the new contact. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afbd6699baf4a025ab7bc75559c9b82d2}{Make\+Contact\+Primary}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}} \$contact)
+\begin{DoxyCompactList}\small\item\em Makes the contact primary. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6bba810660f7e0b3cb8bd3755726da4}{Find\+Client}} (string \$customer\+Id, string \$client\+Name, bool \$partial\+Match=true)
+\begin{DoxyCompactList}\small\item\em Finds the client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6e419039f0c918939279709b36d6fd0}{Find\+Customer}} (string \$name, bool \$partial\+Match=true)
+\begin{DoxyCompactList}\small\item\em Finds the customer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa86aeb5cdb11ce91534479af5c1d3dd6}{Find\+Or\+Create\+Client}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateClient}{Create\+Client}} \$create\+Client\+Param)
+\begin{DoxyCompactList}\small\item\em Finds the or create client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeb56daa9a810f8fc19dd2adea3190547}{Create\+New\+Customers}} (array \$create\+Customer\+List)
+\begin{DoxyCompactList}\small\item\em Creates the new customers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a969e489317c707424eb0dc7d0921e4d1}{Find\+Or\+Create\+Customer}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateCustomer}{Create\+Customer}} \$create\+Customer\+Param)
+\begin{DoxyCompactList}\small\item\em Finds the or create customer. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af005280c3e8f5fabca7e69c575fb1c16}{Delete\+Paylink}} (string \$paylink\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes the paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a252cc8dd6ddc3c94acdae1e6d272a932}{Delete\+Client}} (string \$client\+Id)
+\begin{DoxyCompactList}\small\item\em Deletes the client. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a85c394cfaa45a48684ad74bbb9df985e}{Delete\+Contact}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}} \$contact)
+\begin{DoxyCompactList}\small\item\em Deletes the contact. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7126aa998d724d333ecfbe0de566ae97}{Create\+New\+Matters}} (array \$create\+Matter\+List)
+\begin{DoxyCompactList}\small\item\em Creates the new matters. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a35a61f8cc1c5b2d81c67ef7702c48890}{Find\+Or\+Create\+Matter}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateMatter}{Create\+Matter}} \$create\+Matter)
+\begin{DoxyCompactList}\small\item\em Finds the or create matter. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9c7e58feef282f484558b0f6195334b3}{Find\+Matter\+By\+External\+Id}} (string \$external\+Id)
+\begin{DoxyCompactList}\small\item\em Finds the matter by external id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afd19bf56db6d5e3b94bddc9e4483c7f1}{Create\+Payment\+Request}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaymentRequest}{Payment\+Request}} \$payment\+Request)
+\begin{DoxyCompactList}\small\item\em Creates the payment requests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a5f27092726913a1ad8ff6fa63ab0d142}{Create\+Payment\+Requests}} (array \$create\+Payment\+Request\+List)
+\begin{DoxyCompactList}\small\item\em Creates the payment requests. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a516ce3752175c827f1f2823026cc60dc}{Create\+New\+Paylink\+With\+Matter}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreatePaylink}{Create\+Paylink}} \$create\+Paylink, \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateMatter}{Create\+Matter}} \$create\+Matter=null)
+\begin{DoxyCompactList}\small\item\em Creates the new paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a79259b1c8c30c659d5bf2450b1f90fc2}{Create\+New\+Paylink\+With\+Default\+Deposit\+Accounts}} (string \$cust\+Id, string \$client\+Id, float \$operating\+Amount, float \$trust\+Amount, \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1DefaultDepositAccounts}{Default\+Deposit\+Accounts}} \$default\+Deposit\+Accounts, array \$payment\+Methods=null, string \$memo=null, string \$matter\+Id=null, string \$external\+Id=null)
+\begin{DoxyCompactList}\small\item\em Creates the new paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9a6fdb09fb7a7ecbdd44c20069ff236c}{Create\+New\+Paylink}} (string \$cust\+Id, string \$client\+Id, float \$operating\+Amount, float \$trust\+Amount, array \$payment\+Methods=null, string \$memo=null, string \$matter\+Id=null, string \$external\+Id=null)
+\begin{DoxyCompactList}\small\item\em Creates the new paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4d8d75de9d9f2469a675d80a0496a136}{Create\+New\+Paylinks}} (array \$create\+Paylink\+List)
+\begin{DoxyCompactList}\small\item\em Creates the new paylinks. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac49067058ca9da6fdf3a84baf11f1130}{Get\+Paylink}} (string \$paylink\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9445c925b70df1755c083c182dc761f3}{Update\+Paylink}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Paylink}{Paylink}} \$paylink, float \$operating\+Amt, float \$trust\+Amt)
+\begin{DoxyCompactList}\small\item\em Updates the paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa1b3e4c44b5e9a3a9949fc8d7cdb8426}{Add\+To\+Paylink}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Paylink}{Paylink}} \$paylink, float \$operating\+Amt, float \$trust\+Amt)
+\begin{DoxyCompactList}\small\item\em Adds the given operating and trust amounts to the paylink. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6a567c2a6cea708ecfc024f6cebf7805}{Trust\+To\+Operating\+Transfer}} (string \$customer\+Id, string \$client\+Id, float \$transfer\+Amt)
+\begin{DoxyCompactList}\small\item\em Transfers money from the trust account to the operating account. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8ff4d487fd1f268e986a6a7ecc54db12}{Fetch\+Customer\+Txn}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}} \$customer, Date\+Time \$transaction\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em This method returns List of \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkTxn}{Paylink\+Txn}} records for the given \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}} record The \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}} record must have the Id and org\+Id fields set correctly in order for this method to work The parameter \char`\"{}transaction\+Since\char`\"{} is optional If provided, the method returns only the transactions which were updated since the given date. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab6b118234b032b849f529e430482765c}{Fetch\+Paylink\+Txn}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkTxn}{Paylink\+Txn}} \$paylink\+Txn)
+\begin{DoxyCompactList}\small\item\em This method returns List of Payment\+Txn records for the given paylink\+Txn \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a87eee6212a8fe8f15cabfbadd4c23b65}{Get\+Payment\+By\+Id}} (string \$payment\+Id)
+\begin{DoxyCompactList}\small\item\em Gets the payment by id. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab26f661fd4270621120055ee7d7ffcda}{Fetch\+Payment\+Txn}} (\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Payment}{Payment}} \$payment)
+\begin{DoxyCompactList}\small\item\em Fetches the paylink txn. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae8a6c0c1a298267c26530e8065aacf51}{Get\+New\+Payments}} (string \$customer\+Id, Date\+Time \$transaction\+Since\+Date\+Time=null)
+\begin{DoxyCompactList}\small\item\em Gets the new payments. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a98f47bb7bb6bbf4929fbb5cbe7387a19}{get\+Http\+Headers}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a793a920936a050c646ec8a1f29be1f5a}{set\+Http\+Headers}} (\$http\+Headers)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a00ff3804aa5d66e149c09dfdea5337ad}{get\+Base\+Url}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7944b78f8883d2a8e9da1c3fe8ac4635}{set\+Base\+Url}} (\$base\+Url)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aff6fd22f53fa5865507a3df61571db8a}{get\+Prahari\+Base\+Url}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9d9a3aec3eaf0a0c8f794add22a56a61}{set\+Prahari\+Base\+Url}} (\$prahari\+Base\+Url)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4021ac6aa6f4c863a27b60437cf2c0d4}{get\+Ops\+Url}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac011d76c35fa6b1d4422432dd4e4ffd2}{set\+Ops\+Url}} (\$ops\+Url)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_abb52a12c295ce6d7e992b0b6d423dc54}{get\+App\+Id}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a61a4e046546be167c1c76534bf8a70dd}{set\+App\+Id}} (\$app\+Id)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8bf696851bebf62b3bf1f7a1d74800fb}{get\+Org\+Id}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a44f817c9ed49219ba4005ab1464511ea}{set\+Org\+Id}} (\$org\+Id)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af1bca4eecdcba24d5ed9f6f65bdba67a}{get\+Last\+Rest\+Response}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a56f90805bc4f8db12770bdcadfb51219}{set\+Last\+Rest\+Response}} (\$last\+Rest\+Response)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7f8809a50cf73965c7dde1924c2cdde2}{get\+Env\+Url}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b24d989677cdf45d478dafd4180cf9a}{set\+Env\+Url}} (\$env\+Url)
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af5ffb7286431cd7adce85ed00fb39229}{get\+Prahari\+Url}} ()
+\item 
+\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeafcccaf9a8d4025337861f3b1ca2138}{set\+Prahari\+Url}} (\$prahari\+Url)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a941080e6319ed747bd8f6921b28d9ae5}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a941080e6319ed747bd8f6921b28d9ae5}} 
+array {\bfseries \$http\+Headers}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a89fb42883561cb040e4df294d81f1dc6}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a89fb42883561cb040e4df294d81f1dc6}} 
+string {\bfseries \$base\+Url} =\textquotesingle{}\textquotesingle{}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aaee226019e4c6636fd5973862f76a625}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aaee226019e4c6636fd5973862f76a625}} 
+string {\bfseries \$prahari\+Base\+Url}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4779235beb86056a90249d0d1c9976d1}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4779235beb86056a90249d0d1c9976d1}} 
+string {\bfseries \$ops\+Url}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3f7aae779735868556a0030b7f4100f8}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3f7aae779735868556a0030b7f4100f8}} 
+string {\bfseries \$app\+Id}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4fa3fac1ab241745ed40492254254b68}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4fa3fac1ab241745ed40492254254b68}} 
+string {\bfseries \$org\+Id}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa0427b0f5c33d4b04b53f46c45784d91}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa0427b0f5c33d4b04b53f46c45784d91}} 
+string {\bfseries \$prahari\+Url}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afe2a1c282906e6bb9a61cb0768204c8d}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afe2a1c282906e6bb9a61cb0768204c8d}} 
+string {\bfseries \$env\+Url}
+\item 
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afd9da502bc9a8a8e778db1473f165bc8}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afd9da502bc9a8a8e778db1473f165bc8}} 
+Unirest Response {\bfseries \$last\+Rest\+Response}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa1b3e4c44b5e9a3a9949fc8d7cdb8426}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa1b3e4c44b5e9a3a9949fc8d7cdb8426}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!AddToPaylink@{AddToPaylink}}
+\index{AddToPaylink@{AddToPaylink}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{AddToPaylink()}{AddToPaylink()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Add\+To\+Paylink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Paylink}{Paylink}}}]{\$paylink,  }\item[{float}]{\$operating\+Amt,  }\item[{float}]{\$trust\+Amt }\end{DoxyParamCaption})}
+
+
+
+Adds the given operating and trust amounts to the paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pay\+Link} & The pay link.\\
+\hline
+{\em operating\+Amount} & The operating amount.\\
+\hline
+{\em trust\+Amount} & The trust amount.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Unirest\textbackslash{}\+Response .
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac523cd46997fb739ffb48bff0051e022}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac523cd46997fb739ffb48bff0051e022}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewClients@{CreateNewClients}}
+\index{CreateNewClients@{CreateNewClients}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewClients()}{CreateNewClients()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Clients (\begin{DoxyParamCaption}\item[{array}]{\$create\+Client\+List }\end{DoxyParamCaption})}
+
+
+
+Creates the new clients. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Client\+List} & An array containing \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateClient}{Create\+Client}} objects\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae73214e762ba13a37da432418537bda4}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae73214e762ba13a37da432418537bda4}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewContact@{CreateNewContact}}
+\index{CreateNewContact@{CreateNewContact}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewContact()}{CreateNewContact()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateContact}{Create\+Contact}}}]{\$create\+Contact }\end{DoxyParamCaption})}
+
+
+
+Creates the new contact. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Contact} & The create contact.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeb56daa9a810f8fc19dd2adea3190547}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeb56daa9a810f8fc19dd2adea3190547}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewCustomers@{CreateNewCustomers}}
+\index{CreateNewCustomers@{CreateNewCustomers}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewCustomers()}{CreateNewCustomers()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Customers (\begin{DoxyParamCaption}\item[{array}]{\$create\+Customer\+List }\end{DoxyParamCaption})}
+
+
+
+Creates the new customers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Customer\+List} & The create customer list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7126aa998d724d333ecfbe0de566ae97}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7126aa998d724d333ecfbe0de566ae97}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewMatters@{CreateNewMatters}}
+\index{CreateNewMatters@{CreateNewMatters}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewMatters()}{CreateNewMatters()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Matters (\begin{DoxyParamCaption}\item[{array}]{\$create\+Matter\+List }\end{DoxyParamCaption})}
+
+
+
+Creates the new matters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Matter\+List} & The create matter list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9a6fdb09fb7a7ecbdd44c20069ff236c}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9a6fdb09fb7a7ecbdd44c20069ff236c}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewPaylink@{CreateNewPaylink}}
+\index{CreateNewPaylink@{CreateNewPaylink}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewPaylink()}{CreateNewPaylink()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Paylink (\begin{DoxyParamCaption}\item[{string}]{\$cust\+Id,  }\item[{string}]{\$client\+Id,  }\item[{float}]{\$operating\+Amount,  }\item[{float}]{\$trust\+Amount,  }\item[{array}]{\$payment\+Methods = {\ttfamily null},  }\item[{string}]{\$memo = {\ttfamily null},  }\item[{string}]{\$matter\+Id = {\ttfamily null},  }\item[{string}]{\$external\+Id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Creates the new paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust\+Id} & The cust id.\\
+\hline
+{\em client\+Id} & The client id.\\
+\hline
+{\em operating\+Amount} & The operating amount.\\
+\hline
+{\em trust\+Amount} & The trust amount.\\
+\hline
+{\em payment\+Methods} & The payment methods.\\
+\hline
+{\em memo} & The memo.\\
+\hline
+{\em matter\+Id} & The matter id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkInfo}{Paylink\+Info}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4d8d75de9d9f2469a675d80a0496a136}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4d8d75de9d9f2469a675d80a0496a136}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewPaylinks@{CreateNewPaylinks}}
+\index{CreateNewPaylinks@{CreateNewPaylinks}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewPaylinks()}{CreateNewPaylinks()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Paylinks (\begin{DoxyParamCaption}\item[{array}]{\$create\+Paylink\+List }\end{DoxyParamCaption})}
+
+
+
+Creates the new paylinks. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Paylink\+List} & The \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreatePaylink}{Create\+Paylink}} list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a79259b1c8c30c659d5bf2450b1f90fc2}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a79259b1c8c30c659d5bf2450b1f90fc2}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewPaylinkWithDefaultDepositAccounts@{CreateNewPaylinkWithDefaultDepositAccounts}}
+\index{CreateNewPaylinkWithDefaultDepositAccounts@{CreateNewPaylinkWithDefaultDepositAccounts}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewPaylinkWithDefaultDepositAccounts()}{CreateNewPaylinkWithDefaultDepositAccounts()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Paylink\+With\+Default\+Deposit\+Accounts (\begin{DoxyParamCaption}\item[{string}]{\$cust\+Id,  }\item[{string}]{\$client\+Id,  }\item[{float}]{\$operating\+Amount,  }\item[{float}]{\$trust\+Amount,  }\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1DefaultDepositAccounts}{Default\+Deposit\+Accounts}}}]{\$default\+Deposit\+Accounts,  }\item[{array}]{\$payment\+Methods = {\ttfamily null},  }\item[{string}]{\$memo = {\ttfamily null},  }\item[{string}]{\$matter\+Id = {\ttfamily null},  }\item[{string}]{\$external\+Id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Creates the new paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cust\+Id} & The cust id.\\
+\hline
+{\em client\+Id} & The client id.\\
+\hline
+{\em operating\+Amount} & The operating amount.\\
+\hline
+{\em trust\+Amount} & The trust amount.\\
+\hline
+{\em default\+Deposit\+Accounts} & The default deposit accounts for depositing payments to.\\
+\hline
+{\em payment\+Methods} & The payment methods.\\
+\hline
+{\em memo} & The memo.\\
+\hline
+{\em matter\+Id} & The matter id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkInfo}{Paylink\+Info}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a516ce3752175c827f1f2823026cc60dc}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a516ce3752175c827f1f2823026cc60dc}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewPaylinkWithMatter@{CreateNewPaylinkWithMatter}}
+\index{CreateNewPaylinkWithMatter@{CreateNewPaylinkWithMatter}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewPaylinkWithMatter()}{CreateNewPaylinkWithMatter()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Paylink\+With\+Matter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreatePaylink}{Create\+Paylink}}}]{\$create\+Paylink,  }\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateMatter}{Create\+Matter}}}]{\$create\+Matter = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Creates the new paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Paylink} & The create paylink.\\
+\hline
+{\em create\+Matter} & Optional parameter. The matter to link the paylink with. It is created if not found.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkInfo}{Paylink\+Info}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7bcf998948914f8e1e89301a4f9226da}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7bcf998948914f8e1e89301a4f9226da}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreateNewUsers@{CreateNewUsers}}
+\index{CreateNewUsers@{CreateNewUsers}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreateNewUsers()}{CreateNewUsers()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+New\+Users (\begin{DoxyParamCaption}\item[{array}]{\$create\+New\+User\+List }\end{DoxyParamCaption})}
+
+
+
+
+
+Creates the new users.
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+New\+User\+List} & The create new user list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afd19bf56db6d5e3b94bddc9e4483c7f1}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afd19bf56db6d5e3b94bddc9e4483c7f1}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreatePaymentRequest@{CreatePaymentRequest}}
+\index{CreatePaymentRequest@{CreatePaymentRequest}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreatePaymentRequest()}{CreatePaymentRequest()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+Payment\+Request (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaymentRequest}{Payment\+Request}}}]{\$payment\+Request }\end{DoxyParamCaption})}
+
+
+
+Creates the payment requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em payment\+Request} & The create payment request list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a5f27092726913a1ad8ff6fa63ab0d142}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a5f27092726913a1ad8ff6fa63ab0d142}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!CreatePaymentRequests@{CreatePaymentRequests}}
+\index{CreatePaymentRequests@{CreatePaymentRequests}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{CreatePaymentRequests()}{CreatePaymentRequests()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Create\+Payment\+Requests (\begin{DoxyParamCaption}\item[{array}]{\$create\+Payment\+Request\+List }\end{DoxyParamCaption})}
+
+
+
+Creates the payment requests. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Payment\+Request\+List} & The create payment request list.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A Dictionary.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a252cc8dd6ddc3c94acdae1e6d272a932}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a252cc8dd6ddc3c94acdae1e6d272a932}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!DeleteClient@{DeleteClient}}
+\index{DeleteClient@{DeleteClient}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{DeleteClient()}{DeleteClient()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Delete\+Client (\begin{DoxyParamCaption}\item[{string}]{\$client\+Id }\end{DoxyParamCaption})}
+
+
+
+Deletes the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The client id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a85c394cfaa45a48684ad74bbb9df985e}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a85c394cfaa45a48684ad74bbb9df985e}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!DeleteContact@{DeleteContact}}
+\index{DeleteContact@{DeleteContact}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{DeleteContact()}{DeleteContact()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Delete\+Contact (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}}]{\$contact }\end{DoxyParamCaption})}
+
+
+
+Deletes the contact. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contact} & The contact to delete.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af005280c3e8f5fabca7e69c575fb1c16}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af005280c3e8f5fabca7e69c575fb1c16}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!DeletePaylink@{DeletePaylink}}
+\index{DeletePaylink@{DeletePaylink}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{DeletePaylink()}{DeletePaylink()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Delete\+Paylink (\begin{DoxyParamCaption}\item[{string}]{\$paylink\+Id }\end{DoxyParamCaption})}
+
+
+
+Deletes the paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paylink\+Id} & The paylink id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a21e0e84ab015fac5a86c2049ecc2cc7a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a21e0e84ab015fac5a86c2049ecc2cc7a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchBankAccounts@{FetchBankAccounts}}
+\index{FetchBankAccounts@{FetchBankAccounts}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchBankAccounts()}{FetchBankAccounts()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Bank\+Accounts (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id }\end{DoxyParamCaption})}
+
+
+
+It fetches all the bank accounts associated with the given customer\+Id 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae047ef7c95681e559866842875d8d13e}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae047ef7c95681e559866842875d8d13e}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchClients@{FetchClients}}
+\index{FetchClients@{FetchClients}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchClients()}{FetchClients()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Clients (\begin{DoxyParamCaption}\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the Customers who were created at or after the given date-\/time and have accepted the invitation by resetting their password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em created\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af430b0f38b43fca1e5bbc2340c1f379c}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af430b0f38b43fca1e5bbc2340c1f379c}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchContacts@{FetchContacts}}
+\index{FetchContacts@{FetchContacts}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchContacts()}{FetchContacts()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Contacts (\begin{DoxyParamCaption}\item[{string}]{\$given\+Client = {\ttfamily null},  }\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the contacts which were created at or after the given date-\/time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em given\+Client} & Optional. If given, it returns contacts related to that client only\\
+\hline
+{\em created\+Since\+Date\+Time} & optional\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ebf3ff6c7efff4808789184d85cb34f}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ebf3ff6c7efff4808789184d85cb34f}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchCustomers@{FetchCustomers}}
+\index{FetchCustomers@{FetchCustomers}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchCustomers()}{FetchCustomers()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Customers (\begin{DoxyParamCaption}\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the Customers who were created at or after the given date-\/time and have accepted the invitation by resetting their password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em created\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8ff4d487fd1f268e986a6a7ecc54db12}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8ff4d487fd1f268e986a6a7ecc54db12}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchCustomerTxn@{FetchCustomerTxn}}
+\index{FetchCustomerTxn@{FetchCustomerTxn}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchCustomerTxn()}{FetchCustomerTxn()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Customer\+Txn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}}}]{\$customer,  }\item[{Date\+Time}]{\$transaction\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+This method returns List of \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkTxn}{Paylink\+Txn}} records for the given \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}} record The \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}} record must have the Id and org\+Id fields set correctly in order for this method to work The parameter \char`\"{}transaction\+Since\char`\"{} is optional If provided, the method returns only the transactions which were updated since the given date. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer} & \\
+\hline
+{\em transaction\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0f4ca322a1e60f4629815efb9eb511f0}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0f4ca322a1e60f4629815efb9eb511f0}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchMatters@{FetchMatters}}
+\index{FetchMatters@{FetchMatters}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchMatters()}{FetchMatters()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Matters (\begin{DoxyParamCaption}\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the matters which were created at or after the given date-\/time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em created\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ca3903e5a749fa7b8f14ff3d39eda89}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a3ca3903e5a749fa7b8f14ff3d39eda89}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchPaylinks@{FetchPaylinks}}
+\index{FetchPaylinks@{FetchPaylinks}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchPaylinks()}{FetchPaylinks()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Paylinks (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id = {\ttfamily null},  }\item[{string}]{\$client\+Id = {\ttfamily null},  }\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the paylinks which were created at or after the given date-\/time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & \\
+\hline
+{\em client\+Id} & \\
+\hline
+{\em created\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab6b118234b032b849f529e430482765c}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab6b118234b032b849f529e430482765c}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchPaylinkTxn@{FetchPaylinkTxn}}
+\index{FetchPaylinkTxn@{FetchPaylinkTxn}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchPaylinkTxn()}{FetchPaylinkTxn()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Paylink\+Txn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1PaylinkTxn}{Paylink\+Txn}}}]{\$paylink\+Txn }\end{DoxyParamCaption})}
+
+
+
+This method returns List of Payment\+Txn records for the given paylink\+Txn 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paylink\+Txn} & \\
+\hline
+{\em transaction\+Since} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab26f661fd4270621120055ee7d7ffcda}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab26f661fd4270621120055ee7d7ffcda}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchPaymentTxn@{FetchPaymentTxn}}
+\index{FetchPaymentTxn@{FetchPaymentTxn}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchPaymentTxn()}{FetchPaymentTxn()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Payment\+Txn (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Payment}{Payment}}}]{\$payment }\end{DoxyParamCaption})}
+
+
+
+Fetches the paylink txn. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em payment} & The payment.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1EntityQueryResult}{Entity\+Query\+Result}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b314031bd5af76f4563353523f8c813}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b314031bd5af76f4563353523f8c813}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FetchUsers@{FetchUsers}}
+\index{FetchUsers@{FetchUsers}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FetchUsers()}{FetchUsers()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Fetch\+Users (\begin{DoxyParamCaption}\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the users who were created at or after the given date-\/time and have accepted the invitation by resetting their password 
+
+
+\begin{DoxyParams}{Parameters}
+{\em created\+Since\+Date\+Time} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6bba810660f7e0b3cb8bd3755726da4}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6bba810660f7e0b3cb8bd3755726da4}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindClient@{FindClient}}
+\index{FindClient@{FindClient}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindClient()}{FindClient()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Client (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id,  }\item[{string}]{\$client\+Name,  }\item[{bool}]{\$partial\+Match = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Finds the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customer id.\\
+\hline
+{\em client\+Name} & The client name.\\
+\hline
+{\em partial\+Match} & If true, partial match.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Clients.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab1b2f6e6bd0e81c48f2f5defe52c255e}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ab1b2f6e6bd0e81c48f2f5defe52c255e}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindClientByEmail@{FindClientByEmail}}
+\index{FindClientByEmail@{FindClientByEmail}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindClientByEmail()}{FindClientByEmail()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Client\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{\$email\+Address }\end{DoxyParamCaption})}
+
+
+
+Finds the client by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email\+Address} & The email address.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Client}{Client}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6e419039f0c918939279709b36d6fd0}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae6e419039f0c918939279709b36d6fd0}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindCustomer@{FindCustomer}}
+\index{FindCustomer@{FindCustomer}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindCustomer()}{FindCustomer()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Customer (\begin{DoxyParamCaption}\item[{string}]{\$name,  }\item[{bool}]{\$partial\+Match = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Finds the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name.\\
+\hline
+{\em partial\+Match} & If true, partial match.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Customers.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9c7e58feef282f484558b0f6195334b3}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9c7e58feef282f484558b0f6195334b3}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindMatterByExternalId@{FindMatterByExternalId}}
+\index{FindMatterByExternalId@{FindMatterByExternalId}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindMatterByExternalId()}{FindMatterByExternalId()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Matter\+By\+External\+Id (\begin{DoxyParamCaption}\item[{string}]{\$external\+Id }\end{DoxyParamCaption})}
+
+
+
+Finds the matter by external id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em external\+Id} & The external id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Matter}{Matter}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa86aeb5cdb11ce91534479af5c1d3dd6}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aa86aeb5cdb11ce91534479af5c1d3dd6}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindOrCreateClient@{FindOrCreateClient}}
+\index{FindOrCreateClient@{FindOrCreateClient}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindOrCreateClient()}{FindOrCreateClient()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Or\+Create\+Client (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateClient}{Create\+Client}}}]{\$create\+Client\+Param }\end{DoxyParamCaption})}
+
+
+
+Finds the or create client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Client\+Param} & The create client param.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Client}{Client}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a969e489317c707424eb0dc7d0921e4d1}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a969e489317c707424eb0dc7d0921e4d1}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindOrCreateCustomer@{FindOrCreateCustomer}}
+\index{FindOrCreateCustomer@{FindOrCreateCustomer}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindOrCreateCustomer()}{FindOrCreateCustomer()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Or\+Create\+Customer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateCustomer}{Create\+Customer}}}]{\$create\+Customer\+Param }\end{DoxyParamCaption})}
+
+
+
+Finds the or create customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Customer\+Param} & The create customer param.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a35a61f8cc1c5b2d81c67ef7702c48890}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a35a61f8cc1c5b2d81c67ef7702c48890}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!FindOrCreateMatter@{FindOrCreateMatter}}
+\index{FindOrCreateMatter@{FindOrCreateMatter}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{FindOrCreateMatter()}{FindOrCreateMatter()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Find\+Or\+Create\+Matter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CreateMatter}{Create\+Matter}}}]{\$create\+Matter }\end{DoxyParamCaption})}
+
+
+
+Finds the or create matter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em create\+Matter} & The create matter.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Matter}{Matter}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_abb52a12c295ce6d7e992b0b6d423dc54}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_abb52a12c295ce6d7e992b0b6d423dc54}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getAppId@{getAppId}}
+\index{getAppId@{getAppId}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getAppId()}{getAppId()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+App\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of app\+Id \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a2e54b5cc8ea856bc303b1c2744038730}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a2e54b5cc8ea856bc303b1c2744038730}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetBankAccount@{GetBankAccount}}
+\index{GetBankAccount@{GetBankAccount}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetBankAccount()}{GetBankAccount()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Bank\+Account (\begin{DoxyParamCaption}\item[{string}]{\$bank\+Account\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the bank account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bank\+Account\+Id} & The bank account id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1BankAccount}{Bank\+Account}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a00ff3804aa5d66e149c09dfdea5337ad}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a00ff3804aa5d66e149c09dfdea5337ad}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getBaseUrl@{getBaseUrl}}
+\index{getBaseUrl@{getBaseUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getBaseUrl()}{getBaseUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Base\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of base\+Url \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a48d5cd82ff672ecca6b92a6128736e06}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a48d5cd82ff672ecca6b92a6128736e06}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetClient@{GetClient}}
+\index{GetClient@{GetClient}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetClient()}{GetClient()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Client (\begin{DoxyParamCaption}\item[{string}]{\$client\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the client. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em client\+Id} & The client id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Client}{Client}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8e2e60eb4141fc105d609a63282db278}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8e2e60eb4141fc105d609a63282db278}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetContact@{GetContact}}
+\index{GetContact@{GetContact}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetContact()}{GetContact()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Contact (\begin{DoxyParamCaption}\item[{string}]{\$contact\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the contact. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contact\+Id} & The contact id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1d518431acc6ea4e3da93033f91d7325}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1d518431acc6ea4e3da93033f91d7325}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetContactByEmail@{GetContactByEmail}}
+\index{GetContactByEmail@{GetContactByEmail}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetContactByEmail()}{GetContactByEmail()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Contact\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{\$email\+Address,  }\item[{string}]{\$client\+Id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Gets the contact by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email\+Address} & The email address.\\
+\hline
+{\em client\+Id} & The client id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ad88dc7f0f694975bc75d22f124daf2ac}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ad88dc7f0f694975bc75d22f124daf2ac}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetCustomer@{GetCustomer}}
+\index{GetCustomer@{GetCustomer}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetCustomer()}{GetCustomer()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Customer (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the customer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customer id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Customer}{Customer}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6732fbab9e64bfbbda235a18c7cd370a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6732fbab9e64bfbbda235a18c7cd370a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetCustomerApiToken@{GetCustomerApiToken}}
+\index{GetCustomerApiToken@{GetCustomerApiToken}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetCustomerApiToken()}{GetCustomerApiToken()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Customer\+Api\+Token (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id,  }\item[{string}]{\$token\+Name,  }\item[{bool}]{\$create\+If\+Not\+Found = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Gets the customer api token. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customer id.\\
+\hline
+{\em token\+Name} & The token name.\\
+\hline
+{\em create\+If\+Not\+Found} & If true, create if not found.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1CustomerApiToken}{Customer\+Api\+Token}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7f8809a50cf73965c7dde1924c2cdde2}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7f8809a50cf73965c7dde1924c2cdde2}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getEnvUrl@{getEnvUrl}}
+\index{getEnvUrl@{getEnvUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getEnvUrl()}{getEnvUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Env\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of env\+Url \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a98f47bb7bb6bbf4929fbb5cbe7387a19}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a98f47bb7bb6bbf4929fbb5cbe7387a19}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getHttpHeaders@{getHttpHeaders}}
+\index{getHttpHeaders@{getHttpHeaders}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getHttpHeaders()}{getHttpHeaders()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Http\+Headers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of http\+Headers \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1c6500913e363867909dc66fa20bf5e5}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a1c6500913e363867909dc66fa20bf5e5}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetInvitedUsers@{GetInvitedUsers}}
+\index{GetInvitedUsers@{GetInvitedUsers}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetInvitedUsers()}{GetInvitedUsers()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Invited\+Users (\begin{DoxyParamCaption}\item[{Date\+Time}]{\$created\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+string created\+Since\+Date\+Time is an optional parameter. If created\+Since\+Date\+Time is provided the method returns only the invited users who were created at or after the given date-\/time. 
+
+$<$
+\begin{DoxyParams}{Parameters}
+{\em name=\char`\"{}created\+Since\+Date\+Time\char`\"{}$>$$<$/} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af1bca4eecdcba24d5ed9f6f65bdba67a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af1bca4eecdcba24d5ed9f6f65bdba67a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getLastRestResponse@{getLastRestResponse}}
+\index{getLastRestResponse@{getLastRestResponse}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getLastRestResponse()}{getLastRestResponse()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Last\+Rest\+Response (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of last\+Rest\+Response \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a22a1ac162512a0a96d12d7332920c594}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a22a1ac162512a0a96d12d7332920c594}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetMatter@{GetMatter}}
+\index{GetMatter@{GetMatter}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetMatter()}{GetMatter()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Matter (\begin{DoxyParamCaption}\item[{string}]{\$matter\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the matter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em matter\+Id} & The matter id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Matter}{Matter}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae8a6c0c1a298267c26530e8065aacf51}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ae8a6c0c1a298267c26530e8065aacf51}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetNewPayments@{GetNewPayments}}
+\index{GetNewPayments@{GetNewPayments}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetNewPayments()}{GetNewPayments()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+New\+Payments (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id,  }\item[{Date\+Time}]{\$transaction\+Since\+Date\+Time = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Gets the new payments. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customer id.\\
+\hline
+{\em transaction\+Since} & The transaction since.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A list of Payments.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4021ac6aa6f4c863a27b60437cf2c0d4}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4021ac6aa6f4c863a27b60437cf2c0d4}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getOpsUrl@{getOpsUrl}}
+\index{getOpsUrl@{getOpsUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getOpsUrl()}{getOpsUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Ops\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of ops\+Url \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8bf696851bebf62b3bf1f7a1d74800fb}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a8bf696851bebf62b3bf1f7a1d74800fb}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getOrgId@{getOrgId}}
+\index{getOrgId@{getOrgId}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getOrgId()}{getOrgId()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Org\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of org\+Id \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac49067058ca9da6fdf3a84baf11f1130}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac49067058ca9da6fdf3a84baf11f1130}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetPaylink@{GetPaylink}}
+\index{GetPaylink@{GetPaylink}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetPaylink()}{GetPaylink()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Paylink (\begin{DoxyParamCaption}\item[{string}]{\$paylink\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paylink\+Id} & The paylink id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Paylink}{Paylink}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a87eee6212a8fe8f15cabfbadd4c23b65}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a87eee6212a8fe8f15cabfbadd4c23b65}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetPaymentById@{GetPaymentById}}
+\index{GetPaymentById@{GetPaymentById}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetPaymentById()}{GetPaymentById()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+Payment\+By\+Id (\begin{DoxyParamCaption}\item[{string}]{\$payment\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the payment by id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em payment\+Id} & The payment id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Payment}{Payment}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aff6fd22f53fa5865507a3df61571db8a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aff6fd22f53fa5865507a3df61571db8a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getPrahariBaseUrl@{getPrahariBaseUrl}}
+\index{getPrahariBaseUrl@{getPrahariBaseUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getPrahariBaseUrl()}{getPrahariBaseUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Prahari\+Base\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of prahari\+Base\+Url \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af5ffb7286431cd7adce85ed00fb39229}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_af5ffb7286431cd7adce85ed00fb39229}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!getPrahariUrl@{getPrahariUrl}}
+\index{getPrahariUrl@{getPrahariUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{getPrahariUrl()}{getPrahariUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::get\+Prahari\+Url (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get the value of prahari\+Url \mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4dd6cdef623c72ebd63376cfd2a8d3b4}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a4dd6cdef623c72ebd63376cfd2a8d3b4}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetUserByEmail@{GetUserByEmail}}
+\index{GetUserByEmail@{GetUserByEmail}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetUserByEmail()}{GetUserByEmail()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+User\+By\+Email (\begin{DoxyParamCaption}\item[{string}]{\$email\+Address }\end{DoxyParamCaption})}
+
+
+
+Gets the user by email. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em email} & The email.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1User}{User}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0820a0faf819d27d947357fab7bd6720}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a0820a0faf819d27d947357fab7bd6720}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!GetUserById@{GetUserById}}
+\index{GetUserById@{GetUserById}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{GetUserById()}{GetUserById()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Get\+User\+By\+Id (\begin{DoxyParamCaption}\item[{string}]{\$user\+Id }\end{DoxyParamCaption})}
+
+
+
+Gets the user by id. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em user\+Id} & The user id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1User}{User}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afbd6699baf4a025ab7bc75559c9b82d2}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_afbd6699baf4a025ab7bc75559c9b82d2}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!MakeContactPrimary@{MakeContactPrimary}}
+\index{MakeContactPrimary@{MakeContactPrimary}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{MakeContactPrimary()}{MakeContactPrimary()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Make\+Contact\+Primary (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}}]{\$contact }\end{DoxyParamCaption})}
+
+
+
+Makes the contact primary. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em contact} & The contact.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Contact}{Contact}}.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a24288cbe4355517a8a1f7e3bddfac259}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a24288cbe4355517a8a1f7e3bddfac259}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!MakeManualPayment@{MakeManualPayment}}
+\index{MakeManualPayment@{MakeManualPayment}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{MakeManualPayment()}{MakeManualPayment()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Make\+Manual\+Payment (\begin{DoxyParamCaption}\item[{string}]{\$paylink\+Id,  }\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1ManualPayment}{Manual\+Payment}}}]{\$manual\+Payment }\end{DoxyParamCaption})}
+
+
+
+Makes the manual payment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paylink\+Id} & The paylink id.\\
+\hline
+{\em manual\+Payment} & The manual payment.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a71a55b40d1fa5f1bfed91c9e31947e41}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a71a55b40d1fa5f1bfed91c9e31947e41}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!MakeManualPaymentWithIndividualParams@{MakeManualPaymentWithIndividualParams}}
+\index{MakeManualPaymentWithIndividualParams@{MakeManualPaymentWithIndividualParams}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{MakeManualPaymentWithIndividualParams()}{MakeManualPaymentWithIndividualParams()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Make\+Manual\+Payment\+With\+Individual\+Params (\begin{DoxyParamCaption}\item[{string}]{\$paylink\+Id,  }\item[{?float}]{\$operating\+Amount = {\ttfamily null},  }\item[{?float}]{\$trust\+Amount = {\ttfamily null},  }\item[{string}]{\$paid\+By,  }\item[{string}]{\$payer\+Email,  }\item[{bool}]{\$send\+Confirmation\+Email\+To\+Payer,  }\item[{string}]{\$payment\+Description,  }\item[{string}]{\$operating\+Bank\+Account\+Id = {\ttfamily null},  }\item[{string}]{\$trust\+Bank\+Account\+Id = {\ttfamily null} }\end{DoxyParamCaption})}
+
+
+
+Makes the manual payment. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em paylink\+Id} & The paylink id.\\
+\hline
+{\em operating\+Amount} & The operating amount.\\
+\hline
+{\em trust\+Amount} & The trust amount.\\
+\hline
+{\em paid\+By} & The paid by.\\
+\hline
+{\em payer\+Email} & The payer email.\\
+\hline
+{\em send\+Confirmation\+Email\+To\+Payer} & If true, send confirmation email to payer.\\
+\hline
+{\em payment\+Description} & The payment description.\\
+\hline
+{\em operating\+Bank\+Account\+Id} & The operating bank account id.\\
+\hline
+{\em trust\+Bank\+Account\+Id} & The trust bank account id.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A bool.
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a61a4e046546be167c1c76534bf8a70dd}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a61a4e046546be167c1c76534bf8a70dd}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setAppId@{setAppId}}
+\index{setAppId@{setAppId}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setAppId()}{setAppId()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+App\+Id (\begin{DoxyParamCaption}\item[{}]{\$app\+Id }\end{DoxyParamCaption})}
+
+Set the value of app\+Id
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7944b78f8883d2a8e9da1c3fe8ac4635}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7944b78f8883d2a8e9da1c3fe8ac4635}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setBaseUrl@{setBaseUrl}}
+\index{setBaseUrl@{setBaseUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setBaseUrl()}{setBaseUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Base\+Url (\begin{DoxyParamCaption}\item[{}]{\$base\+Url }\end{DoxyParamCaption})}
+
+Set the value of base\+Url
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b24d989677cdf45d478dafd4180cf9a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a7b24d989677cdf45d478dafd4180cf9a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setEnvUrl@{setEnvUrl}}
+\index{setEnvUrl@{setEnvUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setEnvUrl()}{setEnvUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Env\+Url (\begin{DoxyParamCaption}\item[{}]{\$env\+Url }\end{DoxyParamCaption})}
+
+Set the value of env\+Url
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a793a920936a050c646ec8a1f29be1f5a}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a793a920936a050c646ec8a1f29be1f5a}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setHttpHeaders@{setHttpHeaders}}
+\index{setHttpHeaders@{setHttpHeaders}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setHttpHeaders()}{setHttpHeaders()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Http\+Headers (\begin{DoxyParamCaption}\item[{}]{\$http\+Headers }\end{DoxyParamCaption})}
+
+Set the value of http\+Headers
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a56f90805bc4f8db12770bdcadfb51219}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a56f90805bc4f8db12770bdcadfb51219}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setLastRestResponse@{setLastRestResponse}}
+\index{setLastRestResponse@{setLastRestResponse}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setLastRestResponse()}{setLastRestResponse()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Last\+Rest\+Response (\begin{DoxyParamCaption}\item[{}]{\$last\+Rest\+Response }\end{DoxyParamCaption})}
+
+Set the value of last\+Rest\+Response
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac011d76c35fa6b1d4422432dd4e4ffd2}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_ac011d76c35fa6b1d4422432dd4e4ffd2}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setOpsUrl@{setOpsUrl}}
+\index{setOpsUrl@{setOpsUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setOpsUrl()}{setOpsUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Ops\+Url (\begin{DoxyParamCaption}\item[{}]{\$ops\+Url }\end{DoxyParamCaption})}
+
+Set the value of ops\+Url
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a44f817c9ed49219ba4005ab1464511ea}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a44f817c9ed49219ba4005ab1464511ea}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setOrgId@{setOrgId}}
+\index{setOrgId@{setOrgId}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setOrgId()}{setOrgId()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Org\+Id (\begin{DoxyParamCaption}\item[{}]{\$org\+Id }\end{DoxyParamCaption})}
+
+Set the value of org\+Id
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9d9a3aec3eaf0a0c8f794add22a56a61}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9d9a3aec3eaf0a0c8f794add22a56a61}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setPrahariBaseUrl@{setPrahariBaseUrl}}
+\index{setPrahariBaseUrl@{setPrahariBaseUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setPrahariBaseUrl()}{setPrahariBaseUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Prahari\+Base\+Url (\begin{DoxyParamCaption}\item[{}]{\$prahari\+Base\+Url }\end{DoxyParamCaption})}
+
+Set the value of prahari\+Base\+Url
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeafcccaf9a8d4025337861f3b1ca2138}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_aeafcccaf9a8d4025337861f3b1ca2138}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!setPrahariUrl@{setPrahariUrl}}
+\index{setPrahariUrl@{setPrahariUrl}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{setPrahariUrl()}{setPrahariUrl()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::set\+Prahari\+Url (\begin{DoxyParamCaption}\item[{}]{\$prahari\+Url }\end{DoxyParamCaption})}
+
+Set the value of prahari\+Url
+
+\begin{DoxyReturn}{Returns}
+self 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6a567c2a6cea708ecfc024f6cebf7805}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a6a567c2a6cea708ecfc024f6cebf7805}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!TrustToOperatingTransfer@{TrustToOperatingTransfer}}
+\index{TrustToOperatingTransfer@{TrustToOperatingTransfer}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{TrustToOperatingTransfer()}{TrustToOperatingTransfer()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Trust\+To\+Operating\+Transfer (\begin{DoxyParamCaption}\item[{string}]{\$customer\+Id,  }\item[{string}]{\$client\+Id,  }\item[{float}]{\$transfer\+Amt }\end{DoxyParamCaption})}
+
+
+
+Transfers money from the trust account to the operating account. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em customer\+Id} & The customer id.\\
+\hline
+{\em client\+Id} & The client id.\\
+\hline
+{\em transfer\+Amount} & The transfer amount.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Unirest\textbackslash{}\+Response .
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9445c925b70df1755c083c182dc761f3}\label{classGravityLegal_1_1GravityLegalAPI_1_1GravityLegalService_a9445c925b70df1755c083c182dc761f3}} 
+\index{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}!UpdatePaylink@{UpdatePaylink}}
+\index{UpdatePaylink@{UpdatePaylink}!GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService@{GravityLegal\textbackslash{}GravityLegalAPI\textbackslash{}GravityLegalService}}
+\doxysubsubsection{\texorpdfstring{UpdatePaylink()}{UpdatePaylink()}}
+{\footnotesize\ttfamily Gravity\+Legal\textbackslash{}\+Gravity\+Legal\+A\+P\+I\textbackslash{}\+Gravity\+Legal\+Service\+::\+Update\+Paylink (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGravityLegal_1_1GravityLegalAPI_1_1Paylink}{Paylink}}}]{\$paylink,  }\item[{float}]{\$operating\+Amt,  }\item[{float}]{\$trust\+Amt }\end{DoxyParamCaption})}
+
+
+
+Updates the paylink. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pay\+Link} & The pay link.\\
+\hline
+{\em operating\+Balance} & The operating balance.\\
+\hline
+{\em trust\+Balance} & The trust balance.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+An Unirest\textbackslash{}\+Response .
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Gravity\+Legal\+Service.\+php\end{DoxyCompactItemize}
