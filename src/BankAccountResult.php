@@ -11,6 +11,3 @@ class BankAccountResultResult {
 class BankAccountResult    {
         public BankAccountResultResult $result;
 }
-class GetBankAccountResult {
-    public BankAccount $result;
-}

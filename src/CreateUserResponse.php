@@ -19,6 +19,18 @@ class CreateUserResponseResult {
     public string $id;
     public DateTime $createdOn;
     public ?DateTime $updatedOn;
+    public function GetCreatedUser(): User {
+        $createdUser = new User();
+        $createdUser->id = $this->id;
+        $createdUser->createdOn = $this->createdOn;
+        $createdUser->email = $this->email;
+        $createdUser->firstName = $this->firstName;
+        $createdUser->lastName = $this->lastName;
+        $createdUser->updatedOn = $this->updatedOn;
+        $createdUser->roleId = $this->role->id;
+        $createdUser->appData = $this->app->appData;
+        return $createdUser;
+    }
 }
 
 class CreateUserResponse {

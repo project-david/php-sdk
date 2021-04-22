@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1618967757">
-  <project timestamp="1618967757">
+<coverage generated="1619065383">
+  <project timestamp="1619065383">
     <file name="/home/manoj-root/php/phpsdk/src/AddToPaylinkParam.php">
       <class name="GravityLegal\GravityLegalAPI\AddToPaylinkParam" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -12,6 +12,15 @@
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/AdditionalData.php">
+      <class name="GravityLegal\GravityLegalAPI\QBAccountsInfo" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\AdditionalData" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="15" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/App.php">
       <class name="GravityLegal\GravityLegalAPI\App" namespace="global">
@@ -52,22 +61,25 @@
       <class name="GravityLegal\GravityLegalAPI\BankAccountResult" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <class name="GravityLegal\GravityLegalAPI\GetBankAccountResult" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
-      <metrics loc="16" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="13" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/BinData.php">
-      <class name="GravityLegal\GravityLegalAPI\Number" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
-      </class>
       <class name="GravityLegal\GravityLegalAPI\Country" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <class name="GravityLegal\GravityLegalAPI\BinData" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <metrics loc="28" ncloc="28" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="22" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/BooleanResponse.php">
+      <class name="GravityLegal\GravityLegalAPI\BooleanResponseResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\BooleanResponse" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Client.php">
       <class name="GravityLegal\GravityLegalAPI\Client" namespace="global">
@@ -179,12 +191,23 @@
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/CreateUserResponse.php">
       <class name="GravityLegal\GravityLegalAPI\CreateUserResponseResult" namespace="global">
-        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
       </class>
       <class name="GravityLegal\GravityLegalAPI\CreateUserResponse" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <metrics loc="26" ncloc="26" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <line num="22" type="method" name="GetCreatedUser" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="23" type="stmt" count="0"/>
+      <line num="24" type="stmt" count="0"/>
+      <line num="25" type="stmt" count="0"/>
+      <line num="26" type="stmt" count="0"/>
+      <line num="27" type="stmt" count="0"/>
+      <line num="28" type="stmt" count="0"/>
+      <line num="29" type="stmt" count="0"/>
+      <line num="30" type="stmt" count="0"/>
+      <line num="31" type="stmt" count="0"/>
+      <line num="32" type="stmt" count="0"/>
+      <metrics loc="38" ncloc="38" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="10" coveredstatements="0" elements="11" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Customer.php">
       <class name="GravityLegal\GravityLegalAPI\NotifPrefs" namespace="global">
@@ -256,6 +279,12 @@
       <line num="6" type="stmt" count="1"/>
       <metrics loc="5" ncloc="5" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
+    <file name="/home/manoj-root/php/phpsdk/src/GetBankAccountResult.php">
+      <class name="GravityLegal\GravityLegalAPI\GetBankAccountResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="6" ncloc="6" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/home/manoj-root/php/phpsdk/src/GetClientResult.php">
       <class name="GravityLegal\GravityLegalAPI\GetClientResult" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
@@ -289,28 +318,28 @@
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/GravityLegalService.php">
       <class name="GravityLegal\GravityLegalAPI\GravityLegalService" namespace="global">
-        <metrics complexity="213" methods="53" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="878" coveredstatements="800" elements="931" coveredelements="833"/>
+        <metrics complexity="284" methods="73" coveredmethods="40" conditionals="0" coveredconditionals="0" statements="1240" coveredstatements="927" elements="1313" coveredelements="967"/>
       </class>
-      <line num="23" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="29"/>
-      <line num="25" type="stmt" count="29"/>
-      <line num="26" type="stmt" count="29"/>
-      <line num="27" type="stmt" count="29"/>
-      <line num="28" type="stmt" count="29"/>
-      <line num="29" type="stmt" count="29"/>
-      <line num="30" type="stmt" count="29"/>
-      <line num="31" type="stmt" count="29"/>
-      <line num="32" type="stmt" count="29"/>
-      <line num="33" type="stmt" count="29"/>
-      <line num="34" type="stmt" count="29"/>
-      <line num="35" type="stmt" count="29"/>
-      <line num="36" type="stmt" count="29"/>
-      <line num="37" type="stmt" count="29"/>
-      <line num="39" type="stmt" count="29"/>
-      <line num="40" type="stmt" count="29"/>
-      <line num="41" type="stmt" count="29"/>
-      <line num="42" type="stmt" count="29"/>
-      <line num="44" type="stmt" count="29"/>
-      <line num="47" type="stmt" count="29"/>
+      <line num="23" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="36"/>
+      <line num="25" type="stmt" count="36"/>
+      <line num="26" type="stmt" count="36"/>
+      <line num="27" type="stmt" count="36"/>
+      <line num="28" type="stmt" count="36"/>
+      <line num="29" type="stmt" count="36"/>
+      <line num="30" type="stmt" count="36"/>
+      <line num="31" type="stmt" count="36"/>
+      <line num="32" type="stmt" count="36"/>
+      <line num="33" type="stmt" count="36"/>
+      <line num="34" type="stmt" count="36"/>
+      <line num="35" type="stmt" count="36"/>
+      <line num="36" type="stmt" count="36"/>
+      <line num="37" type="stmt" count="36"/>
+      <line num="39" type="stmt" count="36"/>
+      <line num="40" type="stmt" count="36"/>
+      <line num="41" type="stmt" count="36"/>
+      <line num="42" type="stmt" count="36"/>
+      <line num="44" type="stmt" count="36"/>
+      <line num="47" type="stmt" count="36"/>
       <line num="49" type="method" name="IsOnline" visibility="public" complexity="2" crap="2" count="1"/>
       <line num="50" type="stmt" count="1"/>
       <line num="51" type="stmt" count="1"/>
@@ -669,26 +698,25 @@
       <line num="563" type="stmt" count="1"/>
       <line num="566" type="stmt" count="0"/>
       <line num="569" type="stmt" count="1"/>
-      <line num="577" type="method" name="GetClient" visibility="public" complexity="2" crap="2" count="2"/>
-      <line num="578" type="stmt" count="2"/>
-      <line num="579" type="stmt" count="2"/>
-      <line num="580" type="stmt" count="2"/>
-      <line num="581" type="stmt" count="2"/>
-      <line num="582" type="stmt" count="2"/>
-      <line num="583" type="stmt" count="2"/>
-      <line num="584" type="stmt" count="2"/>
-      <line num="585" type="stmt" count="2"/>
-      <line num="586" type="stmt" count="2"/>
-      <line num="588" type="stmt" count="2"/>
-      <line num="598" type="method" name="GetContactByEmail" visibility="public" complexity="4" crap="4.00" count="2"/>
-      <line num="599" type="stmt" count="2"/>
-      <line num="600" type="stmt" count="2"/>
-      <line num="601" type="stmt" count="2"/>
-      <line num="602" type="stmt" count="2"/>
-      <line num="603" type="stmt" count="2"/>
-      <line num="605" type="stmt" count="0"/>
-      <line num="606" type="stmt" count="2"/>
-      <line num="607" type="stmt" count="2"/>
+      <line num="576" type="method" name="CreateNewUsers" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="577" type="stmt" count="0"/>
+      <line num="578" type="stmt" count="0"/>
+      <line num="579" type="stmt" count="0"/>
+      <line num="580" type="stmt" count="0"/>
+      <line num="581" type="stmt" count="0"/>
+      <line num="583" type="stmt" count="0"/>
+      <line num="584" type="stmt" count="0"/>
+      <line num="585" type="stmt" count="0"/>
+      <line num="586" type="stmt" count="0"/>
+      <line num="587" type="stmt" count="0"/>
+      <line num="588" type="stmt" count="0"/>
+      <line num="589" type="stmt" count="0"/>
+      <line num="590" type="stmt" count="0"/>
+      <line num="591" type="stmt" count="0"/>
+      <line num="592" type="stmt" count="0"/>
+      <line num="595" type="stmt" count="0"/>
+      <line num="598" type="stmt" count="0"/>
+      <line num="607" type="method" name="GetClient" visibility="public" complexity="2" crap="2" count="2"/>
       <line num="608" type="stmt" count="2"/>
       <line num="609" type="stmt" count="2"/>
       <line num="610" type="stmt" count="2"/>
@@ -697,261 +725,283 @@
       <line num="613" type="stmt" count="2"/>
       <line num="614" type="stmt" count="2"/>
       <line num="615" type="stmt" count="2"/>
+      <line num="616" type="stmt" count="2"/>
       <line num="618" type="stmt" count="2"/>
-      <line num="626" type="method" name="FindClientByEmail" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="627" type="stmt" count="1"/>
-      <line num="628" type="stmt" count="1"/>
-      <line num="630" type="stmt" count="1"/>
-      <line num="631" type="stmt" count="1"/>
-      <line num="632" type="stmt" count="1"/>
-      <line num="633" type="stmt" count="1"/>
-      <line num="634" type="stmt" count="1"/>
-      <line num="642" type="method" name="GetContact" visibility="public" complexity="2" crap="2" count="1"/>
-      <line num="643" type="stmt" count="1"/>
-      <line num="644" type="stmt" count="1"/>
-      <line num="645" type="stmt" count="1"/>
-      <line num="646" type="stmt" count="1"/>
-      <line num="647" type="stmt" count="1"/>
-      <line num="648" type="stmt" count="1"/>
-      <line num="649" type="stmt" count="1"/>
-      <line num="650" type="stmt" count="1"/>
+      <line num="627" type="method" name="MakeManualPayment" visibility="public" complexity="2" crap="2" count="2"/>
+      <line num="628" type="stmt" count="2"/>
+      <line num="629" type="stmt" count="2"/>
+      <line num="630" type="stmt" count="2"/>
+      <line num="631" type="stmt" count="2"/>
+      <line num="632" type="stmt" count="2"/>
+      <line num="633" type="stmt" count="2"/>
+      <line num="648" type="method" name="MakeManualPaymentWithIndividualParams" visibility="public" complexity="7" crap="7" count="1"/>
       <line num="651" type="stmt" count="1"/>
       <line num="652" type="stmt" count="1"/>
       <line num="653" type="stmt" count="1"/>
-      <line num="654" type="stmt" count="1"/>
+      <line num="655" type="stmt" count="1"/>
       <line num="656" type="stmt" count="1"/>
-      <line num="666" type="method" name="FindClient" visibility="public" complexity="9" crap="9" count="3"/>
-      <line num="667" type="stmt" count="3"/>
-      <line num="668" type="stmt" count="3"/>
-      <line num="669" type="stmt" count="3"/>
-      <line num="670" type="stmt" count="3"/>
-      <line num="671" type="stmt" count="3"/>
-      <line num="672" type="stmt" count="3"/>
-      <line num="673" type="stmt" count="3"/>
-      <line num="674" type="stmt" count="3"/>
-      <line num="675" type="stmt" count="3"/>
-      <line num="676" type="stmt" count="3"/>
-      <line num="677" type="stmt" count="3"/>
-      <line num="678" type="stmt" count="3"/>
-      <line num="679" type="stmt" count="2"/>
-      <line num="680" type="stmt" count="2"/>
-      <line num="681" type="stmt" count="2"/>
-      <line num="683" type="stmt" count="3"/>
-      <line num="684" type="stmt" count="3"/>
-      <line num="685" type="stmt" count="3"/>
-      <line num="686" type="stmt" count="2"/>
-      <line num="687" type="stmt" count="3"/>
-      <line num="688" type="stmt" count="3"/>
-      <line num="689" type="stmt" count="2"/>
-      <line num="690" type="stmt" count="2"/>
-      <line num="692" type="stmt" count="1"/>
+      <line num="657" type="stmt" count="1"/>
+      <line num="658" type="stmt" count="1"/>
+      <line num="659" type="stmt" count="1"/>
+      <line num="660" type="stmt" count="1"/>
+      <line num="661" type="stmt" count="1"/>
+      <line num="662" type="stmt" count="1"/>
+      <line num="664" type="stmt" count="1"/>
+      <line num="666" type="stmt" count="1"/>
+      <line num="668" type="stmt" count="1"/>
+      <line num="670" type="stmt" count="1"/>
+      <line num="671" type="stmt" count="1"/>
+      <line num="672" type="stmt" count="1"/>
+      <line num="673" type="stmt" count="1"/>
+      <line num="674" type="stmt" count="1"/>
+      <line num="676" type="stmt" count="1"/>
+      <line num="677" type="stmt" count="1"/>
+      <line num="678" type="stmt" count="1"/>
+      <line num="679" type="stmt" count="1"/>
+      <line num="680" type="stmt" count="1"/>
+      <line num="682" type="stmt" count="1"/>
+      <line num="685" type="method" name="InitiateRefundForPaymentTxn" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="686" type="stmt" count="1"/>
+      <line num="687" type="stmt" count="1"/>
+      <line num="688" type="stmt" count="1"/>
+      <line num="689" type="stmt" count="1"/>
+      <line num="690" type="stmt" count="1"/>
+      <line num="691" type="stmt" count="1"/>
       <line num="693" type="stmt" count="1"/>
       <line num="694" type="stmt" count="1"/>
       <line num="695" type="stmt" count="1"/>
       <line num="696" type="stmt" count="1"/>
       <line num="697" type="stmt" count="1"/>
       <line num="698" type="stmt" count="1"/>
+      <line num="699" type="stmt" count="1"/>
       <line num="700" type="stmt" count="1"/>
       <line num="701" type="stmt" count="1"/>
       <line num="702" type="stmt" count="1"/>
-      <line num="703" type="stmt" count="1"/>
-      <line num="705" type="stmt" count="1"/>
-      <line num="708" type="stmt" count="0"/>
-      <line num="712" type="stmt" count="3"/>
-      <line num="720" type="method" name="FindOrCreateClient" visibility="public" complexity="4" crap="4.00" count="2"/>
-      <line num="721" type="stmt" count="2"/>
-      <line num="722" type="stmt" count="2"/>
-      <line num="723" type="stmt" count="2"/>
+      <line num="704" type="stmt" count="1"/>
+      <line num="713" type="method" name="FetchMatters" visibility="public" complexity="9" crap="90" count="0"/>
+      <line num="714" type="stmt" count="0"/>
+      <line num="715" type="stmt" count="0"/>
+      <line num="716" type="stmt" count="0"/>
+      <line num="717" type="stmt" count="0"/>
+      <line num="718" type="stmt" count="0"/>
+      <line num="719" type="stmt" count="0"/>
+      <line num="720" type="stmt" count="0"/>
+      <line num="721" type="stmt" count="0"/>
+      <line num="723" type="stmt" count="0"/>
       <line num="724" type="stmt" count="0"/>
-      <line num="725" type="stmt" count="2"/>
-      <line num="726" type="stmt" count="2"/>
-      <line num="727" type="stmt" count="2"/>
-      <line num="728" type="stmt" count="2"/>
-      <line num="729" type="stmt" count="2"/>
-      <line num="730" type="stmt" count="2"/>
-      <line num="731" type="stmt" count="2"/>
-      <line num="732" type="stmt" count="2"/>
-      <line num="733" type="stmt" count="2"/>
-      <line num="734" type="stmt" count="2"/>
-      <line num="735" type="stmt" count="2"/>
-      <line num="738" type="stmt" count="2"/>
-      <line num="746" type="method" name="GetClientInstanceInfoResponse" visibility="private" complexity="2" crap="2" count="4"/>
-      <line num="747" type="stmt" count="4"/>
-      <line num="748" type="stmt" count="4"/>
-      <line num="749" type="stmt" count="4"/>
-      <line num="750" type="stmt" count="4"/>
-      <line num="751" type="stmt" count="4"/>
-      <line num="752" type="stmt" count="4"/>
-      <line num="753" type="stmt" count="3"/>
-      <line num="754" type="stmt" count="3"/>
-      <line num="755" type="stmt" count="3"/>
-      <line num="756" type="stmt" count="3"/>
-      <line num="757" type="stmt" count="3"/>
-      <line num="759" type="stmt" count="4"/>
-      <line num="767" type="method" name="DeleteLedgerItem" visibility="private" complexity="2" crap="6" count="0"/>
-      <line num="768" type="stmt" count="0"/>
-      <line num="769" type="stmt" count="0"/>
-      <line num="770" type="stmt" count="0"/>
-      <line num="771" type="stmt" count="0"/>
-      <line num="772" type="stmt" count="0"/>
-      <line num="773" type="stmt" count="0"/>
-      <line num="774" type="stmt" count="0"/>
+      <line num="725" type="stmt" count="0"/>
+      <line num="726" type="stmt" count="0"/>
+      <line num="727" type="stmt" count="0"/>
+      <line num="728" type="stmt" count="0"/>
+      <line num="729" type="stmt" count="0"/>
+      <line num="730" type="stmt" count="0"/>
+      <line num="731" type="stmt" count="0"/>
+      <line num="732" type="stmt" count="0"/>
+      <line num="733" type="stmt" count="0"/>
+      <line num="734" type="stmt" count="0"/>
+      <line num="735" type="stmt" count="0"/>
+      <line num="737" type="stmt" count="0"/>
+      <line num="738" type="stmt" count="0"/>
+      <line num="739" type="stmt" count="0"/>
+      <line num="740" type="stmt" count="0"/>
+      <line num="741" type="stmt" count="0"/>
+      <line num="742" type="stmt" count="0"/>
+      <line num="743" type="stmt" count="0"/>
+      <line num="744" type="stmt" count="0"/>
+      <line num="746" type="stmt" count="0"/>
+      <line num="747" type="stmt" count="0"/>
+      <line num="748" type="stmt" count="0"/>
+      <line num="749" type="stmt" count="0"/>
+      <line num="750" type="stmt" count="0"/>
+      <line num="751" type="stmt" count="0"/>
+      <line num="752" type="stmt" count="0"/>
+      <line num="753" type="stmt" count="0"/>
+      <line num="754" type="stmt" count="0"/>
+      <line num="755" type="stmt" count="0"/>
+      <line num="756" type="stmt" count="0"/>
+      <line num="757" type="stmt" count="0"/>
+      <line num="759" type="stmt" count="0"/>
+      <line num="762" type="stmt" count="0"/>
+      <line num="766" type="stmt" count="0"/>
+      <line num="774" type="method" name="GetMatter" visibility="public" complexity="2" crap="6" count="0"/>
       <line num="775" type="stmt" count="0"/>
       <line num="776" type="stmt" count="0"/>
       <line num="777" type="stmt" count="0"/>
       <line num="778" type="stmt" count="0"/>
       <line num="779" type="stmt" count="0"/>
+      <line num="780" type="stmt" count="0"/>
+      <line num="781" type="stmt" count="0"/>
       <line num="782" type="stmt" count="0"/>
-      <line num="790" type="method" name="DeletePaylink" visibility="public" complexity="2" crap="2.00" count="2"/>
-      <line num="791" type="stmt" count="2"/>
-      <line num="792" type="stmt" count="2"/>
-      <line num="793" type="stmt" count="2"/>
-      <line num="794" type="stmt" count="2"/>
-      <line num="795" type="stmt" count="2"/>
-      <line num="796" type="stmt" count="2"/>
-      <line num="797" type="stmt" count="2"/>
-      <line num="798" type="stmt" count="2"/>
-      <line num="799" type="stmt" count="2"/>
-      <line num="800" type="stmt" count="2"/>
-      <line num="801" type="stmt" count="2"/>
-      <line num="804" type="stmt" count="0"/>
-      <line num="812" type="method" name="DeleteClient" visibility="public" complexity="15" crap="30.21" count="4"/>
-      <line num="813" type="stmt" count="4"/>
-      <line num="815" type="stmt" count="4"/>
-      <line num="816" type="stmt" count="4"/>
-      <line num="817" type="stmt" count="1"/>
-      <line num="818" type="stmt" count="3"/>
-      <line num="820" type="stmt" count="0"/>
-      <line num="822" type="stmt" count="0"/>
-      <line num="823" type="stmt" count="0"/>
-      <line num="824" type="stmt" count="0"/>
-      <line num="825" type="stmt" count="0"/>
-      <line num="830" type="stmt" count="3"/>
-      <line num="832" type="stmt" count="0"/>
-      <line num="834" type="stmt" count="0"/>
-      <line num="835" type="stmt" count="0"/>
-      <line num="836" type="stmt" count="0"/>
-      <line num="837" type="stmt" count="0"/>
-      <line num="843" type="stmt" count="3"/>
-      <line num="844" type="stmt" count="3"/>
-      <line num="845" type="stmt" count="3"/>
-      <line num="846" type="stmt" count="3"/>
-      <line num="847" type="stmt" count="3"/>
-      <line num="848" type="stmt" count="3"/>
-      <line num="849" type="stmt" count="3"/>
-      <line num="850" type="stmt" count="3"/>
-      <line num="851" type="stmt" count="3"/>
-      <line num="852" type="stmt" count="3"/>
+      <line num="783" type="stmt" count="0"/>
+      <line num="784" type="stmt" count="0"/>
+      <line num="786" type="stmt" count="0"/>
+      <line num="795" type="method" name="FetchBankAccounts" visibility="public" complexity="3" crap="3" count="1"/>
+      <line num="796" type="stmt" count="1"/>
+      <line num="797" type="stmt" count="1"/>
+      <line num="798" type="stmt" count="1"/>
+      <line num="799" type="stmt" count="1"/>
+      <line num="800" type="stmt" count="1"/>
+      <line num="801" type="stmt" count="1"/>
+      <line num="802" type="stmt" count="1"/>
+      <line num="803" type="stmt" count="1"/>
+      <line num="804" type="stmt" count="1"/>
+      <line num="805" type="stmt" count="1"/>
+      <line num="806" type="stmt" count="1"/>
+      <line num="807" type="stmt" count="1"/>
+      <line num="808" type="stmt" count="1"/>
+      <line num="809" type="stmt" count="1"/>
+      <line num="810" type="stmt" count="1"/>
+      <line num="813" type="stmt" count="1"/>
+      <line num="821" type="method" name="GetBankAccount" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="822" type="stmt" count="1"/>
+      <line num="823" type="stmt" count="1"/>
+      <line num="824" type="stmt" count="1"/>
+      <line num="825" type="stmt" count="1"/>
+      <line num="826" type="stmt" count="1"/>
+      <line num="827" type="stmt" count="1"/>
+      <line num="828" type="stmt" count="1"/>
+      <line num="829" type="stmt" count="1"/>
+      <line num="830" type="stmt" count="1"/>
+      <line num="831" type="stmt" count="1"/>
+      <line num="832" type="stmt" count="1"/>
+      <line num="833" type="stmt" count="1"/>
+      <line num="834" type="stmt" count="1"/>
+      <line num="836" type="stmt" count="1"/>
+      <line num="847" type="method" name="FetchContacts" visibility="public" complexity="9" crap="90" count="0"/>
+      <line num="848" type="stmt" count="0"/>
+      <line num="849" type="stmt" count="0"/>
+      <line num="850" type="stmt" count="0"/>
+      <line num="851" type="stmt" count="0"/>
+      <line num="852" type="stmt" count="0"/>
+      <line num="853" type="stmt" count="0"/>
+      <line num="854" type="stmt" count="0"/>
       <line num="855" type="stmt" count="0"/>
-      <line num="863" type="method" name="CreateNewMatters" visibility="public" complexity="3" crap="3.00" count="2"/>
-      <line num="864" type="stmt" count="2"/>
-      <line num="865" type="stmt" count="2"/>
-      <line num="866" type="stmt" count="2"/>
-      <line num="867" type="stmt" count="2"/>
-      <line num="869" type="stmt" count="2"/>
-      <line num="870" type="stmt" count="2"/>
-      <line num="871" type="stmt" count="2"/>
-      <line num="872" type="stmt" count="2"/>
-      <line num="873" type="stmt" count="2"/>
-      <line num="874" type="stmt" count="2"/>
-      <line num="875" type="stmt" count="2"/>
-      <line num="876" type="stmt" count="2"/>
-      <line num="877" type="stmt" count="2"/>
-      <line num="878" type="stmt" count="2"/>
+      <line num="857" type="stmt" count="0"/>
+      <line num="858" type="stmt" count="0"/>
+      <line num="859" type="stmt" count="0"/>
+      <line num="860" type="stmt" count="0"/>
+      <line num="861" type="stmt" count="0"/>
+      <line num="862" type="stmt" count="0"/>
+      <line num="863" type="stmt" count="0"/>
+      <line num="864" type="stmt" count="0"/>
+      <line num="865" type="stmt" count="0"/>
+      <line num="867" type="stmt" count="0"/>
+      <line num="868" type="stmt" count="0"/>
+      <line num="869" type="stmt" count="0"/>
+      <line num="870" type="stmt" count="0"/>
+      <line num="872" type="stmt" count="0"/>
+      <line num="873" type="stmt" count="0"/>
+      <line num="874" type="stmt" count="0"/>
+      <line num="875" type="stmt" count="0"/>
+      <line num="876" type="stmt" count="0"/>
+      <line num="877" type="stmt" count="0"/>
+      <line num="878" type="stmt" count="0"/>
+      <line num="879" type="stmt" count="0"/>
       <line num="881" type="stmt" count="0"/>
-      <line num="884" type="stmt" count="2"/>
-      <line num="892" type="method" name="FindOrCreateMatter" visibility="public" complexity="4" crap="4" count="2"/>
-      <line num="893" type="stmt" count="2"/>
-      <line num="894" type="stmt" count="2"/>
-      <line num="895" type="stmt" count="2"/>
-      <line num="896" type="stmt" count="2"/>
-      <line num="897" type="stmt" count="2"/>
-      <line num="898" type="stmt" count="2"/>
-      <line num="899" type="stmt" count="2"/>
-      <line num="900" type="stmt" count="2"/>
-      <line num="901" type="stmt" count="2"/>
-      <line num="902" type="stmt" count="2"/>
-      <line num="903" type="stmt" count="2"/>
-      <line num="906" type="stmt" count="2"/>
-      <line num="914" type="method" name="FindMatterByExternalId" visibility="public" complexity="4" crap="4" count="3"/>
-      <line num="915" type="stmt" count="3"/>
-      <line num="916" type="stmt" count="3"/>
-      <line num="917" type="stmt" count="3"/>
-      <line num="918" type="stmt" count="3"/>
-      <line num="919" type="stmt" count="3"/>
-      <line num="920" type="stmt" count="3"/>
-      <line num="921" type="stmt" count="3"/>
-      <line num="922" type="stmt" count="3"/>
-      <line num="923" type="stmt" count="3"/>
-      <line num="924" type="stmt" count="3"/>
-      <line num="925" type="stmt" count="3"/>
+      <line num="882" type="stmt" count="0"/>
+      <line num="883" type="stmt" count="0"/>
+      <line num="884" type="stmt" count="0"/>
+      <line num="885" type="stmt" count="0"/>
+      <line num="886" type="stmt" count="0"/>
+      <line num="887" type="stmt" count="0"/>
+      <line num="889" type="stmt" count="0"/>
+      <line num="890" type="stmt" count="0"/>
+      <line num="891" type="stmt" count="0"/>
+      <line num="892" type="stmt" count="0"/>
+      <line num="894" type="stmt" count="0"/>
+      <line num="897" type="stmt" count="0"/>
+      <line num="901" type="stmt" count="0"/>
+      <line num="910" type="method" name="GetContactByEmail" visibility="public" complexity="4" crap="4.00" count="2"/>
+      <line num="911" type="stmt" count="2"/>
+      <line num="912" type="stmt" count="2"/>
+      <line num="913" type="stmt" count="2"/>
+      <line num="914" type="stmt" count="2"/>
+      <line num="915" type="stmt" count="2"/>
+      <line num="917" type="stmt" count="0"/>
+      <line num="918" type="stmt" count="2"/>
+      <line num="919" type="stmt" count="2"/>
+      <line num="920" type="stmt" count="2"/>
+      <line num="921" type="stmt" count="2"/>
+      <line num="922" type="stmt" count="2"/>
+      <line num="923" type="stmt" count="2"/>
+      <line num="924" type="stmt" count="2"/>
+      <line num="925" type="stmt" count="2"/>
       <line num="926" type="stmt" count="2"/>
       <line num="927" type="stmt" count="2"/>
-      <line num="930" type="stmt" count="3"/>
-      <line num="939" type="method" name="CreateNewPaylink" visibility="public" complexity="4" crap="4.00" count="2"/>
-      <line num="940" type="stmt" count="2"/>
-      <line num="941" type="stmt" count="2"/>
-      <line num="942" type="stmt" count="2"/>
-      <line num="944" type="stmt" count="2"/>
+      <line num="930" type="stmt" count="2"/>
+      <line num="938" type="method" name="FindClientByEmail" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="939" type="stmt" count="1"/>
+      <line num="940" type="stmt" count="1"/>
+      <line num="942" type="stmt" count="1"/>
+      <line num="943" type="stmt" count="1"/>
+      <line num="944" type="stmt" count="1"/>
       <line num="945" type="stmt" count="1"/>
       <line num="946" type="stmt" count="1"/>
-      <line num="947" type="stmt" count="0"/>
-      <line num="949" type="stmt" count="1"/>
-      <line num="951" type="stmt" count="2"/>
-      <line num="952" type="stmt" count="2"/>
-      <line num="953" type="stmt" count="2"/>
-      <line num="954" type="stmt" count="2"/>
-      <line num="955" type="stmt" count="2"/>
-      <line num="956" type="stmt" count="2"/>
-      <line num="957" type="stmt" count="2"/>
-      <line num="958" type="stmt" count="2"/>
-      <line num="959" type="stmt" count="2"/>
-      <line num="960" type="stmt" count="2"/>
-      <line num="962" type="stmt" count="2"/>
-      <line num="970" type="method" name="GetPaylink" visibility="public" complexity="2" crap="2" count="2"/>
-      <line num="971" type="stmt" count="2"/>
-      <line num="972" type="stmt" count="2"/>
-      <line num="973" type="stmt" count="2"/>
-      <line num="974" type="stmt" count="2"/>
-      <line num="975" type="stmt" count="2"/>
-      <line num="976" type="stmt" count="2"/>
-      <line num="977" type="stmt" count="2"/>
-      <line num="978" type="stmt" count="2"/>
-      <line num="979" type="stmt" count="2"/>
-      <line num="980" type="stmt" count="2"/>
-      <line num="981" type="stmt" count="2"/>
-      <line num="982" type="stmt" count="2"/>
-      <line num="984" type="stmt" count="2"/>
-      <line num="994" type="method" name="UpdatePaylink" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="995" type="stmt" count="1"/>
-      <line num="996" type="stmt" count="1"/>
-      <line num="998" type="stmt" count="1"/>
-      <line num="999" type="stmt" count="1"/>
-      <line num="1000" type="stmt" count="1"/>
-      <line num="1001" type="stmt" count="1"/>
-      <line num="1002" type="stmt" count="1"/>
-      <line num="1004" type="stmt" count="1"/>
-      <line num="1005" type="stmt" count="1"/>
-      <line num="1006" type="stmt" count="1"/>
-      <line num="1007" type="stmt" count="1"/>
-      <line num="1008" type="stmt" count="1"/>
-      <line num="1019" type="method" name="AddToPaylink" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="1020" type="stmt" count="1"/>
-      <line num="1021" type="stmt" count="1"/>
-      <line num="1023" type="stmt" count="1"/>
-      <line num="1024" type="stmt" count="1"/>
-      <line num="1025" type="stmt" count="1"/>
-      <line num="1026" type="stmt" count="1"/>
-      <line num="1027" type="stmt" count="1"/>
-      <line num="1029" type="stmt" count="1"/>
-      <line num="1030" type="stmt" count="1"/>
-      <line num="1031" type="stmt" count="1"/>
-      <line num="1032" type="stmt" count="1"/>
-      <line num="1033" type="stmt" count="1"/>
-      <line num="1043" type="method" name="TrustToOperatingTransfer" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="1044" type="stmt" count="1"/>
-      <line num="1045" type="stmt" count="1"/>
-      <line num="1046" type="stmt" count="1"/>
+      <line num="954" type="method" name="GetContact" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="955" type="stmt" count="1"/>
+      <line num="956" type="stmt" count="1"/>
+      <line num="957" type="stmt" count="1"/>
+      <line num="958" type="stmt" count="1"/>
+      <line num="959" type="stmt" count="1"/>
+      <line num="960" type="stmt" count="1"/>
+      <line num="961" type="stmt" count="1"/>
+      <line num="962" type="stmt" count="1"/>
+      <line num="963" type="stmt" count="1"/>
+      <line num="964" type="stmt" count="1"/>
+      <line num="965" type="stmt" count="1"/>
+      <line num="966" type="stmt" count="1"/>
+      <line num="968" type="stmt" count="1"/>
+      <line num="976" type="method" name="CreateNewContact" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="977" type="stmt" count="0"/>
+      <line num="978" type="stmt" count="0"/>
+      <line num="979" type="stmt" count="0"/>
+      <line num="980" type="stmt" count="0"/>
+      <line num="981" type="stmt" count="0"/>
+      <line num="982" type="stmt" count="0"/>
+      <line num="983" type="stmt" count="0"/>
+      <line num="984" type="stmt" count="0"/>
+      <line num="985" type="stmt" count="0"/>
+      <line num="986" type="stmt" count="0"/>
+      <line num="987" type="stmt" count="0"/>
+      <line num="989" type="stmt" count="0"/>
+      <line num="997" type="method" name="MakeContactPrimary" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="998" type="stmt" count="0"/>
+      <line num="999" type="stmt" count="0"/>
+      <line num="1000" type="stmt" count="0"/>
+      <line num="1001" type="stmt" count="0"/>
+      <line num="1002" type="stmt" count="0"/>
+      <line num="1003" type="stmt" count="0"/>
+      <line num="1004" type="stmt" count="0"/>
+      <line num="1005" type="stmt" count="0"/>
+      <line num="1006" type="stmt" count="0"/>
+      <line num="1007" type="stmt" count="0"/>
+      <line num="1008" type="stmt" count="0"/>
+      <line num="1009" type="stmt" count="0"/>
+      <line num="1010" type="stmt" count="0"/>
+      <line num="1012" type="stmt" count="0"/>
+      <line num="1022" type="method" name="FindClient" visibility="public" complexity="9" crap="9" count="3"/>
+      <line num="1023" type="stmt" count="3"/>
+      <line num="1024" type="stmt" count="3"/>
+      <line num="1025" type="stmt" count="3"/>
+      <line num="1026" type="stmt" count="3"/>
+      <line num="1027" type="stmt" count="3"/>
+      <line num="1028" type="stmt" count="3"/>
+      <line num="1029" type="stmt" count="3"/>
+      <line num="1030" type="stmt" count="3"/>
+      <line num="1031" type="stmt" count="3"/>
+      <line num="1032" type="stmt" count="3"/>
+      <line num="1033" type="stmt" count="3"/>
+      <line num="1034" type="stmt" count="2"/>
+      <line num="1035" type="stmt" count="2"/>
+      <line num="1036" type="stmt" count="2"/>
+      <line num="1038" type="stmt" count="3"/>
+      <line num="1039" type="stmt" count="3"/>
+      <line num="1040" type="stmt" count="3"/>
+      <line num="1041" type="stmt" count="2"/>
+      <line num="1042" type="stmt" count="3"/>
+      <line num="1043" type="stmt" count="3"/>
+      <line num="1044" type="stmt" count="2"/>
+      <line num="1045" type="stmt" count="2"/>
       <line num="1047" type="stmt" count="1"/>
       <line num="1048" type="stmt" count="1"/>
       <line num="1049" type="stmt" count="1"/>
@@ -959,277 +1009,662 @@
       <line num="1051" type="stmt" count="1"/>
       <line num="1052" type="stmt" count="1"/>
       <line num="1053" type="stmt" count="1"/>
-      <line num="1067" type="method" name="FetchCustomerTxn" visibility="public" complexity="13" crap="13" count="2"/>
-      <line num="1068" type="stmt" count="2"/>
-      <line num="1069" type="stmt" count="2"/>
-      <line num="1070" type="stmt" count="2"/>
-      <line num="1071" type="stmt" count="2"/>
-      <line num="1072" type="stmt" count="2"/>
-      <line num="1073" type="stmt" count="2"/>
-      <line num="1074" type="stmt" count="2"/>
-      <line num="1075" type="stmt" count="2"/>
-      <line num="1076" type="stmt" count="2"/>
-      <line num="1077" type="stmt" count="2"/>
-      <line num="1078" type="stmt" count="2"/>
-      <line num="1079" type="stmt" count="2"/>
-      <line num="1080" type="stmt" count="2"/>
-      <line num="1082" type="stmt" count="2"/>
-      <line num="1083" type="stmt" count="2"/>
-      <line num="1084" type="stmt" count="2"/>
-      <line num="1085" type="stmt" count="2"/>
-      <line num="1086" type="stmt" count="2"/>
-      <line num="1087" type="stmt" count="2"/>
-      <line num="1088" type="stmt" count="2"/>
-      <line num="1089" type="stmt" count="2"/>
-      <line num="1090" type="stmt" count="2"/>
-      <line num="1091" type="stmt" count="2"/>
-      <line num="1092" type="stmt" count="2"/>
-      <line num="1093" type="stmt" count="2"/>
-      <line num="1094" type="stmt" count="2"/>
-      <line num="1095" type="stmt" count="2"/>
-      <line num="1096" type="stmt" count="2"/>
-      <line num="1101" type="stmt" count="0"/>
-      <line num="1103" type="stmt" count="2"/>
-      <line num="1104" type="stmt" count="2"/>
-      <line num="1105" type="stmt" count="2"/>
-      <line num="1106" type="stmt" count="2"/>
-      <line num="1107" type="stmt" count="2"/>
-      <line num="1108" type="stmt" count="2"/>
-      <line num="1109" type="stmt" count="2"/>
-      <line num="1110" type="stmt" count="2"/>
-      <line num="1111" type="stmt" count="2"/>
-      <line num="1112" type="stmt" count="2"/>
-      <line num="1113" type="stmt" count="2"/>
-      <line num="1114" type="stmt" count="2"/>
-      <line num="1115" type="stmt" count="2"/>
-      <line num="1116" type="stmt" count="2"/>
-      <line num="1117" type="stmt" count="2"/>
-      <line num="1118" type="stmt" count="2"/>
-      <line num="1119" type="stmt" count="2"/>
-      <line num="1120" type="stmt" count="2"/>
-      <line num="1121" type="stmt" count="2"/>
-      <line num="1122" type="stmt" count="2"/>
-      <line num="1123" type="stmt" count="2"/>
-      <line num="1127" type="stmt" count="0"/>
-      <line num="1129" type="stmt" count="2"/>
+      <line num="1055" type="stmt" count="1"/>
+      <line num="1056" type="stmt" count="1"/>
+      <line num="1057" type="stmt" count="1"/>
+      <line num="1058" type="stmt" count="1"/>
+      <line num="1060" type="stmt" count="1"/>
+      <line num="1063" type="stmt" count="0"/>
+      <line num="1067" type="stmt" count="3"/>
+      <line num="1076" type="method" name="FindCustomer" visibility="public" complexity="9" crap="90" count="0"/>
+      <line num="1077" type="stmt" count="0"/>
+      <line num="1078" type="stmt" count="0"/>
+      <line num="1079" type="stmt" count="0"/>
+      <line num="1080" type="stmt" count="0"/>
+      <line num="1081" type="stmt" count="0"/>
+      <line num="1082" type="stmt" count="0"/>
+      <line num="1083" type="stmt" count="0"/>
+      <line num="1084" type="stmt" count="0"/>
+      <line num="1085" type="stmt" count="0"/>
+      <line num="1086" type="stmt" count="0"/>
+      <line num="1087" type="stmt" count="0"/>
+      <line num="1088" type="stmt" count="0"/>
+      <line num="1089" type="stmt" count="0"/>
+      <line num="1090" type="stmt" count="0"/>
+      <line num="1091" type="stmt" count="0"/>
+      <line num="1093" type="stmt" count="0"/>
+      <line num="1094" type="stmt" count="0"/>
+      <line num="1095" type="stmt" count="0"/>
+      <line num="1096" type="stmt" count="0"/>
+      <line num="1097" type="stmt" count="0"/>
+      <line num="1098" type="stmt" count="0"/>
+      <line num="1099" type="stmt" count="0"/>
+      <line num="1100" type="stmt" count="0"/>
+      <line num="1102" type="stmt" count="0"/>
+      <line num="1103" type="stmt" count="0"/>
+      <line num="1104" type="stmt" count="0"/>
+      <line num="1105" type="stmt" count="0"/>
+      <line num="1106" type="stmt" count="0"/>
+      <line num="1107" type="stmt" count="0"/>
+      <line num="1108" type="stmt" count="0"/>
+      <line num="1110" type="stmt" count="0"/>
+      <line num="1111" type="stmt" count="0"/>
+      <line num="1112" type="stmt" count="0"/>
+      <line num="1113" type="stmt" count="0"/>
+      <line num="1115" type="stmt" count="0"/>
+      <line num="1118" type="stmt" count="0"/>
+      <line num="1122" type="stmt" count="0"/>
+      <line num="1130" type="method" name="FindOrCreateClient" visibility="public" complexity="4" crap="4.00" count="2"/>
+      <line num="1131" type="stmt" count="2"/>
       <line num="1132" type="stmt" count="2"/>
-      <line num="1142" type="method" name="FetchPaylinkTxn" visibility="public" complexity="12" crap="12" count="1"/>
-      <line num="1148" type="stmt" count="1"/>
-      <line num="1149" type="stmt" count="1"/>
-      <line num="1150" type="stmt" count="1"/>
-      <line num="1151" type="stmt" count="1"/>
-      <line num="1152" type="stmt" count="1"/>
-      <line num="1153" type="stmt" count="1"/>
-      <line num="1154" type="stmt" count="1"/>
-      <line num="1155" type="stmt" count="1"/>
-      <line num="1156" type="stmt" count="1"/>
-      <line num="1157" type="stmt" count="1"/>
-      <line num="1158" type="stmt" count="1"/>
-      <line num="1159" type="stmt" count="1"/>
-      <line num="1160" type="stmt" count="1"/>
-      <line num="1161" type="stmt" count="1"/>
-      <line num="1162" type="stmt" count="1"/>
-      <line num="1163" type="stmt" count="1"/>
-      <line num="1164" type="stmt" count="1"/>
-      <line num="1165" type="stmt" count="1"/>
-      <line num="1166" type="stmt" count="1"/>
-      <line num="1167" type="stmt" count="1"/>
+      <line num="1133" type="stmt" count="2"/>
+      <line num="1134" type="stmt" count="0"/>
+      <line num="1135" type="stmt" count="2"/>
+      <line num="1136" type="stmt" count="2"/>
+      <line num="1137" type="stmt" count="2"/>
+      <line num="1138" type="stmt" count="2"/>
+      <line num="1139" type="stmt" count="2"/>
+      <line num="1140" type="stmt" count="2"/>
+      <line num="1141" type="stmt" count="2"/>
+      <line num="1142" type="stmt" count="2"/>
+      <line num="1143" type="stmt" count="2"/>
+      <line num="1144" type="stmt" count="2"/>
+      <line num="1145" type="stmt" count="2"/>
+      <line num="1148" type="stmt" count="2"/>
+      <line num="1156" type="method" name="CreateNewCustomers" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="1157" type="stmt" count="0"/>
+      <line num="1158" type="stmt" count="0"/>
+      <line num="1159" type="stmt" count="0"/>
+      <line num="1160" type="stmt" count="0"/>
+      <line num="1161" type="stmt" count="0"/>
+      <line num="1162" type="stmt" count="0"/>
+      <line num="1164" type="stmt" count="0"/>
+      <line num="1165" type="stmt" count="0"/>
+      <line num="1166" type="stmt" count="0"/>
+      <line num="1167" type="stmt" count="0"/>
+      <line num="1168" type="stmt" count="0"/>
+      <line num="1169" type="stmt" count="0"/>
+      <line num="1170" type="stmt" count="0"/>
+      <line num="1171" type="stmt" count="0"/>
       <line num="1172" type="stmt" count="0"/>
-      <line num="1174" type="stmt" count="1"/>
-      <line num="1175" type="stmt" count="1"/>
-      <line num="1176" type="stmt" count="1"/>
-      <line num="1177" type="stmt" count="1"/>
-      <line num="1178" type="stmt" count="1"/>
-      <line num="1179" type="stmt" count="1"/>
-      <line num="1180" type="stmt" count="1"/>
-      <line num="1181" type="stmt" count="1"/>
-      <line num="1183" type="stmt" count="1"/>
-      <line num="1184" type="stmt" count="1"/>
-      <line num="1185" type="stmt" count="1"/>
-      <line num="1186" type="stmt" count="1"/>
-      <line num="1187" type="stmt" count="1"/>
-      <line num="1188" type="stmt" count="1"/>
-      <line num="1189" type="stmt" count="1"/>
-      <line num="1190" type="stmt" count="1"/>
-      <line num="1191" type="stmt" count="1"/>
-      <line num="1192" type="stmt" count="1"/>
-      <line num="1193" type="stmt" count="1"/>
-      <line num="1194" type="stmt" count="1"/>
-      <line num="1195" type="stmt" count="1"/>
+      <line num="1173" type="stmt" count="0"/>
+      <line num="1176" type="stmt" count="0"/>
+      <line num="1179" type="stmt" count="0"/>
+      <line num="1188" type="method" name="FindOrCreateCustomer" visibility="public" complexity="4" crap="20" count="0"/>
+      <line num="1189" type="stmt" count="0"/>
+      <line num="1190" type="stmt" count="0"/>
+      <line num="1191" type="stmt" count="0"/>
+      <line num="1192" type="stmt" count="0"/>
+      <line num="1193" type="stmt" count="0"/>
+      <line num="1195" type="stmt" count="0"/>
+      <line num="1196" type="stmt" count="0"/>
+      <line num="1197" type="stmt" count="0"/>
+      <line num="1198" type="stmt" count="0"/>
+      <line num="1199" type="stmt" count="0"/>
       <line num="1200" type="stmt" count="0"/>
-      <line num="1203" type="stmt" count="1"/>
-      <line num="1206" type="stmt" count="1"/>
-      <line num="1215" type="method" name="GetPaymentById" visibility="public" complexity="4" crap="4" count="2"/>
-      <line num="1216" type="stmt" count="2"/>
-      <line num="1217" type="stmt" count="2"/>
-      <line num="1218" type="stmt" count="2"/>
-      <line num="1219" type="stmt" count="2"/>
-      <line num="1220" type="stmt" count="2"/>
-      <line num="1221" type="stmt" count="2"/>
-      <line num="1222" type="stmt" count="2"/>
-      <line num="1223" type="stmt" count="2"/>
-      <line num="1224" type="stmt" count="2"/>
-      <line num="1225" type="stmt" count="2"/>
-      <line num="1226" type="stmt" count="2"/>
-      <line num="1227" type="stmt" count="2"/>
-      <line num="1228" type="stmt" count="2"/>
-      <line num="1231" type="stmt" count="2"/>
-      <line num="1239" type="method" name="FetchPaymentTxn" visibility="public" complexity="12" crap="19.42" count="2"/>
-      <line num="1245" type="stmt" count="2"/>
-      <line num="1246" type="stmt" count="2"/>
-      <line num="1247" type="stmt" count="2"/>
-      <line num="1248" type="stmt" count="2"/>
-      <line num="1249" type="stmt" count="2"/>
-      <line num="1250" type="stmt" count="2"/>
-      <line num="1251" type="stmt" count="2"/>
-      <line num="1252" type="stmt" count="2"/>
-      <line num="1253" type="stmt" count="2"/>
-      <line num="1254" type="stmt" count="2"/>
-      <line num="1255" type="stmt" count="2"/>
-      <line num="1256" type="stmt" count="2"/>
-      <line num="1257" type="stmt" count="2"/>
-      <line num="1258" type="stmt" count="2"/>
-      <line num="1259" type="stmt" count="2"/>
+      <line num="1201" type="stmt" count="0"/>
+      <line num="1202" type="stmt" count="0"/>
+      <line num="1203" type="stmt" count="0"/>
+      <line num="1204" type="stmt" count="0"/>
+      <line num="1207" type="stmt" count="0"/>
+      <line num="1215" type="method" name="GetClientInstanceInfoResponse" visibility="private" complexity="2" crap="2" count="4"/>
+      <line num="1216" type="stmt" count="4"/>
+      <line num="1217" type="stmt" count="4"/>
+      <line num="1218" type="stmt" count="4"/>
+      <line num="1219" type="stmt" count="4"/>
+      <line num="1220" type="stmt" count="4"/>
+      <line num="1221" type="stmt" count="4"/>
+      <line num="1222" type="stmt" count="3"/>
+      <line num="1223" type="stmt" count="3"/>
+      <line num="1224" type="stmt" count="3"/>
+      <line num="1225" type="stmt" count="3"/>
+      <line num="1226" type="stmt" count="3"/>
+      <line num="1228" type="stmt" count="4"/>
+      <line num="1236" type="method" name="DeleteLedgerItem" visibility="private" complexity="2" crap="6" count="0"/>
+      <line num="1237" type="stmt" count="0"/>
+      <line num="1238" type="stmt" count="0"/>
+      <line num="1239" type="stmt" count="0"/>
+      <line num="1240" type="stmt" count="0"/>
+      <line num="1241" type="stmt" count="0"/>
+      <line num="1242" type="stmt" count="0"/>
+      <line num="1243" type="stmt" count="0"/>
+      <line num="1244" type="stmt" count="0"/>
+      <line num="1245" type="stmt" count="0"/>
+      <line num="1246" type="stmt" count="0"/>
+      <line num="1247" type="stmt" count="0"/>
+      <line num="1248" type="stmt" count="0"/>
+      <line num="1251" type="stmt" count="0"/>
+      <line num="1259" type="method" name="DeletePaylink" visibility="public" complexity="2" crap="2.00" count="2"/>
       <line num="1260" type="stmt" count="2"/>
       <line num="1261" type="stmt" count="2"/>
       <line num="1262" type="stmt" count="2"/>
-      <line num="1267" type="stmt" count="0"/>
+      <line num="1263" type="stmt" count="2"/>
+      <line num="1264" type="stmt" count="2"/>
+      <line num="1265" type="stmt" count="2"/>
+      <line num="1266" type="stmt" count="2"/>
+      <line num="1267" type="stmt" count="2"/>
+      <line num="1268" type="stmt" count="2"/>
       <line num="1269" type="stmt" count="2"/>
       <line num="1270" type="stmt" count="2"/>
-      <line num="1271" type="stmt" count="2"/>
-      <line num="1272" type="stmt" count="2"/>
-      <line num="1273" type="stmt" count="2"/>
-      <line num="1274" type="stmt" count="2"/>
-      <line num="1275" type="stmt" count="2"/>
-      <line num="1276" type="stmt" count="2"/>
-      <line num="1278" type="stmt" count="0"/>
-      <line num="1279" type="stmt" count="0"/>
-      <line num="1280" type="stmt" count="0"/>
-      <line num="1281" type="stmt" count="0"/>
-      <line num="1282" type="stmt" count="0"/>
-      <line num="1283" type="stmt" count="0"/>
-      <line num="1284" type="stmt" count="0"/>
-      <line num="1285" type="stmt" count="0"/>
-      <line num="1286" type="stmt" count="0"/>
-      <line num="1287" type="stmt" count="0"/>
-      <line num="1288" type="stmt" count="0"/>
+      <line num="1273" type="stmt" count="0"/>
+      <line num="1281" type="method" name="DeleteClient" visibility="public" complexity="15" crap="30.21" count="4"/>
+      <line num="1282" type="stmt" count="4"/>
+      <line num="1284" type="stmt" count="4"/>
+      <line num="1285" type="stmt" count="4"/>
+      <line num="1286" type="stmt" count="1"/>
+      <line num="1287" type="stmt" count="3"/>
       <line num="1289" type="stmt" count="0"/>
-      <line num="1290" type="stmt" count="0"/>
-      <line num="1295" type="stmt" count="0"/>
-      <line num="1298" type="stmt" count="0"/>
-      <line num="1301" type="stmt" count="2"/>
-      <line num="1310" type="method" name="GetNewPayments" visibility="public" complexity="16" crap="16" count="1"/>
-      <line num="1311" type="stmt" count="1"/>
-      <line num="1312" type="stmt" count="1"/>
-      <line num="1313" type="stmt" count="1"/>
-      <line num="1314" type="stmt" count="1"/>
-      <line num="1315" type="stmt" count="1"/>
-      <line num="1316" type="stmt" count="1"/>
-      <line num="1317" type="stmt" count="1"/>
-      <line num="1318" type="stmt" count="1"/>
-      <line num="1319" type="stmt" count="1"/>
-      <line num="1321" type="stmt" count="1"/>
-      <line num="1322" type="stmt" count="1"/>
-      <line num="1323" type="stmt" count="1"/>
-      <line num="1324" type="stmt" count="1"/>
-      <line num="1325" type="stmt" count="1"/>
-      <line num="1326" type="stmt" count="1"/>
-      <line num="1327" type="stmt" count="1"/>
-      <line num="1328" type="stmt" count="1"/>
-      <line num="1329" type="stmt" count="1"/>
-      <line num="1330" type="stmt" count="1"/>
-      <line num="1331" type="stmt" count="1"/>
-      <line num="1332" type="stmt" count="1"/>
-      <line num="1333" type="stmt" count="1"/>
-      <line num="1334" type="stmt" count="1"/>
-      <line num="1335" type="stmt" count="1"/>
-      <line num="1336" type="stmt" count="1"/>
-      <line num="1337" type="stmt" count="1"/>
-      <line num="1338" type="stmt" count="1"/>
-      <line num="1339" type="stmt" count="1"/>
-      <line num="1340" type="stmt" count="1"/>
-      <line num="1342" type="stmt" count="1"/>
-      <line num="1344" type="stmt" count="1"/>
-      <line num="1345" type="stmt" count="1"/>
-      <line num="1347" type="stmt" count="1"/>
-      <line num="1348" type="stmt" count="1"/>
-      <line num="1350" type="stmt" count="1"/>
-      <line num="1351" type="stmt" count="1"/>
-      <line num="1352" type="stmt" count="1"/>
-      <line num="1353" type="stmt" count="1"/>
-      <line num="1354" type="stmt" count="1"/>
-      <line num="1355" type="stmt" count="1"/>
-      <line num="1356" type="stmt" count="1"/>
-      <line num="1357" type="stmt" count="1"/>
-      <line num="1358" type="stmt" count="1"/>
-      <line num="1359" type="stmt" count="1"/>
-      <line num="1360" type="stmt" count="1"/>
-      <line num="1361" type="stmt" count="1"/>
-      <line num="1362" type="stmt" count="1"/>
-      <line num="1363" type="stmt" count="1"/>
-      <line num="1364" type="stmt" count="1"/>
-      <line num="1365" type="stmt" count="1"/>
-      <line num="1366" type="stmt" count="1"/>
-      <line num="1367" type="stmt" count="1"/>
-      <line num="1368" type="stmt" count="1"/>
-      <line num="1369" type="stmt" count="1"/>
-      <line num="1371" type="stmt" count="1"/>
-      <line num="1373" type="stmt" count="1"/>
-      <line num="1375" type="stmt" count="0"/>
-      <line num="1380" type="stmt" count="1"/>
-      <line num="1386" type="method" name="getHttpHeaders" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1388" type="stmt" count="29"/>
-      <line num="1396" type="method" name="setHttpHeaders" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1398" type="stmt" count="29"/>
-      <line num="1400" type="stmt" count="29"/>
-      <line num="1406" type="method" name="getBaseUrl" visibility="public" complexity="1" crap="1" count="26"/>
-      <line num="1408" type="stmt" count="26"/>
-      <line num="1416" type="method" name="setBaseUrl" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1418" type="stmt" count="29"/>
-      <line num="1420" type="stmt" count="29"/>
-      <line num="1426" type="method" name="getPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="3"/>
-      <line num="1428" type="stmt" count="3"/>
-      <line num="1436" type="method" name="setPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1438" type="stmt" count="29"/>
-      <line num="1440" type="stmt" count="29"/>
-      <line num="1446" type="method" name="getOpsUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1291" type="stmt" count="0"/>
+      <line num="1292" type="stmt" count="0"/>
+      <line num="1293" type="stmt" count="0"/>
+      <line num="1294" type="stmt" count="0"/>
+      <line num="1299" type="stmt" count="3"/>
+      <line num="1301" type="stmt" count="0"/>
+      <line num="1303" type="stmt" count="0"/>
+      <line num="1304" type="stmt" count="0"/>
+      <line num="1305" type="stmt" count="0"/>
+      <line num="1306" type="stmt" count="0"/>
+      <line num="1312" type="stmt" count="3"/>
+      <line num="1313" type="stmt" count="3"/>
+      <line num="1314" type="stmt" count="3"/>
+      <line num="1315" type="stmt" count="3"/>
+      <line num="1316" type="stmt" count="3"/>
+      <line num="1317" type="stmt" count="3"/>
+      <line num="1318" type="stmt" count="3"/>
+      <line num="1319" type="stmt" count="3"/>
+      <line num="1320" type="stmt" count="3"/>
+      <line num="1321" type="stmt" count="3"/>
+      <line num="1324" type="stmt" count="0"/>
+      <line num="1332" type="method" name="DeleteContact" visibility="public" complexity="2" crap="6" count="0"/>
+      <line num="1333" type="stmt" count="0"/>
+      <line num="1334" type="stmt" count="0"/>
+      <line num="1335" type="stmt" count="0"/>
+      <line num="1336" type="stmt" count="0"/>
+      <line num="1337" type="stmt" count="0"/>
+      <line num="1338" type="stmt" count="0"/>
+      <line num="1339" type="stmt" count="0"/>
+      <line num="1340" type="stmt" count="0"/>
+      <line num="1341" type="stmt" count="0"/>
+      <line num="1342" type="stmt" count="0"/>
+      <line num="1344" type="stmt" count="0"/>
+      <line num="1352" type="method" name="CreateNewMatters" visibility="public" complexity="3" crap="3.00" count="2"/>
+      <line num="1353" type="stmt" count="2"/>
+      <line num="1354" type="stmt" count="2"/>
+      <line num="1355" type="stmt" count="2"/>
+      <line num="1356" type="stmt" count="2"/>
+      <line num="1358" type="stmt" count="2"/>
+      <line num="1359" type="stmt" count="2"/>
+      <line num="1360" type="stmt" count="2"/>
+      <line num="1361" type="stmt" count="2"/>
+      <line num="1362" type="stmt" count="2"/>
+      <line num="1363" type="stmt" count="2"/>
+      <line num="1364" type="stmt" count="2"/>
+      <line num="1365" type="stmt" count="2"/>
+      <line num="1366" type="stmt" count="2"/>
+      <line num="1367" type="stmt" count="2"/>
+      <line num="1370" type="stmt" count="0"/>
+      <line num="1373" type="stmt" count="2"/>
+      <line num="1381" type="method" name="FindOrCreateMatter" visibility="public" complexity="4" crap="4" count="2"/>
+      <line num="1382" type="stmt" count="2"/>
+      <line num="1383" type="stmt" count="2"/>
+      <line num="1384" type="stmt" count="2"/>
+      <line num="1385" type="stmt" count="2"/>
+      <line num="1386" type="stmt" count="2"/>
+      <line num="1387" type="stmt" count="2"/>
+      <line num="1388" type="stmt" count="2"/>
+      <line num="1389" type="stmt" count="2"/>
+      <line num="1390" type="stmt" count="2"/>
+      <line num="1391" type="stmt" count="2"/>
+      <line num="1392" type="stmt" count="2"/>
+      <line num="1395" type="stmt" count="2"/>
+      <line num="1403" type="method" name="FindMatterByExternalId" visibility="public" complexity="4" crap="4" count="3"/>
+      <line num="1404" type="stmt" count="3"/>
+      <line num="1405" type="stmt" count="3"/>
+      <line num="1406" type="stmt" count="3"/>
+      <line num="1407" type="stmt" count="3"/>
+      <line num="1408" type="stmt" count="3"/>
+      <line num="1409" type="stmt" count="3"/>
+      <line num="1410" type="stmt" count="3"/>
+      <line num="1411" type="stmt" count="3"/>
+      <line num="1412" type="stmt" count="3"/>
+      <line num="1413" type="stmt" count="3"/>
+      <line num="1414" type="stmt" count="3"/>
+      <line num="1415" type="stmt" count="2"/>
+      <line num="1416" type="stmt" count="2"/>
+      <line num="1419" type="stmt" count="3"/>
+      <line num="1427" type="method" name="CreatePaymentRequest" visibility="public" complexity="2" crap="2" count="1"/>
+      <line num="1428" type="stmt" count="1"/>
+      <line num="1429" type="stmt" count="1"/>
+      <line num="1430" type="stmt" count="1"/>
+      <line num="1431" type="stmt" count="1"/>
+      <line num="1432" type="stmt" count="1"/>
+      <line num="1433" type="stmt" count="1"/>
+      <line num="1434" type="stmt" count="1"/>
+      <line num="1435" type="stmt" count="1"/>
+      <line num="1436" type="stmt" count="1"/>
+      <line num="1437" type="stmt" count="1"/>
+      <line num="1439" type="stmt" count="1"/>
+      <line num="1446" type="method" name="CreatePaymentRequests" visibility="public" complexity="3" crap="3.01" count="1"/>
+      <line num="1447" type="stmt" count="1"/>
       <line num="1448" type="stmt" count="1"/>
-      <line num="1456" type="method" name="setOpsUrl" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1458" type="stmt" count="29"/>
-      <line num="1460" type="stmt" count="29"/>
-      <line num="1466" type="method" name="getAppId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="1468" type="stmt" count="0"/>
-      <line num="1476" type="method" name="setAppId" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1478" type="stmt" count="29"/>
-      <line num="1480" type="stmt" count="29"/>
-      <line num="1486" type="method" name="getOrgId" visibility="public" complexity="1" crap="2" count="0"/>
-      <line num="1488" type="stmt" count="0"/>
-      <line num="1496" type="method" name="setOrgId" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1498" type="stmt" count="29"/>
-      <line num="1500" type="stmt" count="29"/>
-      <line num="1506" type="method" name="getLastRestResponse" visibility="public" complexity="1" crap="1" count="2"/>
-      <line num="1508" type="stmt" count="2"/>
-      <line num="1516" type="method" name="setLastRestResponse" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1518" type="stmt" count="29"/>
-      <line num="1520" type="stmt" count="29"/>
-      <line num="1526" type="method" name="getEnvUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1449" type="stmt" count="1"/>
+      <line num="1450" type="stmt" count="1"/>
+      <line num="1452" type="stmt" count="1"/>
+      <line num="1453" type="stmt" count="1"/>
+      <line num="1455" type="stmt" count="0"/>
+      <line num="1459" type="stmt" count="1"/>
+      <line num="1463" type="stmt" count="1"/>
+      <line num="1473" type="method" name="CreateNewPaylinkWithMatter" visibility="public" complexity="4" crap="4.00" count="3"/>
+      <line num="1474" type="stmt" count="3"/>
+      <line num="1475" type="stmt" count="3"/>
+      <line num="1476" type="stmt" count="3"/>
+      <line num="1478" type="stmt" count="3"/>
+      <line num="1479" type="stmt" count="1"/>
+      <line num="1480" type="stmt" count="1"/>
+      <line num="1481" type="stmt" count="0"/>
+      <line num="1483" type="stmt" count="1"/>
+      <line num="1485" type="stmt" count="3"/>
+      <line num="1486" type="stmt" count="3"/>
+      <line num="1487" type="stmt" count="3"/>
+      <line num="1488" type="stmt" count="3"/>
+      <line num="1489" type="stmt" count="3"/>
+      <line num="1490" type="stmt" count="3"/>
+      <line num="1491" type="stmt" count="3"/>
+      <line num="1492" type="stmt" count="3"/>
+      <line num="1493" type="stmt" count="3"/>
+      <line num="1494" type="stmt" count="3"/>
+      <line num="1496" type="stmt" count="3"/>
+      <line num="1511" type="method" name="CreateNewPaylinkWithDefaultDepositAccounts" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1514" type="stmt" count="1"/>
+      <line num="1515" type="stmt" count="1"/>
+      <line num="1516" type="stmt" count="1"/>
+      <line num="1517" type="stmt" count="1"/>
+      <line num="1518" type="stmt" count="1"/>
+      <line num="1519" type="stmt" count="1"/>
+      <line num="1520" type="stmt" count="1"/>
+      <line num="1521" type="stmt" count="1"/>
+      <line num="1522" type="stmt" count="1"/>
+      <line num="1523" type="stmt" count="1"/>
+      <line num="1524" type="stmt" count="1"/>
+      <line num="1525" type="stmt" count="1"/>
+      <line num="1526" type="stmt" count="1"/>
+      <line num="1527" type="stmt" count="1"/>
       <line num="1528" type="stmt" count="1"/>
-      <line num="1536" type="method" name="setEnvUrl" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1538" type="stmt" count="29"/>
-      <line num="1540" type="stmt" count="29"/>
-      <line num="1546" type="method" name="getPrahariUrl" visibility="public" complexity="1" crap="1" count="1"/>
-      <line num="1548" type="stmt" count="1"/>
-      <line num="1556" type="method" name="setPrahariUrl" visibility="public" complexity="1" crap="1" count="29"/>
-      <line num="1558" type="stmt" count="29"/>
-      <line num="1560" type="stmt" count="29"/>
-      <line num="1562" type="stmt" count="1"/>
-      <metrics loc="1561" ncloc="1290" classes="1" methods="53" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="878" coveredstatements="800" elements="931" coveredelements="833"/>
+      <line num="1529" type="stmt" count="1"/>
+      <line num="1530" type="stmt" count="1"/>
+      <line num="1543" type="method" name="CreateNewPaylink" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="1545" type="stmt" count="0"/>
+      <line num="1546" type="stmt" count="0"/>
+      <line num="1547" type="stmt" count="0"/>
+      <line num="1548" type="stmt" count="0"/>
+      <line num="1549" type="stmt" count="0"/>
+      <line num="1550" type="stmt" count="0"/>
+      <line num="1551" type="stmt" count="0"/>
+      <line num="1552" type="stmt" count="0"/>
+      <line num="1553" type="stmt" count="0"/>
+      <line num="1554" type="stmt" count="0"/>
+      <line num="1555" type="stmt" count="0"/>
+      <line num="1556" type="stmt" count="0"/>
+      <line num="1557" type="stmt" count="0"/>
+      <line num="1558" type="stmt" count="0"/>
+      <line num="1559" type="stmt" count="0"/>
+      <line num="1560" type="stmt" count="0"/>
+      <line num="1567" type="method" name="CreateNewPaylinks" visibility="public" complexity="3" crap="12" count="0"/>
+      <line num="1568" type="stmt" count="0"/>
+      <line num="1569" type="stmt" count="0"/>
+      <line num="1570" type="stmt" count="0"/>
+      <line num="1571" type="stmt" count="0"/>
+      <line num="1572" type="stmt" count="0"/>
+      <line num="1573" type="stmt" count="0"/>
+      <line num="1575" type="stmt" count="0"/>
+      <line num="1578" type="stmt" count="0"/>
+      <line num="1580" type="stmt" count="0"/>
+      <line num="1588" type="method" name="GetPaylink" visibility="public" complexity="2" crap="2" count="3"/>
+      <line num="1589" type="stmt" count="3"/>
+      <line num="1590" type="stmt" count="3"/>
+      <line num="1591" type="stmt" count="3"/>
+      <line num="1592" type="stmt" count="3"/>
+      <line num="1593" type="stmt" count="3"/>
+      <line num="1594" type="stmt" count="3"/>
+      <line num="1595" type="stmt" count="3"/>
+      <line num="1596" type="stmt" count="3"/>
+      <line num="1597" type="stmt" count="3"/>
+      <line num="1598" type="stmt" count="3"/>
+      <line num="1599" type="stmt" count="3"/>
+      <line num="1600" type="stmt" count="3"/>
+      <line num="1602" type="stmt" count="3"/>
+      <line num="1612" type="method" name="UpdatePaylink" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1613" type="stmt" count="1"/>
+      <line num="1614" type="stmt" count="1"/>
+      <line num="1616" type="stmt" count="1"/>
+      <line num="1617" type="stmt" count="1"/>
+      <line num="1618" type="stmt" count="1"/>
+      <line num="1619" type="stmt" count="1"/>
+      <line num="1620" type="stmt" count="1"/>
+      <line num="1622" type="stmt" count="1"/>
+      <line num="1623" type="stmt" count="1"/>
+      <line num="1624" type="stmt" count="1"/>
+      <line num="1625" type="stmt" count="1"/>
+      <line num="1626" type="stmt" count="1"/>
+      <line num="1637" type="method" name="AddToPaylink" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1638" type="stmt" count="1"/>
+      <line num="1639" type="stmt" count="1"/>
+      <line num="1641" type="stmt" count="1"/>
+      <line num="1642" type="stmt" count="1"/>
+      <line num="1643" type="stmt" count="1"/>
+      <line num="1644" type="stmt" count="1"/>
+      <line num="1645" type="stmt" count="1"/>
+      <line num="1647" type="stmt" count="1"/>
+      <line num="1648" type="stmt" count="1"/>
+      <line num="1649" type="stmt" count="1"/>
+      <line num="1650" type="stmt" count="1"/>
+      <line num="1651" type="stmt" count="1"/>
+      <line num="1661" type="method" name="TrustToOperatingTransfer" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="1662" type="stmt" count="1"/>
+      <line num="1663" type="stmt" count="1"/>
+      <line num="1664" type="stmt" count="1"/>
+      <line num="1665" type="stmt" count="1"/>
+      <line num="1666" type="stmt" count="1"/>
+      <line num="1667" type="stmt" count="1"/>
+      <line num="1668" type="stmt" count="1"/>
+      <line num="1669" type="stmt" count="1"/>
+      <line num="1670" type="stmt" count="1"/>
+      <line num="1671" type="stmt" count="1"/>
+      <line num="1685" type="method" name="FetchCustomerTxn" visibility="public" complexity="13" crap="13" count="2"/>
+      <line num="1686" type="stmt" count="2"/>
+      <line num="1687" type="stmt" count="2"/>
+      <line num="1688" type="stmt" count="2"/>
+      <line num="1689" type="stmt" count="2"/>
+      <line num="1690" type="stmt" count="2"/>
+      <line num="1691" type="stmt" count="2"/>
+      <line num="1692" type="stmt" count="2"/>
+      <line num="1693" type="stmt" count="2"/>
+      <line num="1694" type="stmt" count="2"/>
+      <line num="1695" type="stmt" count="2"/>
+      <line num="1696" type="stmt" count="2"/>
+      <line num="1697" type="stmt" count="2"/>
+      <line num="1698" type="stmt" count="2"/>
+      <line num="1700" type="stmt" count="2"/>
+      <line num="1701" type="stmt" count="2"/>
+      <line num="1702" type="stmt" count="2"/>
+      <line num="1703" type="stmt" count="2"/>
+      <line num="1704" type="stmt" count="2"/>
+      <line num="1705" type="stmt" count="2"/>
+      <line num="1706" type="stmt" count="2"/>
+      <line num="1707" type="stmt" count="2"/>
+      <line num="1708" type="stmt" count="2"/>
+      <line num="1709" type="stmt" count="2"/>
+      <line num="1710" type="stmt" count="2"/>
+      <line num="1711" type="stmt" count="2"/>
+      <line num="1712" type="stmt" count="2"/>
+      <line num="1713" type="stmt" count="2"/>
+      <line num="1714" type="stmt" count="2"/>
+      <line num="1719" type="stmt" count="0"/>
+      <line num="1721" type="stmt" count="2"/>
+      <line num="1722" type="stmt" count="2"/>
+      <line num="1723" type="stmt" count="2"/>
+      <line num="1724" type="stmt" count="2"/>
+      <line num="1725" type="stmt" count="2"/>
+      <line num="1726" type="stmt" count="2"/>
+      <line num="1727" type="stmt" count="2"/>
+      <line num="1728" type="stmt" count="2"/>
+      <line num="1729" type="stmt" count="2"/>
+      <line num="1730" type="stmt" count="2"/>
+      <line num="1731" type="stmt" count="2"/>
+      <line num="1732" type="stmt" count="2"/>
+      <line num="1733" type="stmt" count="2"/>
+      <line num="1734" type="stmt" count="2"/>
+      <line num="1735" type="stmt" count="2"/>
+      <line num="1736" type="stmt" count="2"/>
+      <line num="1737" type="stmt" count="2"/>
+      <line num="1738" type="stmt" count="2"/>
+      <line num="1739" type="stmt" count="2"/>
+      <line num="1740" type="stmt" count="2"/>
+      <line num="1741" type="stmt" count="2"/>
+      <line num="1745" type="stmt" count="0"/>
+      <line num="1747" type="stmt" count="2"/>
+      <line num="1750" type="stmt" count="2"/>
+      <line num="1760" type="method" name="FetchPaylinkTxn" visibility="public" complexity="12" crap="12" count="1"/>
+      <line num="1766" type="stmt" count="1"/>
+      <line num="1767" type="stmt" count="1"/>
+      <line num="1768" type="stmt" count="1"/>
+      <line num="1769" type="stmt" count="1"/>
+      <line num="1770" type="stmt" count="1"/>
+      <line num="1771" type="stmt" count="1"/>
+      <line num="1772" type="stmt" count="1"/>
+      <line num="1773" type="stmt" count="1"/>
+      <line num="1774" type="stmt" count="1"/>
+      <line num="1775" type="stmt" count="1"/>
+      <line num="1776" type="stmt" count="1"/>
+      <line num="1777" type="stmt" count="1"/>
+      <line num="1778" type="stmt" count="1"/>
+      <line num="1779" type="stmt" count="1"/>
+      <line num="1780" type="stmt" count="1"/>
+      <line num="1781" type="stmt" count="1"/>
+      <line num="1782" type="stmt" count="1"/>
+      <line num="1783" type="stmt" count="1"/>
+      <line num="1784" type="stmt" count="1"/>
+      <line num="1785" type="stmt" count="1"/>
+      <line num="1790" type="stmt" count="0"/>
+      <line num="1792" type="stmt" count="1"/>
+      <line num="1793" type="stmt" count="1"/>
+      <line num="1794" type="stmt" count="1"/>
+      <line num="1795" type="stmt" count="1"/>
+      <line num="1796" type="stmt" count="1"/>
+      <line num="1797" type="stmt" count="1"/>
+      <line num="1798" type="stmt" count="1"/>
+      <line num="1799" type="stmt" count="1"/>
+      <line num="1801" type="stmt" count="1"/>
+      <line num="1802" type="stmt" count="1"/>
+      <line num="1803" type="stmt" count="1"/>
+      <line num="1804" type="stmt" count="1"/>
+      <line num="1805" type="stmt" count="1"/>
+      <line num="1806" type="stmt" count="1"/>
+      <line num="1807" type="stmt" count="1"/>
+      <line num="1808" type="stmt" count="1"/>
+      <line num="1809" type="stmt" count="1"/>
+      <line num="1810" type="stmt" count="1"/>
+      <line num="1811" type="stmt" count="1"/>
+      <line num="1812" type="stmt" count="1"/>
+      <line num="1813" type="stmt" count="1"/>
+      <line num="1818" type="stmt" count="0"/>
+      <line num="1821" type="stmt" count="1"/>
+      <line num="1824" type="stmt" count="1"/>
+      <line num="1833" type="method" name="GetPaymentById" visibility="public" complexity="4" crap="4" count="2"/>
+      <line num="1834" type="stmt" count="2"/>
+      <line num="1835" type="stmt" count="2"/>
+      <line num="1836" type="stmt" count="2"/>
+      <line num="1837" type="stmt" count="2"/>
+      <line num="1838" type="stmt" count="2"/>
+      <line num="1839" type="stmt" count="2"/>
+      <line num="1840" type="stmt" count="2"/>
+      <line num="1841" type="stmt" count="2"/>
+      <line num="1842" type="stmt" count="2"/>
+      <line num="1843" type="stmt" count="2"/>
+      <line num="1844" type="stmt" count="2"/>
+      <line num="1845" type="stmt" count="2"/>
+      <line num="1846" type="stmt" count="2"/>
+      <line num="1849" type="stmt" count="2"/>
+      <line num="1857" type="method" name="FetchPaymentTxn" visibility="public" complexity="12" crap="12" count="2"/>
+      <line num="1863" type="stmt" count="2"/>
+      <line num="1864" type="stmt" count="2"/>
+      <line num="1865" type="stmt" count="2"/>
+      <line num="1866" type="stmt" count="2"/>
+      <line num="1867" type="stmt" count="2"/>
+      <line num="1868" type="stmt" count="2"/>
+      <line num="1869" type="stmt" count="2"/>
+      <line num="1870" type="stmt" count="2"/>
+      <line num="1871" type="stmt" count="2"/>
+      <line num="1872" type="stmt" count="2"/>
+      <line num="1873" type="stmt" count="2"/>
+      <line num="1874" type="stmt" count="2"/>
+      <line num="1875" type="stmt" count="2"/>
+      <line num="1876" type="stmt" count="2"/>
+      <line num="1877" type="stmt" count="2"/>
+      <line num="1878" type="stmt" count="2"/>
+      <line num="1879" type="stmt" count="2"/>
+      <line num="1880" type="stmt" count="2"/>
+      <line num="1885" type="stmt" count="0"/>
+      <line num="1887" type="stmt" count="2"/>
+      <line num="1888" type="stmt" count="2"/>
+      <line num="1889" type="stmt" count="2"/>
+      <line num="1890" type="stmt" count="2"/>
+      <line num="1891" type="stmt" count="2"/>
+      <line num="1892" type="stmt" count="2"/>
+      <line num="1893" type="stmt" count="2"/>
+      <line num="1894" type="stmt" count="2"/>
+      <line num="1896" type="stmt" count="1"/>
+      <line num="1897" type="stmt" count="1"/>
+      <line num="1898" type="stmt" count="1"/>
+      <line num="1899" type="stmt" count="1"/>
+      <line num="1900" type="stmt" count="1"/>
+      <line num="1901" type="stmt" count="1"/>
+      <line num="1902" type="stmt" count="1"/>
+      <line num="1903" type="stmt" count="1"/>
+      <line num="1904" type="stmt" count="1"/>
+      <line num="1905" type="stmt" count="1"/>
+      <line num="1906" type="stmt" count="1"/>
+      <line num="1907" type="stmt" count="1"/>
+      <line num="1908" type="stmt" count="1"/>
+      <line num="1913" type="stmt" count="0"/>
+      <line num="1916" type="stmt" count="1"/>
+      <line num="1919" type="stmt" count="2"/>
+      <line num="1928" type="method" name="GetNewPayments" visibility="public" complexity="16" crap="16" count="1"/>
+      <line num="1929" type="stmt" count="1"/>
+      <line num="1930" type="stmt" count="1"/>
+      <line num="1931" type="stmt" count="1"/>
+      <line num="1932" type="stmt" count="1"/>
+      <line num="1933" type="stmt" count="1"/>
+      <line num="1934" type="stmt" count="1"/>
+      <line num="1935" type="stmt" count="1"/>
+      <line num="1936" type="stmt" count="1"/>
+      <line num="1937" type="stmt" count="1"/>
+      <line num="1939" type="stmt" count="1"/>
+      <line num="1940" type="stmt" count="1"/>
+      <line num="1941" type="stmt" count="1"/>
+      <line num="1942" type="stmt" count="1"/>
+      <line num="1943" type="stmt" count="1"/>
+      <line num="1944" type="stmt" count="1"/>
+      <line num="1945" type="stmt" count="1"/>
+      <line num="1946" type="stmt" count="1"/>
+      <line num="1947" type="stmt" count="1"/>
+      <line num="1948" type="stmt" count="1"/>
+      <line num="1949" type="stmt" count="1"/>
+      <line num="1950" type="stmt" count="1"/>
+      <line num="1951" type="stmt" count="1"/>
+      <line num="1952" type="stmt" count="1"/>
+      <line num="1953" type="stmt" count="1"/>
+      <line num="1954" type="stmt" count="1"/>
+      <line num="1955" type="stmt" count="1"/>
+      <line num="1956" type="stmt" count="1"/>
+      <line num="1957" type="stmt" count="1"/>
+      <line num="1958" type="stmt" count="1"/>
+      <line num="1960" type="stmt" count="1"/>
+      <line num="1962" type="stmt" count="1"/>
+      <line num="1963" type="stmt" count="1"/>
+      <line num="1965" type="stmt" count="1"/>
+      <line num="1966" type="stmt" count="1"/>
+      <line num="1968" type="stmt" count="1"/>
+      <line num="1969" type="stmt" count="1"/>
+      <line num="1970" type="stmt" count="1"/>
+      <line num="1971" type="stmt" count="1"/>
+      <line num="1972" type="stmt" count="1"/>
+      <line num="1973" type="stmt" count="1"/>
+      <line num="1974" type="stmt" count="1"/>
+      <line num="1975" type="stmt" count="1"/>
+      <line num="1976" type="stmt" count="1"/>
+      <line num="1977" type="stmt" count="1"/>
+      <line num="1978" type="stmt" count="1"/>
+      <line num="1979" type="stmt" count="1"/>
+      <line num="1980" type="stmt" count="1"/>
+      <line num="1981" type="stmt" count="1"/>
+      <line num="1982" type="stmt" count="1"/>
+      <line num="1983" type="stmt" count="1"/>
+      <line num="1984" type="stmt" count="1"/>
+      <line num="1985" type="stmt" count="1"/>
+      <line num="1986" type="stmt" count="1"/>
+      <line num="1987" type="stmt" count="1"/>
+      <line num="1989" type="stmt" count="1"/>
+      <line num="1991" type="stmt" count="1"/>
+      <line num="1993" type="stmt" count="0"/>
+      <line num="1998" type="stmt" count="1"/>
+      <line num="2004" type="method" name="getHttpHeaders" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2006" type="stmt" count="36"/>
+      <line num="2014" type="method" name="setHttpHeaders" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2016" type="stmt" count="36"/>
+      <line num="2018" type="stmt" count="36"/>
+      <line num="2024" type="method" name="getBaseUrl" visibility="public" complexity="1" crap="1" count="33"/>
+      <line num="2026" type="stmt" count="33"/>
+      <line num="2034" type="method" name="setBaseUrl" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2036" type="stmt" count="36"/>
+      <line num="2038" type="stmt" count="36"/>
+      <line num="2044" type="method" name="getPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="3"/>
+      <line num="2046" type="stmt" count="3"/>
+      <line num="2054" type="method" name="setPrahariBaseUrl" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2056" type="stmt" count="36"/>
+      <line num="2058" type="stmt" count="36"/>
+      <line num="2064" type="method" name="getOpsUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="2066" type="stmt" count="1"/>
+      <line num="2074" type="method" name="setOpsUrl" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2076" type="stmt" count="36"/>
+      <line num="2078" type="stmt" count="36"/>
+      <line num="2084" type="method" name="getAppId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="2086" type="stmt" count="0"/>
+      <line num="2094" type="method" name="setAppId" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2096" type="stmt" count="36"/>
+      <line num="2098" type="stmt" count="36"/>
+      <line num="2104" type="method" name="getOrgId" visibility="public" complexity="1" crap="2" count="0"/>
+      <line num="2106" type="stmt" count="0"/>
+      <line num="2114" type="method" name="setOrgId" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2116" type="stmt" count="36"/>
+      <line num="2118" type="stmt" count="36"/>
+      <line num="2124" type="method" name="getLastRestResponse" visibility="public" complexity="1" crap="1" count="2"/>
+      <line num="2126" type="stmt" count="2"/>
+      <line num="2134" type="method" name="setLastRestResponse" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2136" type="stmt" count="36"/>
+      <line num="2138" type="stmt" count="36"/>
+      <line num="2144" type="method" name="getEnvUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="2146" type="stmt" count="1"/>
+      <line num="2154" type="method" name="setEnvUrl" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2156" type="stmt" count="36"/>
+      <line num="2158" type="stmt" count="36"/>
+      <line num="2164" type="method" name="getPrahariUrl" visibility="public" complexity="1" crap="1" count="1"/>
+      <line num="2166" type="stmt" count="1"/>
+      <line num="2174" type="method" name="setPrahariUrl" visibility="public" complexity="1" crap="1" count="36"/>
+      <line num="2176" type="stmt" count="36"/>
+      <line num="2178" type="stmt" count="36"/>
+      <line num="2180" type="stmt" count="1"/>
+      <metrics loc="2179" ncloc="1784" classes="1" methods="73" coveredmethods="40" conditionals="0" coveredconditionals="0" statements="1240" coveredstatements="927" elements="1313" coveredelements="967"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/InitiateRefund.php">
+      <class name="GravityLegal\GravityLegalAPI\InitiateRefund" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="10" ncloc="10" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/InitiateRefundResponse.php">
+      <class name="GravityLegal\GravityLegalAPI\InitiateRefundResponseResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\InitiateRefundResponse" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/InvitedUser.php">
       <class name="GravityLegal\GravityLegalAPI\InvitedUser" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="22" ncloc="22" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/ManualPayment.php">
+      <class name="GravityLegal\GravityLegalAPI\Statement" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\ManualPayment" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="16" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Matter.php">
       <class name="GravityLegal\GravityLegalAPI\Matter" namespace="global">
@@ -1246,11 +1681,26 @@
       </class>
       <metrics loc="13" ncloc="12" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
+    <file name="/home/manoj-root/php/phpsdk/src/Number.php">
+      <class name="GravityLegal\GravityLegalAPI\Number" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="8" ncloc="8" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/OpenUserAccountResponse.php">
+      <class name="GravityLegal\GravityLegalAPI\OpenUserAccountResponseResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\OpenUserAccountResponse" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="27" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <file name="/home/manoj-root/php/phpsdk/src/Operating.php">
       <class name="GravityLegal\GravityLegalAPI\Operating" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/Org.php">
       <class name="GravityLegal\GravityLegalAPI\Org" namespace="global">
@@ -1309,6 +1759,22 @@
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="18" ncloc="17" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/PaymentRequest.php">
+      <class name="GravityLegal\GravityLegalAPI\PaymentRequest" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <line num="21" type="stmt" count="1"/>
+      <metrics loc="20" ncloc="16" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/PaymentRequestResponse.php">
+      <class name="GravityLegal\GravityLegalAPI\PaymentRequestResult" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <class name="GravityLegal\GravityLegalAPI\PaymentRequestResponse" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="32" ncloc="25" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/PaymentResponse.php">
       <class name="GravityLegal\GravityLegalAPI\PaymentResponseResult" namespace="global">
@@ -1403,13 +1869,19 @@
       <class name="GravityLegal\GravityLegalAPI\Trust" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
-      <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/TrustToMoneyTransferParam.php">
       <class name="GravityLegal\GravityLegalAPI\TrustToMoneyTransferParam" namespace="global">
         <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </class>
       <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <file name="/home/manoj-root/php/phpsdk/src/UpdatePrimaryContactParam.php">
+      <class name="GravityLegal\GravityLegalAPI\UpdatePrimaryContactParam" namespace="global">
+        <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </class>
+      <metrics loc="7" ncloc="7" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <file name="/home/manoj-root/php/phpsdk/src/User.php">
       <class name="GravityLegal\GravityLegalAPI\User" namespace="global">
@@ -1448,20 +1920,20 @@
       <class name="GravityLegal\GravityLegalAPI\Utility" namespace="global">
         <metrics complexity="10" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="18" elements="37" coveredelements="18"/>
       </class>
-      <line num="13" type="method" name="cast" visibility="public" complexity="4" crap="4.05" count="27"/>
-      <line num="15" type="stmt" count="27"/>
+      <line num="13" type="method" name="cast" visibility="public" complexity="4" crap="4.05" count="33"/>
+      <line num="15" type="stmt" count="33"/>
       <line num="16" type="stmt" count="0"/>
-      <line num="18" type="stmt" count="27"/>
-      <line num="19" type="stmt" count="27"/>
-      <line num="20" type="stmt" count="27"/>
-      <line num="21" type="stmt" count="27"/>
-      <line num="22" type="stmt" count="27"/>
-      <line num="23" type="stmt" count="27"/>
-      <line num="24" type="stmt" count="27"/>
-      <line num="33" type="stmt" count="27"/>
-      <line num="34" type="stmt" count="27"/>
-      <line num="35" type="stmt" count="27"/>
-      <line num="37" type="stmt" count="27"/>
+      <line num="18" type="stmt" count="33"/>
+      <line num="19" type="stmt" count="33"/>
+      <line num="20" type="stmt" count="33"/>
+      <line num="21" type="stmt" count="33"/>
+      <line num="22" type="stmt" count="33"/>
+      <line num="23" type="stmt" count="33"/>
+      <line num="24" type="stmt" count="33"/>
+      <line num="33" type="stmt" count="33"/>
+      <line num="34" type="stmt" count="33"/>
+      <line num="35" type="stmt" count="33"/>
+      <line num="37" type="stmt" count="33"/>
       <line num="39" type="stmt" count="0"/>
       <line num="54" type="method" name="GUIDv4" visibility="public" complexity="6" crap="19.12" count="3"/>
       <line num="57" type="stmt" count="3"/>
@@ -1488,6 +1960,6 @@
       <line num="87" type="stmt" count="1"/>
       <metrics loc="86" ncloc="54" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="35" coveredstatements="18" elements="37" coveredelements="18"/>
     </file>
-    <metrics files="67" loc="2689" ncloc="2320" classes="2" methods="55" coveredmethods="33" conditionals="0" coveredconditionals="0" statements="913" coveredstatements="818" elements="968" coveredelements="851"/>
+    <metrics files="78" loc="3476" ncloc="2970" classes="3" methods="76" coveredmethods="40" conditionals="0" coveredconditionals="0" statements="1285" coveredstatements="945" elements="1361" coveredelements="985"/>
   </project>
 </coverage>

@@ -17,6 +17,10 @@ use GravityLegal\GravityLegalAPI\Trust;
 use GravityLegal\GravityLegalAPI\CreateMatter;
 use GravityLegal\GravityLegalAPI\CustomerApiToken;
 use GravityLegal\GravityLegalAPI\Paylink;
+use GravityLegal\GravityLegalAPI\Statement;
+use GravityLegal\GravityLegalAPI\ManualPayment;
+use GravityLegal\GravityLegalAPI\DefaultDepositAccounts;
+use GravityLegal\GravityLegalAPI\PaymentRequest;
 
 class GravityLegalAPITest extends TestCase
 {
@@ -40,6 +44,108 @@ class GravityLegalAPITest extends TestCase
     /** @test */
     public function IsOnlineTest() {
         $this->assertTrue($this->gService->IsOnline());
+    }
+
+    /** @test */
+    public function FetchBankAccountsTest() {
+        $entityQueryResult = $this->gService->FetchBankAccounts("7a72244e-4586-421d-85e5-a6a2d38188f0");
+        $this->assertTrue(count($entityQueryResult->FetchedEntities) == 6);
+    }
+
+
+    /** @test */
+    public function GetBankAccountTest() {
+        $bankAccount = $this->gService->GetBankAccount("a924b520-5cd5-4344-abb6-0da003fb7305");
+        $this->assertTrue($bankAccount != null);
+    }
+
+    /** @test */
+    public function CreatePaymentRequestsTest() {
+        $paymentRequest = new PaymentRequest();
+        $paymentRequest->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $paymentRequest->client = "896d9358-a48d-45ec-946b-6a0357f10afa";
+        $paymentRequest->matter = "23c47c88-a287-4962-bf92-6ff30798377c";
+        $paymentRequest->operatingAmount = 10000;
+        $paymentRequest->trustAmount = 20000;
+        $paymentRequest->emails = ["manoj.srivastava+unittest@gmail.com", ];
+        $paymentRequest->description = "This is the description";
+        $paymentRequest->message = "This is the message";
+        $paymentRequest->subject = "This is the subject";
+        $paymentRequest->surchargeEnabled = true;
+        $paymentRequest->paymentMethods = ["CREDIT", "DEBIT", "ACH" ];
+
+        $paymentRequest1 = new PaymentRequest();
+        $paymentRequest1->customer = "bf193ce3-f54f-40d4-b3e6-da5de83be0be";
+        $paymentRequest1->client = "896d9358-a48d-45ec-946b-6a0357f10afa";
+        $paymentRequest1->matter = "23c47c88-a287-4962-bf92-6ff30798377c";
+        $paymentRequest1->operatingAmount = 1000;
+        $paymentRequest1->trustAmount = 2000;
+        $paymentRequest1->emails = ["manoj.srivastava+unittest2@gmail.com", ];
+        $paymentRequest1->description = "This is the description";
+        $paymentRequest1->message = "This is the message";
+        $paymentRequest1->subject = "This is the subject";
+        $paymentRequest1->surchargeEnabled = true;
+        $paymentRequest1->paymentMethods = ["CREDIT", "ACH" ];
+
+        $paymentRequests = array();
+        $paymentRequests[] = $paymentRequest;
+        $paymentRequests[] = $paymentRequest1;
+
+        $entityCreationResult = $this->gService->CreatePaymentRequests($paymentRequests);
+        $this->assertTrue(count($entityCreationResult->CreatedEntities) == 2);
+    }
+
+    /** @test */
+    public function CreateNewPaylinkWithIndividualParametersTest() {
+        $defaultDepositAccounts = new DefaultDepositAccounts();
+        $defaultDepositAccounts->operating = "a924b520-5cd5-4344-abb6-0da003fb7305";
+        $defaultDepositAccounts->trust = "98965737-a1c4-4a08-821d-438538fac683";
+        $paylinkInfo = $this->gService->CreateNewPaylinkWithDefaultDepositAccounts("bf193ce3-f54f-40d4-b3e6-da5de83be0be", "896d9358-a48d-45ec-946b-6a0357f10afa", 110.15, 201.75, $defaultDepositAccounts);
+        $this->assertTrue($paylinkInfo != null);
+    }
+
+    /** @test */
+    public function InitiateRefundForPaymentTxnTest()
+    {
+        $result = $this->gService->InitiateRefundForPaymentTxn("2becab6e-5b4d-47a9-9059-d857a540aaeb", 2.00, 0.05, "manoj.srivastava+initialRefund@gmail.com");
+        $this->assertTrue($result);
+    }
+
+    /** @test */
+    public function MakeManualPaymentTest()
+    {
+        $paylinkId = "87f6dd2e-d8b4-41dd-a609-3e36e414dce2";
+        $manualPayment = new ManualPayment();
+        $operating = new Operating();
+        $operating->amountInCents = 300;
+        $operating->bankAccountId = '5d846758-82c0-42ca-b0fe-bb163dd5386c';
+        $manualPayment->operating = $operating;
+        $manualPayment->paidBy = 'Manoj Srivastava';
+        $manualPayment->payerEmail = 'manoj.srivastava+manualpaymentunittest@gmail.com';
+        $manualPayment->sendReceiptEmail = true;
+        $statement = new Statement();
+        $statement->description = 'This is a manual payment for $3 to ops and $7 to trust.';
+        $manualPayment->statement = $statement;
+        $trust = new Trust();
+        $trust->amountInCents = 700;
+        $trust->bankAccountId = 'c2e7f2ef-d69e-4927-a48b-0a533f20abc4';
+        $manualPayment->trust = $trust;
+        $result = $this->gService->MakeManualPayment($paylinkId, $manualPayment);
+        $this->assertTrue($result);
+    }
+
+    /** @test */
+    public function MakeManualPaymentIndividualParamTest()
+    {
+        $result = $this->gService->MakeManualPaymentWithIndividualParams("87f6dd2e-d8b4-41dd-a609-3e36e414dce2", 3.00, 7.00, "Manual Payer",
+            "manoj.srivastava+manualpaymentunittest@gmail.com", true, "This is a manual payment for $3 to ops and $7 to trust.");
+        $this->assertTrue($result);
+        $result = $this->gService->MakeManualPaymentWithIndividualParams("87f6dd2e-d8b4-41dd-a609-3e36e414dce2", null, 10.00, "Null Operating",
+            "manoj.srivastava+manualpaymentunittest@gmail.com", true, "This is a manual payment for $10 to trust.");
+        $this->assertTrue($result);
+        $result = $this->gService->MakeManualPaymentWithIndividualParams("87f6dd2e-d8b4-41dd-a609-3e36e414dce2", 10.00, null, "Null Trust",
+            "manoj.srivastava+manualpaymentunittest@gmail.com", true, "This is a manual payment for $10 to opeerating.");
+        $this->assertTrue($result);
     }
 
     /** @test */
@@ -294,7 +400,7 @@ class GravityLegalAPITest extends TestCase
         $createMatter->status = 'Draft';
         $createMatter->secondClient = '3c41adcc-dd57-464d-987c-245d324e6d2b';
 
-        $paylinkInfo = $this->gService->CreateNewPaylink($createPaylink, $createMatter);
+        $paylinkInfo = $this->gService->CreateNewPaylinkWithMatter($createPaylink, $createMatter);
         $this->assertTrue($paylinkInfo != null);
         $deletionResult = $this->gService->DeletePaylink($paylinkInfo->id);
         $this->assertTrue($deletionResult);
@@ -314,7 +420,7 @@ class GravityLegalAPITest extends TestCase
         $createPaylink->externalId = Utility::GUIDv4();
         $createPaylink->operating = $operating;
         $createPaylink->trust = $trust;
-        $paylinkInfo = $this->gService->CreateNewPaylink($createPaylink);
+        $paylinkInfo = $this->gService->CreateNewPaylinkWithMatter($createPaylink);
         $this->assertTrue($paylinkInfo != null);
         $deletionResult = $this->gService->DeletePaylink($paylinkInfo->id);
         $this->assertTrue($deletionResult);

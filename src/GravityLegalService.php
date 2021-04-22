@@ -569,6 +569,36 @@ class GravityLegalService
         return $entityCreationResult;
     }
 
+    /// Creates the new users.
+    /// </summary>
+    /// <param name="createNewUserList">The create new user list.</param>
+    /// <returns>A Dictionary.</returns>
+    public function CreateNewUsers(array $createNewUserList) : EntityCreationResult {
+        $entityCreationResult = new EntityCreationResult();
+        $entityCreationResult->CreatedEntities = array();
+        $entityCreationResult->FailedRequests = array();
+        $url = $this->getPrahariBaseUrl() . 'UserInvite';
+        foreach ($createNewUserList  as $createNewUser)
+        {
+            $body = json_encode($createNewUser);
+            $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
+            if ($response->code == 200) {
+                $json = json_decode($response->raw_body);
+                $jsonMapper = new  JsonMapper();
+                $createUserResponse = $jsonMapper->map($json, new CreateUserResponse());
+                $user = $jsonMapper->map($createUserResponse->result->GetCreatedUser(), new User());
+                $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
+                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim($body) => $user));;
+            }
+            else {
+                $entityCreationResult->FailedRequests = array_merge($entityCreationResult->FailedRequests, array(trim($body) => $response));
+            }
+        }
+        return $entityCreationResult;
+    }
+
+
     /// <summary>
     /// Gets the client.
     /// </summary>
@@ -588,6 +618,288 @@ class GravityLegalService
         return $gravityClient;
     }
 
+    /// <summary>
+    /// Makes the manual payment.
+    /// </summary>
+    /// <param name="paylinkId">The paylink id.</param>
+    /// <param name="manualPayment">The manual payment.</param>
+    /// <returns>A bool.</returns>
+    public function MakeManualPayment(string $paylinkId, ManualPayment $manualPayment): bool {
+        $url = $this->getBaseUrl() . 'Paylink/' . $paylinkId . '/makeManualPayment';
+        $body = json_encode($manualPayment);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        $result = ($response->code == 200) ? true : false;
+        return $result;;
+    }
+    /// <summary>
+    /// Makes the manual payment.
+    /// </summary>
+    /// <param name="paylinkId">The paylink id.</param>
+    /// <param name="operatingAmount">The operating amount.</param>
+    /// <param name="trustAmount">The trust amount.</param>
+    /// <param name="paidBy">The paid by.</param>
+    /// <param name="payerEmail">The payer email.</param>
+    /// <param name="sendConfirmationEmailToPayer">If true, send confirmation email to payer.</param>
+    /// <param name="paymentDescription">The payment description.</param>
+    /// <param name="operatingBankAccountId">The operating bank account id.</param>
+    /// <param name="trustBankAccountId">The trust bank account id.</param>
+    /// <returns>A bool.</returns>
+    public function MakeManualPaymentWithIndividualParams(string $paylinkId, ?float $operatingAmount=null, ?float $trustAmount=null, string $paidBy, string $payerEmail,
+        bool $sendConfirmationEmailToPayer, string $paymentDescription, string $operatingBankAccountId = null, string $trustBankAccountId = null): bool  {
+        
+        $operatingAccountToUse = $operatingBankAccountId;
+        $trustAccountToUse = $trustBankAccountId;
+        $paylink = $this->GetPaylink($paylinkId);
+
+        $manualPayment = new ManualPayment();
+        $manualPayment->paidBy = $paidBy;
+        $manualPayment->payerEmail = $payerEmail;
+        $manualPayment->sendReceiptEmail = $sendConfirmationEmailToPayer;
+        $statement = new Statement();
+        $statement->description = $paymentDescription;
+        $manualPayment->statement = $statement;
+        if (($operatingAmount != null) && ($operatingBankAccountId == null))
+        {
+            $operatingAccountToUse = $paylink->customer->defaultDepositAccounts->operating;
+        }
+        if (($trustAmount != null) && ($trustBankAccountId == null))
+        {
+            $trustAccountToUse = $paylink->customer->defaultDepositAccounts->trust;
+        }
+        if ($operatingAmount != null) {
+            $operating = new Operating();
+            $operating->amountInCents = intval($operatingAmount * 100.00);
+            $operating->bankAccountId = $operatingAccountToUse;
+            $manualPayment->operating = $operating;
+        }
+        if ($trustAmount != null) {
+            $trust = new Trust();
+            $trust->amountInCents = intval($trustAmount * 100.00);
+            $trust->bankAccountId = $trustAccountToUse;
+            $manualPayment->trust = $trust;
+        }
+        return ($this->MakeManualPayment($paylinkId, $manualPayment));
+    }
+
+    public function InitiateRefundForPaymentTxn(string $paymentTxnId, float $amount, float $additionalAmount, string $emailForSendingConfirmation): bool {
+        $result = false;
+        $initiateRefund = new InitiateRefund();
+        $initiateRefund->amount = intval($amount * 100.00);
+        $initiateRefund->additionalAmount = intval($additionalAmount * 100.00);
+        $initiateRefund->email = $emailForSendingConfirmation;
+        $initiateRefund->method = 'refund';
+
+        $url = $this->getBaseUrl() . 'PaymentTxn/' . $paymentTxnId . '/initiateRefund';
+        $body = json_encode($initiateRefund);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json =  json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $initiateRefundResponse = $jsonMapper->map($json, new InitiateRefundResponse());
+            $initiateRefundResponse = Utility::cast($initiateRefundResponse, 'GravityLegal\GravityLegalAPI\InitiateRefundResponse');
+            $result = $initiateRefundResponse->result->success;
+        }
+        return $result;
+    }
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the matters
+    /// which were created at or after the given date-time.
+    /// </summary>
+    /// <param name="createdSinceDateTime"></param>
+    /// <returns></returns>
+    public function FetchMatters(DateTime $createdSinceDateTime = null): EntityQueryResult {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'Matter';
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $matterResult = $jsonMapper->map($json, new MatterResult());
+            $matterResult = Utility::cast($matterResult, 'GravityLegal\GravityLegalAPI\MatterResult');
+            foreach($matterResult->result->records as $matter) {
+                $matter = $jsonMapper->map($matter, new Matter());
+                $matter = Utility::cast($matter, 'GravityLegal\GravityLegalAPI\Matter');
+                $result->FetchedEntities[] = $matter;
+            }
+            $pageSize = $matterResult->result->pageSize;
+            $numPages = $matterResult->result->totalCount / $pageSize;
+            if ($matterResult->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages)
+                {
+                    $query = array_merge($query, array("pageNo" => $fetchPage, "pageSize" => $pageSize));
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $matterResult = $jsonMapper->map($json, new MatterResult());
+                        $matterResult = Utility::cast($matterResult, 'GravityLegal\GravityLegalAPI\MatterResult');
+                        foreach($matterResult->result->records as $matter) {
+                            $matter = $jsonMapper->map($matter, new Matter());
+                            $matter = Utility::cast($matter, 'GravityLegal\GravityLegalAPI\Matter');
+                            $result->FetchedEntities[] = $matter;
+                        }
+                        $fetchPage++;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// Gets the matter.
+    /// </summary>
+    /// <param name="matterId">The matter id.</param>
+    /// <returns>A Matter.</returns>
+    public function GetMatter(string $matterId): ?Matter {
+        $matter = null;
+        $url = $this->getBaseUrl() . 'Matter/' . $matterId;
+        $response = Unirest\Request::get($url, $this->getHttpHeaders());
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $matterResult = $jsonMapper->map($json, new GetMatterResult());
+            $matterResult = Utility::cast($matterResult, 'GravityLegal\GravityLegalAPI\GetMatterResult');
+            $matter = $matterResult->result;
+        }
+        return $matter;
+    }
+
+    /// <summary>
+    /// It fetches all the bank accounts associated with
+    /// the given customerId
+    /// </summary>
+    /// <param name="customerId"></param>
+    /// <returns></returns>
+    public function FetchBankAccounts(string $customerId): EntityQueryResult {
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'BankAccount';
+        $query = array('customer' => $customerId);
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $bankAccountResult = $jsonMapper->map($json, new BankAccountResult());
+            $bankAccountResult = Utility::cast($bankAccountResult, 'GravityLegal\GravityLegalAPI\BankAccountResult');
+            foreach($bankAccountResult->result->records as $bankAccount) {
+                $bankAccount = $jsonMapper->map($bankAccount, new BankAccount());
+                $bankAccount = Utility::cast($bankAccount, 'GravityLegal\GravityLegalAPI\BankAccount');
+                $bankAccount->accountNumber = substr($bankAccount->accountNumber, -4);
+                $result->FetchedEntities[] = $bankAccount;
+            }
+        }
+        return $result;
+    }
+
+    /// <summary>
+    /// Gets the bank account.
+    /// </summary>
+    /// <param name="bankAccountId">The bank account id.</param>
+    /// <returns>A BankAccount.</returns>
+    public function GetBankAccount(string $bankAccountId): ?BankAccount {
+        $bankAccount = null;
+        $url = $this->getBaseUrl() . 'BankAccount/' . $bankAccountId;
+        $response = Unirest\Request::get($url, $this->getHttpHeaders());
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $bankAccountResult = $jsonMapper->map($json, new GetBankAccountResult());
+            $bankAccountResult = Utility::cast($bankAccountResult, 'GravityLegal\GravityLegalAPI\GetBankAccountResult');
+            $bankAccount = $bankAccountResult->result;
+            $bankAccount = $jsonMapper->map($bankAccount, new BankAccount());
+            $bankAccount = Utility::cast($bankAccount, 'GravityLegal\GravityLegalAPI\BankAccount');
+            $bankAccount->accountNumber = substr($bankAccount->accountNumber, -4);
+        }
+        return $bankAccount;
+    }
+
+    /// <summary>
+    /// string createdSinceDateTime is an optional parameter.
+    /// If createdSinceDateTime is provided the method returns only the contacts
+    /// which were created at or after the given date-time.
+    /// </summary>
+    /// <param name="givenClient">Optional. If given, it returns contacts related to that client only</param>
+    /// <param name="createdSinceDateTime">optional</param>
+    /// <returns></returns>
+    public function FetchContacts(string $givenClient = null, DateTime $createdSinceDateTime = null): EntityQueryResult    {
+        $diff1Day = new DateInterval('P1D');
+        $currentTime = new DateTime();
+        $endOfTimeRange = $currentTime->add($diff1Day);
+        $createdUntil = str_replace('UTC', 'Z', date_format($endOfTimeRange,'Y-m-d\TH:i:s.vT'));
+        $query = array();
+        if ($createdSinceDateTime != null) {
+            $createdSince = date_format($createdSinceDateTime, 'Y-m-d\TH:i:s.vT');
+            $query = array("createdOn:range" => '[' . $createdSince . ',' .  $createdUntil . ']');
+        }
+        $query = array_merge($query, array('client' => $givenClient));
+        $result = new EntityQueryResult();
+        $url = $this->getBaseUrl() . 'Contact';
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $contactResult = $jsonMapper->map($json, new ContactResult());
+    
+            foreach($contactResult->result->records as $contact) {
+                $contact = $jsonMapper->map($contact, new Contact());
+                $contact = Utility::cast($contact, 'GravityLegal\GravityLegalAPI\Contact');
+                $result->FetchedEntities[] = $contact;
+            }
+            $pageSize = $contactResult->result->pageSize;
+            $numPages = $contactResult->result->totalCount / $pageSize;
+            if ($contactResult->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages)
+                {
+                    $query = array_merge($query, array("pageNo" => $fetchPage, "pageSize" => $pageSize));
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $contactResult = $jsonMapper->map($json, new ContactResult());
+                
+                        foreach($contactResult->result->records as $contact) {
+                            $contact = $jsonMapper->map($contact, new Contact());
+                            $contact = Utility::cast($contact, 'GravityLegal\GravityLegalAPI\Contact');
+                            $result->FetchedEntities[] = $contact;
+                        }
+                        $fetchPage++;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+        return $result;
+    }
 
     /// <summary>
     /// Gets the contact by email.
@@ -657,6 +969,50 @@ class GravityLegalService
     }
 
     /// <summary>
+    /// Creates the new contact.
+    /// </summary>
+    /// <param name="createContact">The create contact.</param>
+    /// <returns>A Contact.</returns>
+    public function CreateNewContact(CreateContact $createContact): ?Contact  {
+        $contact = null;
+        $url = $this->getBaseUrl() . 'Contact';
+        $body = json_encode($createContact);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $createContactResponse = $jsonMapper->map($json, new CreateContactResponse());
+            $contact = $jsonMapper->map($createContactResponse->result, new Contact());
+            $contact = Utility::cast($contact, 'GravityLegal\GravityLegalAPI\Contact');
+        }
+        return $contact;
+    }
+
+    /// <summary>
+    /// Makes the contact primary.
+    /// </summary>
+    /// <param name="contact">The contact.</param>
+    /// <returns>A Contact.</returns>
+    public function MakeContactPrimary(Contact $contact): bool {
+        $result = false;
+        $updatePrimaryContactParam = new UpdatePrimaryContactParam();
+        $updatePrimaryContactParam->client = $contact->client->id;
+        $updatePrimaryContactParam->id = $contact->id;
+        $url = $this->getBaseUrl() . 'Contact/' . $contact->id . '/updatePrimary';
+        $body = json_encode($updatePrimaryContactParam );
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $updatePrimaryResponse = $jsonMapper->map($json, new BooleanResponse());
+            $result = $updatePrimaryResponse->result->success;
+        }
+        return $result;
+    }
+
+    /// <summary>
     /// Finds the client.
     /// </summary>
     /// <param name="customerId">The customer id.</param>
@@ -666,7 +1022,6 @@ class GravityLegalService
     public function FindClient(string $customerId, string $clientName, bool $partialMatch = true) : array {
         $clientNameLike = $partialMatch ? "%" . $clientName . "%" : $clientName;
         $clients = array();
-        $findClientResponse = null;
         $url = $this->getBaseUrl() . 'Client';
         $query = array('clientName:like' => $clientNameLike, 'customer' => $customerId);
         $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
@@ -713,6 +1068,61 @@ class GravityLegalService
     }
 
     /// <summary>
+    /// Finds the customer.
+    /// </summary>
+    /// <param name="name">The name.</param>
+    /// <param name="partialMatch">If true, partial match.</param>
+    /// <returns>A list of Customers.</returns>
+    public function FindCustomer(string $name, bool $partialMatch = true): array  {
+        $customerNameLike = $partialMatch ? "%" . $name . "%" : $name;
+        $customers = array();
+        $findCustomerResponse = null;
+        $url = $this->getBaseUrl() . 'Customer';
+        $query = array('name:like' => $customerNameLike, 'sysGen:not' => 'true');
+        $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+        $this->setLastRestResponse($response);
+        if ($response->code = 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $findCustomerResponse = $jsonMapper->map($json, new CustomerResult());
+            foreach($findCustomerResponse->result->records as $customer) {
+                $customer = $jsonMapper->map($customer, new Customer());
+                $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
+                $customers[] = $customer;
+            }
+            $pageSize = $findCustomerResponse->result->pageSize;
+            $numPages = $findCustomerResponse->result->totalCount / $pageSize;
+            if ($findCustomerResponse->result->totalCount % $pageSize != 0)
+                $numPages++;
+            $fetchPage = 1;
+            if ($numPages > 1) {
+                $fetchPage++;
+                while ($fetchPage <= $numPages)
+                {
+                    $query = array("pageNo" => $fetchPage, "pageSize" => $pageSize);
+                    $response = Unirest\Request::get($url, $this->getHttpHeaders(), $query);
+                    $this->setLastRestResponse($response);
+                    if ($response->code == 200) {
+                        $json = json_decode($response->raw_body);
+                        $jsonMapper = new  JsonMapper();
+                        $findCustomerResponse = $jsonMapper->map($json, new CustomerResult());
+            
+                        foreach ($findCustomerResponse->result->records as $customer) {
+                            $customer = $jsonMapper->map($customer, new Customer());
+                            $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Custommer');
+                            $customers[] = $customer;
+                        }
+                        $fetchPage++;
+                    }
+                    else
+                        break;
+                }
+            }
+        }
+        return $customers;
+    }
+
+    /// <summary>
     /// Finds the or create client.
     /// </summary>
     /// <param name="createClientParam">The create client param.</param>
@@ -736,6 +1146,65 @@ class GravityLegalService
             }
         }
         return $client;
+    }
+
+    /// <summary>
+    /// Creates the new customers.
+    /// </summary>
+    /// <param name="createCustomerList">The create customer list.</param>
+    /// <returns>A Dictionary.</returns>
+    public function CreateNewCustomers(array $createCustomerList): EntityCreationResult {
+        $entityCreationResult = new EntityCreationResult();
+        $entityCreationResult->CreatedEntities = array();
+        $entityCreationResult->FailedRequests = array();
+        $failedRequests = array();
+        $url = $this->getBaseUrl() . 'Customer';
+        foreach ($createCustomerList  as $createCustomer)
+        {
+            $body = json_encode($createCustomer);
+            $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
+            if ($response->code == 200) {
+                $json = json_decode($response->raw_body);
+                $jsonMapper = new  JsonMapper();
+                $createCustomerResult = $jsonMapper->map($json, new CreateCustomerResult());
+                $customer = $jsonMapper->map($createCustomerResult->result, new Customer());
+                $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
+                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim($body) => $customer));
+            }
+            else {
+                $entityCreationResult->FailedRequests =  array_merge($entityCreationResult->FailedRequests, array(trim($body) => $response));
+            }
+        }
+        return $entityCreationResult;
+    }
+
+
+    /// <summary>
+    /// Finds the or create customer.
+    /// </summary>
+    /// <param name="createCustomerParam">The create customer param.</param>
+    /// <returns>A Customer.</returns>
+    public function FindOrCreateCustomer(CreateCustomer $createCustomerParam): Customer {
+        $customer = null;
+        $matchingCustomers = $this->FindCustomer($createCustomerParam->name, false);
+        if (count($matchingCustomers) == 1)
+            $customer = $matchingCustomers[0];
+        else if (count($matchingCustomers) == 0)
+        {
+            $url = $this->getBaseUrl() . 'Customer';
+            $body = json_encode($createCustomerParam);
+            $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+            $this->setLastRestResponse($response);
+            if ($response->code == 200) {
+                $json = json_decode($response->raw_body);
+                $jsonMapper = new  JsonMapper();
+                $createCustomerResponse = $jsonMapper->map($json, new GetCustomerResult());
+                $customer = $jsonMapper->map($createCustomerResponse->result, new Customer());
+                $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
+            }
+        }
+        return $customer;
     }
 
     /// <summary>
@@ -856,6 +1325,26 @@ class GravityLegalService
     }
 
     /// <summary>
+    /// Deletes the contact.
+    /// </summary>
+    /// <param name="contact">The contact to delete.</param>
+    /// <returns>A bool.</returns>
+    public function DeleteContact(Contact $contact): bool {
+        $result = false;
+        $url = $this->getBaseUrl() . 'Contact/' . $contact->id . '/deleteInstance';
+        $body = '{}';
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $updatePrimaryResponse = $jsonMapper->map($json, new BooleanResponse());
+            $result = $updatePrimaryResponse->result->success;
+        }
+        return $result;
+    }
+
+    /// <summary>
     /// Creates the new matters.
     /// </summary>
     /// <param name="createMatterList">The create matter list.</param>
@@ -930,13 +1419,58 @@ class GravityLegalService
         return $matter;
     }
 
+    /// <summary>
+    /// Creates the payment requests.
+    /// </summary>
+    /// <param name="paymentRequest">The create payment request list.</param>
+    /// <returns>A Dictionary.</returns>
+    public function CreatePaymentRequest(PaymentRequest $paymentRequest): ?PaymentRequestResponse  {
+        $paymentRequestResponse = null;
+        $url = $this->getBaseUrl() . 'PaymentRequest';
+        $body = json_encode($paymentRequest);
+        $response = Unirest\Request::post($url, $this->getHttpHeaders(), $body);
+        $this->setLastRestResponse($response);
+        if ($response->code == 200) {
+            $json = json_decode($response->raw_body);
+            $jsonMapper = new  JsonMapper();
+            $paymentRequestResponse = $jsonMapper->map($json, new PaymentRequestResponse());
+            $paymentRequestResponse = Utility::cast($paymentRequestResponse, 'GravityLegal\GravityLegalAPI\PaymentRequestResponse');
+        }
+        return $paymentRequestResponse;
+    }
+    /// <summary>
+    /// Creates the payment requests.
+    /// </summary>
+    /// <param name="createPaymentRequestList">The create payment request list.</param>
+    /// <returns>A Dictionary.</returns>
+    public function CreatePaymentRequests(array $createPaymentRequestList): EntityCreationResult   {
+        $entityCreationResult = new EntityCreationResult();
+        $entityCreationResult->CreatedEntities = array();
+        $entityCreationResult->FailedRequests = array();
+        foreach ($createPaymentRequestList as $createPaymentRequest)
+        {
+            $paymentRequestResponse = $this->CreatePaymentRequest($createPaymentRequest);
+            if ($paymentRequestResponse == null)
+            {
+                $entityCreationResult->FailedRequests = array_merge($entityCreationResult->FailedRequests, array(trim(json_encode($createPaymentRequest)) => $this->getLastRestResponse()));
+            }
+            else
+            {
+                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim(json_encode($createPaymentRequest)) => $paymentRequestResponse));
+            }
+        }
+
+        return $entityCreationResult;
+    }
+
 
     /// <summary>
     /// Creates the new paylink.
     /// </summary>
     /// <param name="createPaylink">The create paylink.</param>
+    /// <param name="createMatter">Optional parameter. The matter to link the paylink with. It is created if not found.</param>
     /// <returns>A PaylinkInfo.</returns>
-    public function CreateNewPaylink(CreatePaylink $createPaylink, CreateMatter $createMatter = null): PaylinkInfo {
+    public function CreateNewPaylinkWithMatter(CreatePaylink $createPaylink, CreateMatter $createMatter = null): PaylinkInfo {
         $createdPaylinkInfo = null;
         $createPaylinkResponse = null;
         $url = $this->getBaseUrl() . 'Paylink/createPaylink';
@@ -961,6 +1495,90 @@ class GravityLegalService
         }
         return $createdPaylinkInfo;
     }
+
+        /// <summary>
+        /// Creates the new paylink.
+        /// </summary>
+        /// <param name="custId">The cust id.</param>
+        /// <param name="clientId">The client id.</param>
+        /// <param name="operatingAmount">The operating amount.</param>
+        /// <param name="trustAmount">The trust amount.</param>
+        /// <param name="defaultDepositAccounts">The default deposit accounts for depositing payments to.</param>
+        /// <param name="paymentMethods">The payment methods.</param>
+        /// <param name="memo">The memo.</param>
+        /// <param name="matterId">The matter id.</param>
+        /// <returns>A PaylinkInfo.</returns>
+        public function CreateNewPaylinkWithDefaultDepositAccounts(string $custId, string $clientId, float $operatingAmount,
+                            float $trustAmount, DefaultDepositAccounts $defaultDepositAccounts,
+                            array $paymentMethods = null, string $memo = null, string $matterId = null, string $externalId = null): PaylinkInfo {
+            $paylinkInfo = new PaylinkInfo();
+            $createPaylink = new CreatePaylink();
+            $createPaylink->client = $clientId;
+            $createPaylink->customer = $custId;
+            $createPaylink->matter = $matterId;
+            $createPaylink->externalId = $externalId;
+            $createPaylink->defaultDepositAccounts = $defaultDepositAccounts;
+            $createPaylink->memo = $memo;
+            $operating = new Operating();
+            $operating->amount = intval($operatingAmount * 100.00);
+            $trust = new Trust();
+            $trust->amount = intval($trustAmount * 100.00);
+            $createPaylink->operating = $operating;
+            $createPaylink->trust = $trust;
+            $createPaylink->paymentMethods = $paymentMethods;
+            $paylinkInfo = $this->CreateNewPaylinkWithMatter($createPaylink);
+            return $paylinkInfo;
+        }
+        /// <summary>
+        /// Creates the new paylink.
+        /// </summary>
+        /// <param name="custId">The cust id.</param>
+        /// <param name="clientId">The client id.</param>
+        /// <param name="operatingAmount">The operating amount.</param>
+        /// <param name="trustAmount">The trust amount.</param>
+        /// <param name="paymentMethods">The payment methods.</param>
+        /// <param name="memo">The memo.</param>
+        /// <param name="matterId">The matter id.</param>
+        /// <returns>A PaylinkInfo.</returns>
+        public function CreateNewPaylink(string $custId, string $clientId, float $operatingAmount,
+                            float $trustAmount, array $paymentMethods = null, string $memo = null, string $matterId = null, string $externalId = null): PaylinkInfo {
+            $paylinkInfo = new PaylinkInfo();
+            $createPaylink = new CreatePaylink();
+            $createPaylink->client = $clientId;
+            $createPaylink->customer = $custId;
+            $createPaylink->matter = $matterId;
+            $createPaylink->externalId = $externalId;
+            $createPaylink->memo = $memo;
+            $operating = new Operating();
+            $operating->amount = intval($operatingAmount * 100.00);
+            $trust = new Trust();
+            $trust->amount = intval($trustAmount * 100.00);
+            $createPaylink->operating = $operating;
+            $createPaylink->trust = $trust;
+            $createPaylink->paymentMethods = $paymentMethods;
+            $paylinkInfo = $this->CreateNewPaylinkWithMatter($createPaylink);
+            return ($paylinkInfo);
+        }
+        /// <summary>
+        /// Creates the new paylinks.
+        /// </summary>
+        /// <param name="createPaylinkList">The CreatePaylink list.</param>
+        /// <returns>A Dictionary.</returns>
+        public function CreateNewPaylinks(array $createPaylinkList): EntityCreationResult {
+            $entityCreationResult = new EntityCreationResult();
+            $entityCreationResult->CreatedEntities = array();
+            $entityCreationResult->FailedRequests = array();
+            foreach ($createPaylinkList as $createPaylink) {
+                $paylinkInfo = $this->CreateNewPaylinkWithMatter($createPaylink);
+                if ($this->getLastRestResponse()->code != 200)
+                {
+                    $entityCreationResult->FailedRequests = array_merge($entityCreationResult->FailedRequests, array(trim(json_encode($createPaylink)) => $this->getLastRestResponse()));
+                }
+                else
+                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim(json_encode($createPaylink)) => $paylinkInfo));
+            }
+            return $entityCreationResult;
+        }
 
     /// <summary>
     /// Gets the paylink.
