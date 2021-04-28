@@ -30,7 +30,7 @@
                 "GravityLegal\\GravityLegalAPI\\GravityLegalServiceProvider"
             ],
             "aliases": {
-                "ChuckNorris": "GravityLegal\\GravityLegalAPI\\Facades\\GravityLegal"
+                "GravityLegal": "GravityLegal\\GravityLegalAPI\\Facades\\GravityLegal"
             }
         }
     },
