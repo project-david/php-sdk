@@ -19,8 +19,9 @@ class GravityLegalService
     protected string $prahariUrl;
     protected string $envUrl;
     protected Unirest\Response $lastRestResponse;
+    protected array $apiKeyVariables;
 
-    public function __construct(array $envVariables=null)
+    protected function InitializeObjecct(array $envVariables)
     {
         if ($envVariables) {
             $PRAHARI_BASE_URL=$envVariables['PRAHARI_BASE_URL'];
@@ -44,6 +45,11 @@ class GravityLegalService
             $this->setHttpHeaders($httpHeaders);
         };
 
+    }
+
+    public function __construct(array $envVariables=null)
+    {
+        $this->InitializeObjecct($envVariables);
     }
 
     public function IsOnline(): bool {
@@ -2174,6 +2180,27 @@ class GravityLegalService
     public function setPrahariUrl($prahariUrl)
     {
         $this->prahariUrl = $prahariUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of apiKeyVariables
+     */ 
+    public function getApiKeyVariables()
+    {
+        return $this->apiKeyVariables;
+    }
+
+    /**
+     * Set the value of apiKeyVariables
+     *
+     * @return  self
+     */ 
+    public function setApiKeyVariables($apiKeyVariables)
+    {
+        $this->apiKeyVariables = $apiKeyVariables;
+        $this->InitializeObjecct($apiKeyVariables);
 
         return $this;
     }

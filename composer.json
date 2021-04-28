@@ -21,7 +21,18 @@
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
-        "fakerphp/faker": "^1.14"
+        "fakerphp/faker": "^1.14",
+        "orchestra/platform": "^5.1"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "GravityLegal\\GravityLegalAPI\\GravityLegalServiceProvider"
+            ],
+            "aliases": {
+                "ChuckNorris": "GravityLegal\\GravityLegalAPI\\Facades\\GravityLegal"
+            }
+        }
     },
     "require": {
         "mashape/unirest-php": "^3.0",
