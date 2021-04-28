@@ -21,7 +21,7 @@ class GravityLegalService
     protected Unirest\Response $lastRestResponse;
     protected array $apiKeyVariables;
 
-    protected function InitializeObjecct(array $envVariables)
+    protected function InitializeObjecct(array $envVariables=null)
     {
         if ($envVariables) {
             $PRAHARI_BASE_URL=$envVariables['PRAHARI_BASE_URL'];
