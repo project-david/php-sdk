@@ -595,10 +595,10 @@ class GravityLegalService
                 $createUserResponse = $jsonMapper->map($json, new CreateUserResponse());
                 $user = $jsonMapper->map($createUserResponse->result->GetCreatedUser(), new User());
                 $user = Utility::cast($user, 'GravityLegal\GravityLegalAPI\User');
-                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim($body) => $user));;
+                $entityCreationResult->CreatedEntities[][] = array(trim($body) => $user);
             }
             else {
-                $entityCreationResult->FailedRequests = array_merge($entityCreationResult->FailedRequests, array(trim($body) => $response));
+                $entityCreationResult->FailedRequests[][] = array(trim($body) => $response);
             }
         }
         return $entityCreationResult;
@@ -1176,10 +1176,10 @@ class GravityLegalService
                 $createCustomerResult = $jsonMapper->map($json, new CreateCustomerResult());
                 $customer = $jsonMapper->map($createCustomerResult->result, new Customer());
                 $customer = Utility::cast($customer, 'GravityLegal\GravityLegalAPI\Customer');
-                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim($body) => $customer));
+                $entityCreationResult->CreatedEntities[][] = array(trim($body) => $customer);
             }
             else {
-                $entityCreationResult->FailedRequests =  array_merge($entityCreationResult->FailedRequests, array(trim($body) => $response));
+                $entityCreationResult->FailedRequests[][] = array(trim($body) => $response);
             }
         }
         return $entityCreationResult;
@@ -1578,10 +1578,10 @@ class GravityLegalService
                 $paylinkInfo = $this->CreateNewPaylinkWithMatter($createPaylink);
                 if ($this->getLastRestResponse()->code != 200)
                 {
-                    $entityCreationResult->FailedRequests = array_merge($entityCreationResult->FailedRequests, array(trim(json_encode($createPaylink)) => $this->getLastRestResponse()));
+                    $entityCreationResult->FailedRequests[][] = array(trim(json_encode($createPaylink)) => $this->getLastRestResponse());
                 }
                 else
-                $entityCreationResult->CreatedEntities = array_merge($entityCreationResult->CreatedEntities, array(trim(json_encode($createPaylink)) => $paylinkInfo));
+                $entityCreationResult->CreatedEntities[][] = array(trim(json_encode($createPaylink)) => $paylinkInfo);
             }
             return $entityCreationResult;
         }

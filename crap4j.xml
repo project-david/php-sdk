@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <crap_result>
   <project/>
-  <timestamp>2021-04-22 16:17:30</timestamp>
+  <timestamp>2021-05-06 15:10:03</timestamp>
   <stats>
     <name>Method Crap Stats</name>
-    <methodCount>76</methodCount>
+    <methodCount>82</methodCount>
     <crapMethodCount>0</crapMethodCount>
     <crapLoad>0</crapLoad>
-    <totalCrap>342.27</totalCrap>
+    <totalCrap>353.27</totalCrap>
     <crapMethodPercent>0</crapMethodPercent>
   </stats>
   <methods>
@@ -23,13 +23,35 @@
       <crapLoad>0</crapLoad>
     </method>
     <method>
+      <package>GravityLegal\GravityLegalAPI\Facades</package>
+      <className>GravityLegal\GravityLegalAPI\Facades\GravityLegal</className>
+      <methodName>getFacadeAccessor</methodName>
+      <methodSignature>getFacadeAccessor()</methodSignature>
+      <fullMethod>getFacadeAccessor()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>InitializeObjecct</methodName>
+      <methodSignature>InitializeObjecct(array $envVariables)</methodSignature>
+      <fullMethod>InitializeObjecct(array $envVariables)</fullMethod>
+      <crap>2</crap>
+      <complexity>2</complexity>
+      <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
       <package>GravityLegal\GravityLegalAPI</package>
       <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
       <methodName>__construct</methodName>
       <methodSignature>__construct(array $envVariables)</methodSignature>
       <fullMethod>__construct(array $envVariables)</fullMethod>
-      <crap>2</crap>
-      <complexity>2</complexity>
+      <crap>1</crap>
+      <complexity>1</complexity>
       <coverage>100</coverage>
       <crapLoad>0</crapLoad>
     </method>
@@ -823,6 +845,50 @@
       <crap>1</crap>
       <complexity>1</complexity>
       <coverage>100</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>getApiKeyVariables</methodName>
+      <methodSignature>getApiKeyVariables()</methodSignature>
+      <fullMethod>getApiKeyVariables()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalService</className>
+      <methodName>setApiKeyVariables</methodName>
+      <methodSignature>setApiKeyVariables($apiKeyVariables)</methodSignature>
+      <fullMethod>setApiKeyVariables($apiKeyVariables)</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalServiceProvider</className>
+      <methodName>boot</methodName>
+      <methodSignature>boot()</methodSignature>
+      <fullMethod>boot()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
+      <crapLoad>0</crapLoad>
+    </method>
+    <method>
+      <package>GravityLegal\GravityLegalAPI</package>
+      <className>GravityLegal\GravityLegalAPI\GravityLegalServiceProvider</className>
+      <methodName>register</methodName>
+      <methodSignature>register()</methodSignature>
+      <fullMethod>register()</fullMethod>
+      <crap>2</crap>
+      <complexity>1</complexity>
+      <coverage>0</coverage>
       <crapLoad>0</crapLoad>
     </method>
     <method>
